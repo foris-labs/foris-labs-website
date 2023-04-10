@@ -15,6 +15,14 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         User::create([
+            'name' => "Foris Labs Admin",
+            'username' => 'Admin',
+            'email' => 'admin@forislabs.com',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+            "social_data->facebook" => 102096212603932
+        ]);
+        User::create([
             'name' => "Charles Bridgertion",
             'username' => 'FB Test User',
             'email' => 'charles_oxpgouy_bridgerton@tfbnw.net',
