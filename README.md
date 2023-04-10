@@ -38,15 +38,34 @@ Since this is Laravel 10, even if the database doesn't exist, Laravel will creat
 ```
 php artisan migrate --seed
 ```
-7. Serve the application.
+7. Install the default passport clients. We're using UUID for client ID
+```
+php artisan passport:install --uuid
+```
+8. Serve the application.
  ```
  php artisan serve
  ```
-8. You're good to go! The website should be running on http://localhost:8000.
+9. You're good to go! The website should be running on http://localhost:8000.
 
 ## Social Login
 
-This project implements social login using [Laravel Socialite](https://laravel.com/docs/10.x/socialite). To set it up with your Facebook and Google credentials, please follow the instructions in the `.env.example` file.
+This project implements social login using [Laravel Socialite](https://laravel.com/docs/10.x/socialite)
+
+### Facebook Setup
+
+To set up Facebook for socialite, visit the [Foris Labs Facebook Developers Dashboard](https://developers.facebook.com/apps/542194561021954/settings/basic/) to get the App ID and secret and set in the `.env` file
+```
+FACEBOOK_CLIENT_ID="foris-app-id"
+FACEBOOK_CLIENT_SECRET="foris-client-secret"
+```
+If you don't have access to the developer dashboard, contact the [admin](mailto:kyrianobikwelu@gmail.com) for more details.
+
+The default callback url is `{your-app-url}/login/facebook/callback/` but you can modify it in your `.env` file. If you're using a virtual host to setup a custom domain, eg `forislabs.test`, be sure to add the full callback url to the [Facebook Settings](https://developers.facebook.com/apps/542194561021954/fb-login/settings/).
+
+### Google Setup
+
+To setup Google for socialite, visit the [Foris Labs Google Cloud Dashboard](https://console.cloud.google.com/apis/credentials) and select the `Foris Labs Website` Client to get the  Client ID and secret and set in the `.env` file just like in the facebook setup.
 
 ## TailwindCSS
 
@@ -64,10 +83,12 @@ Password: forislabs
 
 This project uses [Laravel Passport](https://laravel.com/docs/10.x/passport) for API access. To use the API, you will need to authenticate with a client ID and secret.
 
-Three basic clients have been created and stored in the database during the seeding process 
-1. Foris Labs Personal Client
-2. Foris Labs Password Client
-3. Foris Labs Application Client
+Two basic clients are created by default when you run `php artisan passport:install --uuid`. Create one more client with name `Foris Labs Application Client` for the application build, and for mocking api access from it
+```
+php artisan passport:client
+```
+
+Copy the client ID and secret and set the `PASSPORT_APP_ACCESS_CLIENT_ID` and `PASSPORT_APP_ACCESS_CLIENT_SECRET` in your .env respectively
 
 Please refer to the Laravel Passport documentation for more information.
 
