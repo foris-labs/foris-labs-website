@@ -11,11 +11,11 @@ Welcome to the ForisLabs  Website repository! This website is built using the La
 
 1. Clone this repository to your local machine.
 ```
-git clone https://github.com/<username>/<repository-name>.git
+git clone https://github.com/foris-labs/foris-labs-website.git
 ```
 2. Change to the project directory.
 ```
-cd <repository-name>
+cd foris-labs-website
 ```
 3. Install the project dependencies.
 ```
