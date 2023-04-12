@@ -40,7 +40,7 @@ php artisan migrate --seed
 ```
 7. Install the default passport clients. We're using UUID for client ID
 ```
-php artisan passport:install --uuid
+php artisan passport:install --uuids
 ```
 8. Serve the application.
  ```
