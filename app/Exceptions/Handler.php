@@ -2,7 +2,13 @@
 
 namespace App\Exceptions;
 
+use App\Http\Resources\ErrorResponse;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -44,5 +50,25 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $e): Response|Responsable
+    {
+        if (!$request->wantsJson()) return parent::render($request, $e);
+
+
+        if ($e instanceof AuthenticationException) {
+            return new ErrorResponse(
+                "Not Authenticated",
+                "not_authenticated",
+                401
+            );
+        }
+        return new ErrorResponse(
+            $e->getMessage(),
+            "unknown",
+            $e->getCode()
+        );
+
     }
 }

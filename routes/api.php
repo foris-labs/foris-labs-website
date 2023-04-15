@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login/{provider}', [AuthController::class, 'socialLogin'])
-    ->name('api.login.social');
+Route::get('/ping', fn() => response()->json("ping-message"))->name('api.ping');
+
+Route::post('/login/{provider}', [AuthController::class, 'socialLogin'])->name('api.login.social');
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/user', [UserController::class, 'GetUser']);
+});

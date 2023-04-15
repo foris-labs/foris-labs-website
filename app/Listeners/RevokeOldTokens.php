@@ -20,7 +20,7 @@ class RevokeOldTokens
      */
     public function handle(AccessTokenCreated $event): void
     {
-        Token::where('user_id', $event->userId)
+        Token::where('client_id', $event->clientId)
             ->where('id', '<>', $event->tokenId)
             ->update(['revoked' => true]);
     }

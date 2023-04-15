@@ -21,6 +21,7 @@ class PruneOldTokens
     public function handle(RefreshTokenCreated $event): void
     {
         Token::where('id', '<>', $event->accessTokenId)
+            ->where('revoked', true)
             ->delete();
     }
 }

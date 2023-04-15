@@ -4,6 +4,8 @@ namespace App\Grants;
 
 use App\Models\User;
 use DateInterval;
+use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ClientException;
 use Laravel\Socialite\Facades\Socialite;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\UserEntityInterface;
@@ -30,12 +32,14 @@ class SocialGrant extends AbstractGrant
 
     /**
      * {@inheritdoc}
+     * @throws OAuthServerException
      */
     public function respondToAccessTokenRequest(
         ServerRequestInterface $request,
-        ResponseTypeInterface $responseType,
-        DateInterval $accessTokenTTL
-    ): ResponseTypeInterface {
+        ResponseTypeInterface  $responseType,
+        DateInterval           $accessTokenTTL
+    ): ResponseTypeInterface
+    {
 
         // Validate request
         $client = $this->validateClient($request);
@@ -49,7 +53,7 @@ class SocialGrant extends AbstractGrant
 
         // Issue and persist new access token
         $accessToken = $this->issueAccessToken($accessTokenTTL, $client,
-        $user->getIdentifier(), $finalizedScopes);
+            $user->getIdentifier(), $finalizedScopes);
         $this->getEmitter()->emit(new RequestAccessTokenEvent(RequestEvent::ACCESS_TOKEN_ISSUED, $request, $accessToken));
         $responseType->setAccessToken($accessToken);
 
@@ -84,11 +88,22 @@ class SocialGrant extends AbstractGrant
             throw OAuthServerException::invalidRequest('access_token');
         }
 
-        $socialUser = Socialite::driver($provider)->userFromToken($accessToken);
-        $user  = User::where("social_data->{$provider}", $socialUser->getId())->first();
+        try {
+            $socialUser = Socialite::driver($provider)->userFromToken($accessToken);
+        } catch (BadResponseException $exception) {
+            $this->getEmitter()->emit(new RequestEvent(RequestEvent::USER_AUTHENTICATION_FAILED, $request));
+            throw new OAuthServerException(
+                "The access token is invalid",
+                11,
+                "invalid_access_token",
+                400
+            );
+        }
+
+        $user = User::where("social_data->{$provider}", $socialUser->getId())->first();
 
         // TODO: Check for users who haven't created an account and prompt them to go create an account on the website first.
-        // TODO: CHeck thier subscription status. THis might end up being a different step though ie checked using a different request.
+        // TODO: Check their subscription status. THis might end up being a different step though ie checked using a different request.
 
         if (is_null($user)) {
             $this->getEmitter()->emit(new RequestEvent(RequestEvent::USER_AUTHENTICATION_FAILED, $request));
