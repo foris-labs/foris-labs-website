@@ -23,7 +23,7 @@ class ErrorResponse implements Responsable
     public function toResponse($request): JsonResponse|Response
     {
         return response()->json([
-            'type' => $this->code ?? "unknown",
+            'type' => $this->type ?? "unknown",
             'message' => $this->message ?? "Internal Server Error",
         ], $this->code);
     }
