@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Enums\ErrorType;
 use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\TokenResponse;
 use Illuminate\Http\Request;
@@ -10,6 +11,11 @@ use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
+    public function emailLogin(Request $request)
+    {
+
+    }
+
     public function socialLogin(Request $request, string $provider)
     {
         // TODO: Check and verify the logic here, make sure to cover all edge cases.
@@ -18,7 +24,7 @@ class AuthController extends Controller
         if (!$request->has('access_token'))
             return new ErrorResponse(
                 "Access token from {$provider} is required",
-                "invalid_access_token",
+                ErrorType::InvalidAccessToken,
                 400
             );
 
@@ -45,7 +51,7 @@ class AuthController extends Controller
         } else {
             return new ErrorResponse(
                 $response->json("message"),
-                $response->json('error'),
+                ErrorType::from($response->json("error")),
                 $response->status()
             );
         }

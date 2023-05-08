@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Http\Enums\ErrorType;
 use App\Http\Resources\ErrorResponse;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
@@ -60,13 +61,14 @@ class Handler extends ExceptionHandler
         if ($e instanceof AuthenticationException) {
             return new ErrorResponse(
                 "Not Authenticated",
-                "not_authenticated",
+                ErrorType::NotAuthenticated,
                 401
             );
         }
+
         return new ErrorResponse(
             $e->getMessage(),
-            "unknown",
+            ErrorType::Unknown,
             $e->getCode()
         );
 

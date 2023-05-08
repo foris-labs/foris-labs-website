@@ -2,6 +2,7 @@
 
 namespace App\Grants;
 
+use App\Http\Enums\ErrorType;
 use App\Models\User;
 use DateInterval;
 use GuzzleHttp\Exception\BadResponseException;
@@ -95,7 +96,7 @@ class SocialGrant extends AbstractGrant
             throw new OAuthServerException(
                 "The access token is invalid",
                 11,
-                "invalid_access_token",
+                ErrorType::InvalidAccessToken->value,
                 400
             );
         }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Enums\ErrorType;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+
 
 class ErrorResponse implements Responsable
 {
@@ -12,10 +14,7 @@ class ErrorResponse implements Responsable
     /**
      * Create a new error response instance.
      */
-    public function __construct(
-        public string $message,
-        public string $type,
-        public int    $code)
+    public function __construct(public string $message, public ErrorType $type = ErrorType::Unknown, public int $code = 400)
     {
     }
 
@@ -23,9 +22,10 @@ class ErrorResponse implements Responsable
     public function toResponse($request): JsonResponse|Response
     {
         return response()->json([
-            'type' => $this->type ?? "unknown",
+            'type' => $this->type->value,
             'message' => $this->message ?? "Internal Server Error",
         ], $this->code);
     }
 }
+
 
