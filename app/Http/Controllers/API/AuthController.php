@@ -13,7 +13,32 @@ class AuthController extends Controller
 {
     public function emailLogin(Request $request)
     {
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $client_id = $request->input('client_id');
+        $client_secret = $request->input('client_secret');
 
+
+        $response = Http::post(route('passport.token'), [
+            'grant_type' => 'password',
+            'client_id' => $client_id,
+            'client_secret' => $client_secret,
+            'username' => $email,
+            'password' => $password,
+        ]);
+
+        if ($response->successful()) {
+            return new TokenResponse(
+                $response->json('access_token'),
+                $response->json('refresh_token'),
+                $response->status());
+        } else {
+            return new ErrorResponse(
+                $response->json("message"),
+                ErrorType::from($response->json("error")),
+                $response->status()
+            );
+        }
     }
 
     public function socialLogin(Request $request, string $provider)
