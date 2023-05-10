@@ -10,11 +10,9 @@ enum ErrorType: string
 
     case CannotDeserialize = 'cannot_deserialize';
 
-    case InvalidGrant = 'invalid_grant';
+    case InvalidClient = 'invalid_client';
 
-    case InvalidRequest = 'invalid_request';
-
-    case InvalidAccessToken = 'invalid_access_token';
+    case InvalidRequestInput = 'invalid_request_input';
 
     case Unknown = 'unknown';
 

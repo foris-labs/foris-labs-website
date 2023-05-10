@@ -17,7 +17,9 @@ use App\Http\Controllers\API\UserController;
 
 Route::get('/ping', fn() => response()->json("ping-message"))->name('api.ping');
 
+Route::post('/register/email', [AuthController::class, 'emailRegister'])->name('api.register.email');
 Route::post('/login/email', [AuthController::class, 'emailLogin'])->name('api.login.email');
+
 Route::post('/login/{provider}', [AuthController::class, 'socialLogin'])->name('api.login.social');
 
 Route::middleware('auth:api')->group(function () {
