@@ -7,16 +7,18 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Requests\MyRequest;
+use App\Http\Requests\SocialLoginRequest;
+
 
 
 class SocialAuthenticationController extends Controller
 {
-    public function create(SocialLoginRequest $Request, string $provider)
+    public function create(string $provider)
     {
         return Socialite::driver($provider)->redirect();
     }
 
-    public function callback(string $provider)
+    public function callback(SocialLoginRequest $Request, string $provider)
     {
         $socialUser = Socialite::driver($provider)->user();
 
