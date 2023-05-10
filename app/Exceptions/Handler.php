@@ -10,6 +10,7 @@ use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -55,12 +56,21 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e): Response|Responsable
     {
-        if (!$request->wantsJson()) return parent::render($request, $e);
+        if (!$request->wantsJson())
+            return parent::render($request, $e);
 
+
+        if ($e instanceof ValidationException) {
+            return new ErrorResponse(
+                $e->getMessage(),
+                ErrorType::InvalidRequestInput,
+                422
+            );
+        }
 
         if ($e instanceof AuthenticationException) {
             return new ErrorResponse(
-                "Not Authenticated",
+                $e->getMessage(),
                 ErrorType::NotAuthenticated,
                 401
             );
@@ -69,7 +79,7 @@ class Handler extends ExceptionHandler
         return new ErrorResponse(
             $e->getMessage(),
             ErrorType::Unknown,
-            $e->getCode()
+            $e->status
         );
 
     }

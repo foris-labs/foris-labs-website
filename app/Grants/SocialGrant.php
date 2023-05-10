@@ -96,7 +96,7 @@ class SocialGrant extends AbstractGrant
             throw new OAuthServerException(
                 "The access token is invalid",
                 11,
-                ErrorType::InvalidAccessToken->value,
+                ErrorType::InvalidRequestInput->value,
                 400
             );
         }
