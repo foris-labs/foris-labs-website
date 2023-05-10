@@ -22,6 +22,8 @@ Route::post('/login/email', [AuthController::class, 'emailLogin'])->name('api.lo
 
 Route::post('/login/{provider}', [AuthController::class, 'socialLogin'])->name('api.login.social');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('api.logout');
+
 Route::middleware('auth:api')->group(function () {
     Route::get('/user', [UserController::class, 'GetUser']);
 });

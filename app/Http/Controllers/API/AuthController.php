@@ -11,6 +11,7 @@ use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\TokenResponse;
 use App\Models\User;
 use Illuminate\Http\Client\Response;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 
@@ -71,6 +72,15 @@ class AuthController extends Controller
         } else {
             return $this->createErrorResponse($tokenGrantResponse);
         }
+    }
+
+    // logout function
+    public function logout(Request $request)
+    {
+        $user = auth('api')->user();
+        $user->tokens()->where('client_id', $request->input('client_id'))->delete();
+        
+        return response()->json(['message' => 'logout successfully']);
     }
 
     private function createTokenResponse(Response $response, int $status = 0): TokenResponse
