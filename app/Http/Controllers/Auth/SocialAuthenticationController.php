@@ -18,7 +18,7 @@ class SocialAuthenticationController extends Controller
         return Socialite::driver($provider)->redirect();
     }
 
-    public function callback(SocialLoginRequest $Request, string $provider)
+    public function callback(string $provider)
     {
         $socialUser = Socialite::driver($provider)->user();
 
