@@ -29,8 +29,10 @@ class SocialLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'provider' => 'required|in:facebook,google', // Only allow Facebook or Google as providers
-            'access_token' => 'required|string', // The access token provided by the social network
+            'name' => 'required|string',
+            'email' => 'string',
+            'social_data' => 'required|string',
+            
         ];
     }
 }
