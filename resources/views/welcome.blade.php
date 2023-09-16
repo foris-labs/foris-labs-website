@@ -90,7 +90,8 @@
                 <h2 class="font-bold text-blue-950 my-3 text-3xl">
                     Welcome to <span class="text-orange-500">Foris Labs</span>?
                 </h2>
-                <p class="leading-relaxed text-gray-600 text-md md:text-lg"> Your Gateway to Interactive Science Education! Immerse
+                <p class="leading-relaxed text-gray-600 text-md md:text-lg"> Your Gateway to Interactive Science
+                    Education! Immerse
                     yourself in an engaging virtual laboratory experience designed to bring science to life. Join us on
                     a captivating journey into the world of science!
                 </p>
@@ -193,7 +194,8 @@
                     <h1 class="font-bold text-blue-950 text-3xl lg:pr-36 mb-6">Foris Labs
                         <span class="text-orange-500">For Teachers </span>
                     </h1>
-                    <p class="text-gray-600 text-md md:text-lg mb-12 lg:pr-32">Calling all educators! Foris Labs is your trusted
+                    <p class="text-gray-600 text-md md:text-lg mb-12 lg:pr-32">Calling all educators! Foris Labs is your
+                        trusted
                         partner for
                         enriching science education. Access a diverse array of experiments aligned
                         with your curriculum, track student progress, and create an interactive learning environment
@@ -216,15 +218,23 @@
                     <h1 class="text-blue-950 font-bold text-3xl lg:pr-24">
                         Foris Labs <span class="text-orange-500">For Students</span>
                     </h1>
-                    <p class="text-gray-600 text-md md:text-lg my-4 lg:pr-32">Embrace your curiosity and embark on a captivating
+                    <p class="text-gray-600 text-md md:text-lg my-4 lg:pr-16">Embrace your curiosity and embark on a
+                        captivating
                         scientific journey with Foris Labs! Discover hands-on experiments, engaging simulations, and the
                         freedom to build a solid foundation in science at your own pace. Whether you're studying,
                         nurturing your curiosity, or dreaming of a future in science, Foris Labs is your vibrant gateway
                         to a world of discovery.
                     </p>
                 </div>
-                <img data-aos="fade-left" src="{{asset('/img/girl-with-books.png')}}"
-                     class="md:w-1/2 aos-init aos-animate" alt=""></div>
+                <figure class="md:w-1/2 ">
+                    <img data-aos="fade-left" src="{{asset('/img/student-with-tablet.png')}}"
+                         class="aos-init aos-animate" alt="">
+                    <figcaption class="text-xs text-center text-gray-300"><a
+                            href="https://www.freepik.com/free-photo/serious-curly-female-student-studies-online-uses-modern-teblet-wears-spectacles-casual-clothes-browses-internet-poses-outside-against-blurred-background-freelancer-thinks-about-strategy-project_25907629.htm#query=student%20using%20a%20tablet&position=4&from_view=search&track=ais">Image
+                            by wayhomestudio</a>
+                    </figcaption>
+                </figure>
+            </div>
         </div>
     </section>
 
@@ -293,15 +303,16 @@
         </div>
     </section>
 
-    <section id="cta">
+    <section id="cta" class="bg-orange-50">
         <div class="container mx-auto px-4 md:px-12 lg:px-16 py-8">
             <div
-                class="bg-orange-50 rounded-3xl shadow gap-8 items-center p-6 sm:p-8 md:p-12 xl:gap-16 md:grid md:grid-cols-2 ">
-                {{--                                <img class="w-full" src="{{asset('img/lab-select.jpg')}}" alt="dashboard image">--}}
+                class="bg-rose-50 border border-rose-300 rounded-3xl shdow gap-8 items-center p-6 sm:p-8 md:p-12 xl:gap-16 md:grid md:grid-cols-2 ">
+                <img class="w-full rounded-xl" src="{{asset('img/team-smile.jpg?3f')}}" alt="dashboard image">
                 <div class="mt-4 md:mt-0">
                     <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-900">
                         Experience Foris Labs in Action Now!</h2>
-                    <p class="mb-6 text-gray-600 text-md md:text-lg">Are you ready to revolutionize your science education or
+                    <p class="mb-6 text-gray-600 text-md md:text-lg">Are you ready to revolutionize your science
+                        education or
                         take your institution's teaching to the next level? Witness firsthand how our virtual science
                         laboratory can transform the way you learn and teach science.
                     </p>
