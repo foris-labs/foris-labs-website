@@ -5,12 +5,12 @@
             <div
                 class="flex flex-col w-full lg:w-6/12 lg:pt-16 justify-center items-start text-center lg:text-left mb-5 md:mb-0">
                 <h1 data-aos="fade-right" data-aos-once="true"
-                    class="my-4 text-4xl md:text-5xl font-bold leading-tight text-darken aos-init">Conduct
-                    <span class="text-orange-500">science experiments</span> anywhere, anytime!
+                    class="my-4 text-4xl md:text-5xl font-bold leading-tight text-blue-950 aos-init">Conduct
+                    science experiments <span class="text-orange-500">anywhere, anytime!</span>
                 </h1>
 
                 <p data-aos="fade-down" data-aos-once="true" data-aos-delay="300"
-                   class="leading-normal text-2xl mb-8 aos-init aos-animate">Now anyone can conduct standard science
+                   class="leading-normal text-xl mb-8 aos-init aos-animate">Now anyone can conduct standard science
                     experiments from anywhere in the world with just a smartphone</p>
 
                 <div data-aos="fade-up" data-aos-once="true" data-aos-delay="700" data-aos-anchor-placement="top-bottom"
@@ -71,10 +71,10 @@
 
     <section id="sponsors">
         <div class="container mx-auto px-4 md:px-12 lg:px-16">
-            <h1 class="text-center mb-3 text-gray-400 font-medium">Endorsed by Companies Worldwide</h1>
+            <h2 class="text-center mb-3 text-gray-400 font-medium">Endorsed by reputable brands worldwide</h2>
             <div class="grid grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
                 <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"
-                     class="h-8 grayscale opacity-60">
+                     class="h-7 grayscale opacity-60">
                 <img src="{{ asset('img/brands/stanford.png') }}" alt="stanford" class="h-9 grayscale opacity-60">
                 <img src="{{ asset('img/brands/injini.png') }}" alt="injini" class="h-9 grayscale opacity-60">
                 <img src="{{asset('img/brands/zenith-bank.svg')}}" alt="zenith-bank" class="h-9 grayscale opacity-60">
@@ -86,12 +86,13 @@
 
     <section id="about">
         <div class="container mx-auto px-4  md:px-12 lg:px-16 py-12">
-            <div data-aos="flip-up" class="max-w-xl mx-auto text-center aos-init aos-animate">
-                <h1 class="font-bold text-darken my-3 text-2xl">
-                    What is <span class="text-orange-500">Foris Labs</span>?
-                </h1>
-                <p class="leading-relaxed text-gray-500"> Foris Labs is one powerful online software suite that combines
-                    all the tools needed to run a successful school or office.
+            <div data-aos="flip-up" class="max-w-3xl mx-auto text-center aos-init aos-animate">
+                <h2 class="font-bold text-blue-950 my-3 text-3xl">
+                    Welcome to <span class="text-orange-500">Foris Labs</span>?
+                </h2>
+                <p class="leading-relaxed text-gray-600 text-md md:text-lg"> Your Gateway to Interactive Science Education! Immerse
+                    yourself in an engaging virtual laboratory experience designed to bring science to life. Join us on
+                    a captivating journey into the world of science!
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-14 md:gap-4 mt-16">
@@ -106,7 +107,7 @@
                         </svg>
                         {{--                        <img src="{{asset('img/chemistry.png')}}" class="w-48 h-48" alt="ff">--}}
                     </div>
-                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-darken">Chemistry</h1>
+                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-blue-950">Chemistry</h1>
                     <p class="px-4 text-gray-500">Simple and secure control of your organization’s financial and legal
                         transactions. Send customized invoices and contracts</p>
                 </div>
@@ -153,7 +154,7 @@
                                   d="M37.7143 37.7142H34.2857C33.3389 37.7142 32.5714 38.4817 32.5714 39.4285C32.5714 40.3754 33.3389 41.1429 34.2857 41.1429H37.7143C38.6611 41.1429 39.4286 40.3754 39.4286 39.4285C39.4286 38.4817 38.661 37.7142 37.7143 37.7142Z"></path>
                         </svg>
                     </div>
-                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-darken">Physics</h1>
+                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-blue-950">Physics</h1>
                     <p class="px-4 text-gray-500">Schedule and reserve classrooms at one campus or multiple campuses.
                         Keep
                         detailed records of student attendance</p>
@@ -168,7 +169,7 @@
                                   d="M8.25 19.25C11.2836 19.25 13.75 16.7836 13.75 13.75C13.75 10.7164 11.2836 8.25 8.25 8.25C5.21641 8.25 2.75 10.7164 2.75 13.75C2.75 16.7836 5.21641 19.25 8.25 19.25ZM46.75 19.25C49.7836 19.25 52.25 16.7836 52.25 13.75C52.25 10.7164 49.7836 8.25 46.75 8.25C43.7164 8.25 41.25 10.7164 41.25 13.75C41.25 16.7836 43.7164 19.25 46.75 19.25ZM49.5 22H44C42.4875 22 41.1211 22.6102 40.1242 23.5984C43.5875 25.4977 46.0453 28.9266 46.5781 33H52.25C53.7711 33 55 31.7711 55 30.25V27.5C55 24.4664 52.5336 22 49.5 22ZM27.5 22C32.8195 22 37.125 17.6945 37.125 12.375C37.125 7.05547 32.8195 2.75 27.5 2.75C22.1805 2.75 17.875 7.05547 17.875 12.375C17.875 17.6945 22.1805 22 27.5 22ZM34.1 24.75H33.3867C31.5992 25.6094 29.6141 26.125 27.5 26.125C25.3859 26.125 23.4094 25.6094 21.6133 24.75H20.9C15.4344 24.75 11 29.1844 11 34.65V37.125C11 39.4023 12.8477 41.25 15.125 41.25H39.875C42.1523 41.25 44 39.4023 44 37.125V34.65C44 29.1844 39.5656 24.75 34.1 24.75ZM14.8758 23.5984C13.8789 22.6102 12.5125 22 11 22H5.5C2.46641 22 0 24.4664 0 27.5V30.25C0 31.7711 1.22891 33 2.75 33H8.41328C8.95469 28.9266 11.4125 25.4977 14.8758 23.5984Z"></path>
                         </svg>
                     </div>
-                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-darken">Biology</h1>
+                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-blue-950">Biology</h1>
                     <p class="px-4 text-gray-500">Automate and track emails to individuals or groups. Skyline’s
                         built-in system helps organize your organization </p></div>
             </div>
@@ -189,10 +190,10 @@
                     </figure>
                 </div>
                 <div data-aos="fade-left" class="md:w-7/12 md:transform md:-translate-y-6 aos-init aos-animate">
-                    <h1 class="font-bold text-darken text-4xl lg:pr-36 mb-6">Foris Labs
+                    <h1 class="font-bold text-blue-950 text-3xl lg:pr-36 mb-6">Foris Labs
                         <span class="text-orange-500">For Teachers </span>
                     </h1>
-                    <p class="text-gray-700 text-lg mb-12 lg:pr-32">Calling all educators! Foris Labs is your trusted
+                    <p class="text-gray-600 text-md md:text-lg mb-12 lg:pr-32">Calling all educators! Foris Labs is your trusted
                         partner for
                         enriching science education. Access a diverse array of experiments aligned
                         with your curriculum, track student progress, and create an interactive learning environment
@@ -212,10 +213,10 @@
         <div class="container mx-auto px-4 md:px-12 lg:px-16 py-8 overflow-hidden">
             <div class="flex flex-col md:flex-row items-center md:space-x-10">
                 <div data-aos="fade-right" class="md:w-1/2 aos-init">
-                    <h1 class="text-blue-950 font-bold text-4xl lg:pr-24">
+                    <h1 class="text-blue-950 font-bold text-3xl lg:pr-24">
                         Foris Labs <span class="text-orange-500">For Students</span>
                     </h1>
-                    <p class="text-gray-700 text-lg my-4 lg:pr-32">Embrace your curiosity and embark on a captivating
+                    <p class="text-gray-600 text-md md:text-lg my-4 lg:pr-32">Embrace your curiosity and embark on a captivating
                         scientific journey with Foris Labs! Discover hands-on experiments, engaging simulations, and the
                         freedom to build a solid foundation in science at your own pace. Whether you're studying,
                         nurturing your curiosity, or dreaming of a future in science, Foris Labs is your vibrant gateway
@@ -248,8 +249,8 @@
                     <div class="w-5 h-5 rounded-full absolute z-0 right-52 bottom-1 animate-ping"
                          style="background: rgb(245, 102, 102);"></div>
                 </div>
-                <div data-aos="fade-down" class="md:w-5/12 text-md text-gray-500 aos-init aos-animate">
-                    <h1 class="text-gray-900 font-bold text-4xl lg:pr-16">
+                <div data-aos="fade-down" class="md:w-5/12 text-gray-600 text-md md:text-lg aos-init aos-animate">
+                    <h1 class="text-blue-950 font-bold text-3xl lg:pr-16">
                         Foris Labs <span class="text-orange-500">For Schools</span>
                     </h1>
                     <div class="flex items-center space-x-5 my-5">
@@ -298,9 +299,9 @@
                 class="bg-orange-50 rounded-3xl shadow gap-8 items-center p-6 sm:p-8 md:p-12 xl:gap-16 md:grid md:grid-cols-2 ">
                 {{--                                <img class="w-full" src="{{asset('img/lab-select.jpg')}}" alt="dashboard image">--}}
                 <div class="mt-4 md:mt-0">
-                    <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900">
-                       Experience Foris Labs in Action Now!</h2>
-                    <p class="mb-6 text-gray-700 md:text-lg">Are you ready to revolutionize your science education or
+                    <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-900">
+                        Experience Foris Labs in Action Now!</h2>
+                    <p class="mb-6 text-gray-600 text-md md:text-lg">Are you ready to revolutionize your science education or
                         take your institution's teaching to the next level? Witness firsthand how our virtual science
                         laboratory can transform the way you learn and teach science.
                     </p>
