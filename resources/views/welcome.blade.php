@@ -15,10 +15,10 @@
 
                 <div data-aos="fade-up" data-aos-once="true" data-aos-delay="700" data-aos-anchor-placement="top-bottom"
                      class="w-full md:flex items-center justify-center lg:justify-start md:space-x-5 aos-init">
-                    <button
+                    <a href="https://calendly.com/forislabs/product-demo" target="_blank"
                         class="bg-orange-500 text-white text-xl font-bold rounded-full py-4 px-8 hover:bg-orange-400">
                         Book a Demo
-                    </button>
+                    </a>
                     <div
                         class="flex items-center justify-center space-x-3 mt-5 md:mt-0 hover:scale-110 transition-transform duration-300">
                         <button class="bg-white w-14 h-14 rounded-full flex items-center justify-center shadow">
@@ -202,10 +202,10 @@
                         that promotes scientific inquiry. Our versatile platform can be used as an in-class teaching
                         aid, seamlessly integrating technology into your lessons for an enriched
                         learning experience.</p>
-                    <button
+                    <a href="https://calendly.com/forislabs/product-demo" target="_blank"
                         class="bg-orange-500 text-white text-xl font-bold rounded-full py-4 px-8 hover:bg-orange-400 mb-4">
                         Book a Demo
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -316,7 +316,7 @@
                         take your institution's teaching to the next level? Witness firsthand how our virtual science
                         laboratory can transform the way you learn and teach science.
                     </p>
-                    <a href="#"
+                    <a href="https://calendly.com/forislabs/product-demo" target="_blank"
                        class="inline-flex bg-orange-500 items-center justify-center text-white text-lg font-bold rounded-full py-3 px-6 hover:bg-orange-400">
                         <span> Book a Demo</span>
                         <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
