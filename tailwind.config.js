@@ -17,8 +17,12 @@ module.exports = {
                     '0%, 100%': {transform: 'translateY(0px)'},
                     '50%': {transform: 'translateY(-10px)'},
                 }
-            }
+            },
         },
+        fontFamily: {
+            'sans': ['Josefin Sans', 'sans-serif'],
+            'heading': ['Shantell Sans', 'cursive'],
+        }
     },
     plugins: [],
 }

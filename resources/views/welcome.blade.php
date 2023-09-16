@@ -5,7 +5,8 @@
             <div
                 class="flex flex-col w-full lg:w-6/12 lg:pt-16 justify-center items-start text-center lg:text-left mb-5 md:mb-0">
                 <h1 data-aos="fade-right" data-aos-once="true"
-                    class="my-4 text-4xl md:text-5xl font-bold leading-tight text-blue-950 aos-init">Conduct
+                    class="font-heading my-4 text-4xl md:text-4xl font-bold leading-tight text-blue-950 aos-init">
+                    Conduct
                     science experiments <span class="text-orange-500">anywhere, anytime!</span>
                 </h1>
 
@@ -16,7 +17,7 @@
                 <div data-aos="fade-up" data-aos-once="true" data-aos-delay="700" data-aos-anchor-placement="top-bottom"
                      class="w-full md:flex items-center justify-center lg:justify-start md:space-x-5 aos-init">
                     <a href="https://calendly.com/forislabs/product-demo" target="_blank"
-                        class="bg-orange-500 text-white text-xl font-bold rounded-full py-4 px-8 hover:bg-orange-400">
+                       class="bg-orange-500 text-white text-xl rounded-full py-4 px-8 hover:bg-orange-400">
                         Book a Demo
                     </a>
                     <div
@@ -71,7 +72,8 @@
 
     <section id="sponsors">
         <div class="container mx-auto px-4 md:px-12 lg:px-16">
-            <h2 class="text-center mb-3 text-gray-400 font-medium">Endorsed by reputable brands worldwide</h2>
+            <h2 class="font-heading text-center mb-3 text-gray-400 font-medium">Endorsed by reputable brands
+                worldwide</h2>
             <div class="grid grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
                 <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"
                      class="h-7 grayscale opacity-60">
@@ -87,7 +89,7 @@
     <section id="about">
         <div class="container mx-auto px-4  md:px-12 lg:px-16 py-12">
             <div data-aos="flip-up" class="max-w-3xl mx-auto text-center aos-init aos-animate">
-                <h2 class="font-bold text-blue-950 my-3 text-3xl">
+                <h2 class="font-heading font-bold text-blue-950 my-3 text-3xl">
                     Welcome to <span class="text-orange-500">Foris Labs</span>?
                 </h2>
                 <p class="leading-relaxed text-gray-600 text-md md:text-lg"> Your Gateway to Interactive Science
@@ -108,9 +110,9 @@
                         </svg>
                         {{--                        <img src="{{asset('img/chemistry.png')}}" class="w-48 h-48" alt="ff">--}}
                     </div>
-                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-blue-950">Chemistry</h1>
-                    <p class="px-4 text-gray-500">Simple and secure control of your organization’s financial and legal
-                        transactions. Send customized invoices and contracts</p>
+                    <h3 class="font-heading font-semibold text-xl mb-3 lg:px-14 text-blue-950">Chemistry</h3>
+                    <p class="px-4 text-md text-gray-500">Unlock the world of molecules and reactions. Explore Chemistry
+                        with interactive experiments.</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="150"
                      class="bg-white shadow p-6 text-center rounded-xl aos-init">
@@ -155,10 +157,8 @@
                                   d="M37.7143 37.7142H34.2857C33.3389 37.7142 32.5714 38.4817 32.5714 39.4285C32.5714 40.3754 33.3389 41.1429 34.2857 41.1429H37.7143C38.6611 41.1429 39.4286 40.3754 39.4286 39.4285C39.4286 38.4817 38.661 37.7142 37.7143 37.7142Z"></path>
                         </svg>
                     </div>
-                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-blue-950">Physics</h1>
-                    <p class="px-4 text-gray-500">Schedule and reserve classrooms at one campus or multiple campuses.
-                        Keep
-                        detailed records of student attendance</p>
+                    <h3 class="font-heading font-semibold text-xl mb-3 lg:px-14 text-blue-950">Physics</h3>
+                    <p class="px-4 text-md text-gray-500">Dive into the laws of motion, energy and beyond. Experience Physics with captivating simulations.</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300"
                      class="bg-white shadow p-6 text-center rounded-xl aos-init">
@@ -170,9 +170,10 @@
                                   d="M8.25 19.25C11.2836 19.25 13.75 16.7836 13.75 13.75C13.75 10.7164 11.2836 8.25 8.25 8.25C5.21641 8.25 2.75 10.7164 2.75 13.75C2.75 16.7836 5.21641 19.25 8.25 19.25ZM46.75 19.25C49.7836 19.25 52.25 16.7836 52.25 13.75C52.25 10.7164 49.7836 8.25 46.75 8.25C43.7164 8.25 41.25 10.7164 41.25 13.75C41.25 16.7836 43.7164 19.25 46.75 19.25ZM49.5 22H44C42.4875 22 41.1211 22.6102 40.1242 23.5984C43.5875 25.4977 46.0453 28.9266 46.5781 33H52.25C53.7711 33 55 31.7711 55 30.25V27.5C55 24.4664 52.5336 22 49.5 22ZM27.5 22C32.8195 22 37.125 17.6945 37.125 12.375C37.125 7.05547 32.8195 2.75 27.5 2.75C22.1805 2.75 17.875 7.05547 17.875 12.375C17.875 17.6945 22.1805 22 27.5 22ZM34.1 24.75H33.3867C31.5992 25.6094 29.6141 26.125 27.5 26.125C25.3859 26.125 23.4094 25.6094 21.6133 24.75H20.9C15.4344 24.75 11 29.1844 11 34.65V37.125C11 39.4023 12.8477 41.25 15.125 41.25H39.875C42.1523 41.25 44 39.4023 44 37.125V34.65C44 29.1844 39.5656 24.75 34.1 24.75ZM14.8758 23.5984C13.8789 22.6102 12.5125 22 11 22H5.5C2.46641 22 0 24.4664 0 27.5V30.25C0 31.7711 1.22891 33 2.75 33H8.41328C8.95469 28.9266 11.4125 25.4977 14.8758 23.5984Z"></path>
                         </svg>
                     </div>
-                    <h1 class="font-medium text-xl mb-3 lg:px-14 text-blue-950">Biology</h1>
-                    <p class="px-4 text-gray-500">Automate and track emails to individuals or groups. Skyline’s
-                        built-in system helps organize your organization </p></div>
+                    <h3 class="font-heading font-semibold text-xl mb-3 lg:px-14 text-blue-950">Biology</h3>
+                    <p class="px-4 text-md text-gray-500">Discover the wonders of life and ecosystems. Engage in Biology
+                        with hands-on experiments. </p>
+                </div>
             </div>
         </div>
 
@@ -191,9 +192,9 @@
                     </figure>
                 </div>
                 <div data-aos="fade-left" class="md:w-7/12 md:transform md:-translate-y-6 aos-init aos-animate">
-                    <h1 class="font-bold text-blue-950 text-3xl lg:pr-36 mb-6">Foris Labs
+                    <h2 class="font-heading font-bold text-blue-950 text-3xl lg:pr-36 mb-6">Foris Labs
                         <span class="text-orange-500">For Teachers </span>
-                    </h1>
+                    </h2>
                     <p class="text-gray-600 text-md md:text-lg mb-12 lg:pr-32">Calling all educators! Foris Labs is your
                         trusted
                         partner for
@@ -203,7 +204,7 @@
                         aid, seamlessly integrating technology into your lessons for an enriched
                         learning experience.</p>
                     <a href="https://calendly.com/forislabs/product-demo" target="_blank"
-                        class="bg-orange-500 text-white text-xl font-bold rounded-full py-4 px-8 hover:bg-orange-400 mb-4">
+                       class="bg-orange-500 text-white text-xl rounded-full py-4 px-8 hover:bg-orange-400 mb-4">
                         Book a Demo
                     </a>
                 </div>
@@ -215,9 +216,9 @@
         <div class="container mx-auto px-4 md:px-12 lg:px-16 py-8 overflow-hidden">
             <div class="flex flex-col md:flex-row items-center md:space-x-10">
                 <div data-aos="fade-right" class="md:w-1/2 aos-init">
-                    <h1 class="text-blue-950 font-bold text-3xl lg:pr-24">
+                    <h2 class="font-heading text-blue-950 font-bold text-3xl lg:pr-24">
                         Foris Labs <span class="text-orange-500">For Students</span>
-                    </h1>
+                    </h2>
                     <p class="text-gray-600 text-md md:text-lg my-4 lg:pr-16">Embrace your curiosity and embark on a
                         captivating
                         scientific journey with Foris Labs! Discover hands-on experiments, engaging simulations, and the
@@ -260,9 +261,9 @@
                          style="background: rgb(245, 102, 102);"></div>
                 </div>
                 <div data-aos="fade-down" class="md:w-5/12 text-gray-600 text-md md:text-lg aos-init aos-animate">
-                    <h1 class="text-blue-950 font-bold text-3xl lg:pr-16">
+                    <h2 class="font-heading text-blue-950 font-bold text-3xl lg:pr-16">
                         Foris Labs <span class="text-orange-500">For Schools</span>
-                    </h1>
+                    </h2>
                     <div class="flex items-center space-x-5 my-5">
                         <div class="flex-shrink bg-white shadow-lg rounded-full p-3 flex items-center justify-center">
                             <svg viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -309,7 +310,7 @@
                 class="bg-gradient-to-r from-orange-50 to-orange-100 border border-rose-300/30 overflow-hidden rounded-3xl items-center md:grid md:grid-cols-2 ">
                 <img class="w-full h-full" src="{{asset('img/team-smile.jpg?3f')}}" alt="dashboard image">
                 <div class="mt-4 md:mt-0 p-6 sm:p-8 md:p-12">
-                    <h2 class="mb-4 text-3xl tracking-tight font-bold text-blue-950">
+                    <h2 class="font-heading mb-4 text-3xl tracking-tight font-bold text-blue-950">
                         Experience Foris Labs in Action Now!</h2>
                     <p class="mb-6 text-gray-600 text-md md:text-lg">Are you ready to revolutionize your science
                         education or
@@ -317,7 +318,7 @@
                         laboratory can transform the way you learn and teach science.
                     </p>
                     <a href="https://calendly.com/forislabs/product-demo" target="_blank"
-                       class="inline-flex bg-orange-500 items-center justify-center text-white text-lg font-bold rounded-full py-3 px-6 hover:bg-orange-400">
+                       class="inline-flex bg-orange-500 items-center justify-center text-white text-lg  rounded-full py-3 px-6 hover:bg-orange-400">
                         <span> Book a Demo</span>
                         <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                              xmlns="http://www.w3.org/2000/svg">

@@ -9,7 +9,7 @@
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
-                    <h2 class="mb-6 text-sm font-bold text-blue-950 uppercase">Resources</h2>
+                    <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Resources</h2>
                     <ul class="text-gray-500 font-medium">
                         <li class="mb-2">
                             <a href="#" class="hover:underline">News</a>
@@ -20,7 +20,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-bold text-blue-950 uppercase">Follow us</h2>
+                    <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Follow us</h2>
                     <ul class="text-gray-500 font-medium">
                         <li class="mb-2">
                             <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Facebook</a>
@@ -31,7 +31,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-bold text-blue-950 uppercase">Legal</h2>
+                    <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Legal</h2>
                     <ul class="text-gray-500 font-medium">
                         <li class="mb-2">
                             <a href="{{ route('privacy-policy') }}" class="hover:underline">Privacy Policy</a>
