@@ -5,7 +5,7 @@
             <div
                 class="flex flex-col w-full lg:w-6/12 lg:pt-16 justify-center items-start text-center lg:text-left mb-5 md:mb-0">
                 <h1 data-aos="fade-right" data-aos-once="true"
-                    class="font-heading my-4 text-4xl md:text-4xl font-bold leading-tight text-blue-950 aos-init">
+                    class="font-heading my-4 text-3xl md:text-4xl font-bold leading-tight text-blue-950 aos-init">
                     Conduct
                     science experiments <span class="text-orange-500">anywhere, anytime!</span>
                 </h1>
@@ -21,7 +21,7 @@
                         Book a Demo
                     </a>
                     <div
-                        class="flex items-center justify-center space-x-3 mt-5 md:mt-0 hover:scale-110 transition-transform duration-300">
+                        class="flex items-center justify-center space-x-3 mt-8 md:mt-0 hover:scale-110 transition-transform duration-300">
                         <button class="bg-white w-14 h-14 rounded-full flex items-center justify-center shadow">
                             <svg viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"
                                  class="w-5 h-5 ml-2 text-orange-500">
@@ -72,7 +72,7 @@
 
     <section id="sponsors">
         <div class="container mx-auto px-4 md:px-12 lg:px-16">
-            <h2 class="font-heading text-center mb-3 text-gray-400 font-medium">Endorsed by reputable brands
+            <h2 class="text-center mb-3 text-gray-400 font-medium">Endorsed by reputable brands
                 worldwide</h2>
             <div class="grid grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
                 <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"
@@ -90,7 +90,7 @@
         <div class="container mx-auto px-4  md:px-12 lg:px-16 py-12">
             <div data-aos="flip-up" class="max-w-3xl mx-auto text-center aos-init aos-animate">
                 <h2 class="font-heading font-bold text-blue-950 my-3 text-3xl">
-                    Welcome to <span class="text-orange-500">Foris Labs</span>?
+                    Welcome to <span class="text-orange-500">Foris Labs</span>
                 </h2>
                 <p class="leading-relaxed text-gray-600 text-md md:text-lg"> Your Gateway to Interactive Science
                     Education! Immerse
