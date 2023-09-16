@@ -1,4 +1,4 @@
-<footer class="bg-ash-900 text-ash-300">
+<footer class="bg-orang0 text-gray-800 border-t border-gray-500/30">
   <div class="flex flex-col items-center justify-between px-5 py-4 md:flex-row">
     <div class="my-2">
       All Right Reserved © 2021 | Foris Labs

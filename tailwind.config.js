@@ -6,7 +6,19 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            animation: {
+                'float-3': 'float 3s ease-in-out infinite',
+                'float-4': 'float 4s ease-in-out infinite',
+                'float-5': 'float 5s ease-in-out infinite',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': {transform: 'translateY(0px)'},
+                    '50%': {transform: 'translateY(-10px)'},
+                }
+            }
+        },
     },
     plugins: [],
 }
