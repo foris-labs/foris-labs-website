@@ -309,7 +309,7 @@
                 class="bg-gradient-to-r from-orange-50 to-orange-100 border border-rose-300/30 overflow-hidden rounded-3xl items-center md:grid md:grid-cols-2 ">
                 <img class="w-full h-full" src="{{asset('img/team-smile.jpg?3f')}}" alt="dashboard image">
                 <div class="mt-4 md:mt-0 p-6 sm:p-8 md:p-12">
-                    <h2 class="mb-4 text-3xl tracking-tight font-bold text-gray-900">
+                    <h2 class="mb-4 text-3xl tracking-tight font-bold text-blue-950">
                         Experience Foris Labs in Action Now!</h2>
                     <p class="mb-6 text-gray-600 text-md md:text-lg">Are you ready to revolutionize your science
                         education or
