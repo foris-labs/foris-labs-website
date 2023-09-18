@@ -18,7 +18,6 @@ class HomeController extends Controller
 {
     public function Index()
     {
-        // $members = User::admins()->get();
         return view('welcome');
     }
 

@@ -19,13 +19,15 @@ class UsersSeeder extends Seeder
             'name' => "Foris Labs Admin",
             'password' => Hash::make('forislabs'),
             'username' => 'Admin',
+            'gender' => 'male',
             'email' => 'admin@forislabs.com',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ]);
         User::create([
-            'name' => "Charles Bridgertion",
+            'name' => "Charles Bridgerton",
             'username' => 'FB Test User',
+            'gender' => 'male',
             'email' => 'charles_oxpgouy_bridgerton@tfbnw.net',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),

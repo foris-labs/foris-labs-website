@@ -3,33 +3,116 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Enums\ErrorType;
+use App\Http\Requests\API\EmailLoginRequest;
+use App\Http\Requests\API\EmailRegisterRequest;
+use App\Http\Requests\API\SocialLoginRequest;
+use App\Http\Resources\ErrorResponse;
+use App\Http\Resources\TokenResponse;
+use App\Models\User;
+use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
-    public function socialLogin(Request $request, string $provider)
+    public function emailRegister(EmailRegisterRequest $request)
     {
-        if (!$request->has('access_token'))
-            // TODO: Check and verify the logic here, make sure to cover all edge cases.
-            // TODO: Return the proper error code for any error too. SOme errors are already handled by the grant. Take note.
-            return response()->json(['message' => 'Access token required'], 403);
-
-        $accessToken = $request->input('access_token');
-
-        $client_id = $request->input('client_id', env('PASSPORT_APP_ACCESS_CLIENT_ID'));
-
-        $client_secret = $request->input('client_secret', env('PASSPORT_APP_ACCESS_CLIENT_SECRET'));
-
-        // Exchange the access token for an OAuth access token
-        $response = Http::post(route('passport.token'), [
-            'grant_type' => 'social',
-            'client_id' => $client_id,
-            'client_secret' => $client_secret,
-            'provider' => $provider,
-            'access_token' => $accessToken,
+        $user = User::create([
+            'name' => $request->validated('name'),
+            'email' => $request->validated('email'),
+            'password' => Hash::make($request->validated('password')),
         ]);
 
-        return $response;
+        $tokenGrantResponse = Http::post(route('passport.token'), [
+            'grant_type' => 'password',
+            'client_id' => $request->validated('client_id'),
+            'client_secret' => $request->validated('client_secret'),
+            'username' => $request->validated('email'),
+            'password' => $request->validated('password'),
+        ]);
+
+        if ($tokenGrantResponse->successful()) {
+            return $this->createTokenResponse($tokenGrantResponse, 201);
+        } else {
+            return $this->createErrorResponse($tokenGrantResponse);
+        }
+    }
+
+    public function emailLogin(EmailLoginRequest $request)
+    {
+        $tokenGrantResponse = Http::post(route('passport.token'), [
+            'grant_type' => 'password',
+            'client_id' => $request->validated('client_id'),
+            'client_secret' => $request->validated('client_secret'),
+            'username' => $request->validated('email'),
+            'password' => $request->validated('password'),
+        ]);
+
+        if ($tokenGrantResponse->successful()) {
+            return $this->createTokenResponse($tokenGrantResponse);
+        } else {
+            return $this->createErrorResponse($tokenGrantResponse);
+        }
+    }
+
+    public function socialLogin(SocialLoginRequest $request, string $provider)
+    {
+        $tokenGrantResponse = Http::post(route('passport.token'), [
+            'grant_type' => 'social',
+            'client_id' => $request->validated('client_id'),
+            'client_secret' => $request->validated('client_secret'),
+            'provider' => $provider,
+            'access_token' => $request->validated('access_token'),
+        ]);
+
+        if ($tokenGrantResponse->successful()) {
+            return $this->createTokenResponse($tokenGrantResponse);
+        } else {
+            return $this->createErrorResponse($tokenGrantResponse);
+        }
+    }
+
+    // logout function
+    public function logout(Request $request)
+    {
+        $user = auth('api')->user();
+        $user->tokens()->where('client_id', $request->input('client_id'))->delete();
+        
+        return response()->json(['message' => 'logout successfully']);
+    }
+
+    private function createTokenResponse(Response $response, int $status = 0): TokenResponse
+    {
+        return new TokenResponse(
+            $response->json('access_token'),
+            $response->json('refresh_token'),
+            ($status == 0) ? $response->status() : $status
+        );
+    }
+
+    private function createErrorResponse(Response $response): ErrorResponse
+    {
+        return new ErrorResponse(
+            $response->json('message'),
+            $this->mapTokenGrantErrorType($response),
+            $response->status()
+        );
+    }
+
+    private function mapTokenGrantErrorType(Response $response): ErrorType
+    {
+        $error = $response->json('error');
+
+        $errorMap = [
+            'unsupported_grant_type' => ErrorType::InvalidRequestInput,
+            'invalid_client' => ErrorType::InvalidClient,
+            'invalid_request' => ErrorType::InvalidRequestInput,
+            'invalid_grant' => ErrorType::InvalidRequestInput,
+            'access_denied' => ErrorType::NotAuthenticated,
+        ];
+
+        return $errorMap[$error] ?? ErrorType::Unknown;
     }
 }
