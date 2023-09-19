@@ -35,16 +35,16 @@
             <div class="col-span-2">
                 <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">In the News</h2>
                 <div class="flex gap-4 flex-wrap">
-                    <a href="https://punchng.com/science-startup-developed-by-anambra-students-emerges-finalist-at-global-competition/">
+                    <a href="https://punchng.com/science-startup-developed-by-anambra-students-emerges-finalist-at-global-competition/" target="_blank">
                         <img src="{{ asset('img/brands/punch.svg') }}" alt="punch" class="h-9">
                     </a>
-                    <a href="https://theparadise.ng/onitsha-based-startup-foris-labs-selected-for-battlefield-200-competition-in-usa/">
+                    <a href="https://theparadise.ng/onitsha-based-startup-foris-labs-selected-for-battlefield-200-competition-in-usa/" target="_blank">
                         <img src="{{ asset('img/brands/paradise.png') }}" alt="paradise" class="h-9">
                     </a>
-                    <a href="https://www.thisdaylive.com/index.php/2022/11/25/zenith-tech-fair-ends-on-high-as-hackathon-finalists-are-rewarded-with-n53m">
+                    <a href="https://www.thisdaylive.com/index.php/2022/11/25/zenith-tech-fair-ends-on-high-as-hackathon-finalists-are-rewarded-with-n53m" target="_blank">
                         <img src="{{ asset('img/brands/this-day-live-logo.png') }}" alt="this-day-live" class="h-9">
                     </a>
-                    <a href="https://ng.opera.news/ng/en/education/64f23de2e92d37a457aace813674cdb2">
+                    <a href="https://ng.opera.news/ng/en/education/64f23de2e92d37a457aace813674cdb2" target="_blank">
                         <img src="{{ asset('img/brands/opera-news.png') }}" alt="opera-news" class="h-9">
                     </a>
                 </div>
