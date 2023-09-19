@@ -1,45 +1,52 @@
 <footer class="bg-orange-50 border border-gray-200">
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div class="md:flex md:justify-between py-12">
-            <div class="mb-6 md:mb-0">
-                <a href="{{ route('home') }}" class="flex flex-shrink-0 items-center">
+    <div class="container mx-auto px-4 py-6 lg:py-8">
+        <div class="grid gap-12 grid-cols-2 lg:grid-cols-6 lg:gap-18">
+            <div class="col-span-2">
+                <a href="{{ route('home') }}" class="flex flex-shrink-0 mb-2 items-center">
                     <img class="block h-12 w-auto transition-all duration-300" src="{{ asset('img/logo-black.png') }}"
                          alt="Foris Labs">
                 </a>
+                <p class="text-gray-600">Foris Labs empowers students with superpowers to turn any
+                    space into a science lab using our gamified 3D virtual science lab for realistic hands-on
+                    experiments.</p>
             </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                <div>
-                    <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Resources</h2>
-                    <ul class="text-gray-500 font-medium">
-                        <li class="mb-2">
-                            <a href="#" class="hover:underline">News</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('contact-us') }}" class="hover:underline">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Follow us</h2>
-                    <ul class="text-gray-500 font-medium">
-                        <li class="mb-2">
-                            <a href="https://web.facebook.com/profile.php?id=100067094550865" class="hover:underline ">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/forislabs?lang=en" class="hover:underline">Twitter</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Legal</h2>
-                    <ul class="text-gray-500 font-medium">
-                        <li class="mb-2">
-                            <a href="{{ route('privacy-policy') }}" class="hover:underline">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('terms') }}" class="hover:underline">Terms &amp; Conditions</a>
-                        </li>
-                    </ul>
+            <div>
+                <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Resources</h2>
+                <ul class="text-gray-500 font-medium">
+                    <li class="mb-2">
+                        <a href="#" class="hover:underline">News</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('contact-us') }}" class="hover:underline">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Legal</h2>
+                <ul class="text-gray-500 font-medium">
+                    <li class="mb-2">
+                        <a href="{{ route('privacy-policy') }}" class="hover:underline">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('terms') }}" class="hover:underline">Terms &amp; Conditions</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-2">
+                <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">In the News</h2>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="https://punchng.com/science-startup-developed-by-anambra-students-emerges-finalist-at-global-competition/" target="_blank">
+                        <img src="{{ asset('img/brands/punch.svg') }}" alt="punch" class="h-9">
+                    </a>
+                    <a href="https://theparadise.ng/onitsha-based-startup-foris-labs-selected-for-battlefield-200-competition-in-usa/" target="_blank">
+                        <img src="{{ asset('img/brands/paradise.png') }}" alt="paradise" class="h-9">
+                    </a>
+                    <a href="https://www.thisdaylive.com/index.php/2022/11/25/zenith-tech-fair-ends-on-high-as-hackathon-finalists-are-rewarded-with-n53m" target="_blank">
+                        <img src="{{ asset('img/brands/this-day-live-logo.png') }}" alt="this-day-live" class="h-9">
+                    </a>
+                    <a href="https://ng.opera.news/ng/en/education/64f23de2e92d37a457aace813674cdb2" target="_blank">
+                        <img src="{{ asset('img/brands/opera-news.png') }}" alt="opera-news" class="h-9">
+                    </a>
                 </div>
             </div>
         </div>
@@ -92,7 +99,7 @@
         class="fixed inset-y-0 left-0 flex h-screen w-[50px] flex-col items-center justify-center transition-transform duration-500"
         :class="{ 'translate-x-[-50px]': hidden, 'translate-x-0': !hidden }">
         <a href="https://web.facebook.com/profile.php?id=100067094550865" target="_blank"
-            class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
+           class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
             <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                  fill="none">
                 <path
@@ -101,14 +108,14 @@
             </svg>
         </a>
         <a href="https://twitter.com/forislabs?lang=en" target="_blank"
-            class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
+           class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4" fill="currentColor">
                 <path
                     d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
             </svg>
         </a>
         <a href="https://linkedin.com/company/foris-labs/" target="_blank"
-            class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
+           class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
             <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                  fill="none">
                 <path
@@ -117,7 +124,7 @@
             </svg>
         </a>
         <a href="mailto:forislabs@gmail.com"
-            class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
+           class="bg-gray-800 my-1 flex h-8 w-8 items-center justify-center rounded-full text-white transition duration-500 hover:rotate-[360deg] hover:transform hover:bg-orange-500 hover:text-white">
             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                  fill="none" stroke="currentColor" stroke-linecap="round"
                  stroke-linejoin="round" stroke-width="2">
@@ -127,7 +134,7 @@
         </a>
     </div>
     <div
-        class="fixed inset-y-0 left-0 z-10 flex h-screen w-[50px] flex-col items-start justify-center transition-transform duration-500"
+        class="fixed inset-y-0 left-0 z-50 flex h-screen w-[50px] flex-col items-start justify-center transition-transform duration-500"
         :class="{ 'translate-x-[-50px]': !hidden, 'translate-x-0': hidden }">
         <button @click="hidden = !hidden"
                 class="bg-gray-800/50 my-1 flex h-8 w-6 items-center justify-start rounded-r-full text-white transition duration-500 hover:bg-orange-500 hover:text-white">
