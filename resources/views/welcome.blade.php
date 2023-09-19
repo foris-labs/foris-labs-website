@@ -22,14 +22,15 @@
                     </a>
                     <div
                         class="flex items-center justify-center space-x-3 mt-8 md:mt-0 hover:scale-110 transition-transform duration-300">
-                        <button class="bg-white w-14 h-14 rounded-full flex items-center justify-center shadow">
+                        <a data-fslightbox
+                           href="https://www.youtube.com/watch?v=k3EfWLw6J0A" class="bg-white w-14 h-14 rounded-full flex items-center justify-center shadow">
                             <svg viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"
                                  class="w-5 h-5 ml-2 text-orange-500">
                                 <path
                                     d="M22.5751 12.8097C23.2212 13.1983 23.2212 14.135 22.5751 14.5236L1.51538 27.1891C0.848878 27.5899 5.91205e-07 27.1099 6.25202e-07 26.3321L1.73245e-06 1.00123C1.76645e-06 0.223477 0.848877 -0.256572 1.51538 0.14427L22.5751 12.8097Z"
                                     fill="currentColor"></path>
                             </svg>
-                        </button>
+                        </a>
                         <span class="cursor-pointer text-lg">Watch how it works</span>
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                 <img src="{{ asset('img/brands/injini.png') }}" alt="injini" class="h-9 grayscale opacity-60">
                 <img src="{{asset('img/brands/zenith-bank.svg')}}" alt="zenith-bank" class="h-9 grayscale opacity-60">
                 <img src="{{asset('img/brands/techcrunch.svg')}}" alt="techcrunch" class="h-8 grayscale opacity-60">
-                <img src="{{asset('img/brands/grab.svg')}}" alt="grab" class="h-7">
+                <img src="{{asset('img/brands/gesa-2023_white.webp')}}" alt="gesa" class="h-8 grayscale opacity-60">
             </div>
         </div>
     </section>
@@ -94,7 +95,7 @@
                 </h2>
                 <p class="leading-relaxed text-gray-600 text-md md:text-lg"> Your Gateway to Interactive Science
                     Education! Immerse
-                    yourself in an engaging virtual laboratory experience designed to bring science to life. Join us on
+                    yourself in an engaging virtual science laboratory experience designed to bring science to life. Join us on
                     a captivating journey into the world of science!
                 </p>
             </div>
@@ -330,4 +331,6 @@
             </div>
         </div>
     </section>
+
+    <script src="{{ asset('js/fslightbox.js') }}"></script>
 </x-guest-layout>

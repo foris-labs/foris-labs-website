@@ -9,7 +9,7 @@ services:
         volumes:
             - ./:/var/www
             - ./docker/nginx.conf:/opt/docker/etc/nginx/vhost.conf
-            - ./docker/npm.conf:/opt/docker/etc/supervisor.d/npm.conf
+            - ./docker/scheduler.sh:/opt/docker/bin/service.d/cron.d/scheduler.sh
         networks:
             - app_network
         depends_on:
