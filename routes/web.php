@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'Index'])->name('home');
+Route::view('/', 'welcome')->name('home');
 Route::view('/privacy-policy', 'privacy')->name('privacy-policy');
 Route::view('/terms-of-use', 'terms')->name('terms');
 Route::view('/contact-us', 'contact')->name('contact-us');
