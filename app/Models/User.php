@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Query\Builder;
@@ -13,7 +15,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -45,6 +47,14 @@ class User extends Authenticatable
         'social_data' => 'array'
     ];
 
+    public function currencies(): BelongsToMany
+    {
+        return $this
+            ->belongsToMany(Currency::class)
+            ->as('wallet')
+            ->withPivot('balance');
+    }
+
     public function school() : BelongsTo
     {
         return $this->belongsTo(School::class);
@@ -55,11 +65,20 @@ class User extends Authenticatable
         return $this->hasMany(Subscription::class);
     }
 
-    public function activeSuscription() : HasOne
+    public function activeSubscription() : HasOne
     {
         return $this->hasOne(Subscription::class)->ofMany([], function (Builder $query) {
             $query->where('ended_at', '<', now());
         });
     }
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return str_ends_with($this->email, '@forislabs.com');
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return asset('storage/'. $this->avatar_url);
+    }
 }

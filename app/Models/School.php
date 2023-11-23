@@ -21,4 +21,9 @@ class School extends Model
     {
         return $this->hasMany(Coupon::class);
     }
+
+    public function students() : HasMany
+    {
+        return $this->hasMany(User::class);
+    }
 }

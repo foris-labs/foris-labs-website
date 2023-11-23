@@ -15,24 +15,19 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => "Foris Labs Admin",
-            'password' => Hash::make('forislabs'),
-            'username' => 'Admin',
-            'gender' => 'male',
+        $admin = User::factory()->create([
             'email' => 'admin@forislabs.com',
-            'email_verified_at' => now(),
-            'remember_token' => Str::random(10),
+            'password' => Hash::make('forislabs'),
         ]);
-        User::create([
-            'name' => "Charles Bridgerton",
-            'username' => 'FB Test User',
-            'gender' => 'male',
+
+        $admin->currencies()->attach([
+            1 => ['balance' => 100],
+            2 => ['balance' => 50],
+        ]);
+
+        User::factory()->create([
             'email' => 'charles_oxpgouy_bridgerton@tfbnw.net',
-            'email_verified_at' => now(),
-            'remember_token' => Str::random(10),
             "social_data->facebook" => 102096212603932
         ]);
-        // User::factory()->create();
     }
 }
