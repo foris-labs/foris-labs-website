@@ -3,29 +3,32 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Enums\ErrorType;
 use App\Http\Requests\API\EmailLoginRequest;
 use App\Http\Requests\API\EmailRegisterRequest;
 use App\Http\Requests\API\SocialLoginRequest;
 use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\TokenResponse;
 use App\Models\User;
-use Illuminate\Http\Client\Response;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
+    /**
+     * Register a new user with email and password
+     *
+     * @throws Exception
+     */
     public function emailRegister(EmailRegisterRequest $request)
     {
-        $user = User::create([
+        User::create([
             'name' => $request->validated('name'),
             'email' => $request->validated('email'),
             'password' => Hash::make($request->validated('password')),
         ]);
 
-        $tokenGrantResponse = Http::post(route('passport.token'), [
+        $tokenRequest = Request::create(route('passport.token'), 'POST', [
             'grant_type' => 'password',
             'client_id' => $request->validated('client_id'),
             'client_secret' => $request->validated('client_secret'),
@@ -33,16 +36,22 @@ class AuthController extends Controller
             'password' => $request->validated('password'),
         ]);
 
-        if ($tokenGrantResponse->successful()) {
-            return $this->createTokenResponse($tokenGrantResponse, 201);
-        } else {
-            return $this->createErrorResponse($tokenGrantResponse);
-        }
+        $response = app()->handle($tokenRequest);
+
+        if ($response->isOk())
+            return TokenResponse::fromResponse($response);
+        else
+            return ErrorResponse::fromResponse($response);
     }
 
+    /**
+     * Login with email and password
+     *
+     * @throws Exception
+     */
     public function emailLogin(EmailLoginRequest $request)
     {
-        $tokenGrantResponse = Http::post(route('passport.token'), [
+        $tokenRequest = Request::create(route('passport.token'), 'POST', [
             'grant_type' => 'password',
             'client_id' => $request->validated('client_id'),
             'client_secret' => $request->validated('client_secret'),
@@ -50,16 +59,22 @@ class AuthController extends Controller
             'password' => $request->validated('password'),
         ]);
 
-        if ($tokenGrantResponse->successful()) {
-            return $this->createTokenResponse($tokenGrantResponse);
-        } else {
-            return $this->createErrorResponse($tokenGrantResponse);
-        }
+        $response = app()->handle($tokenRequest);
+
+        if ($response->isOk())
+            return TokenResponse::fromResponse($response);
+        else
+            return ErrorResponse::fromResponse($response);
     }
 
+    /**
+     * Login with social provider access token
+     *
+     * @throws Exception
+     */
     public function socialLogin(SocialLoginRequest $request, string $provider)
     {
-        $tokenGrantResponse = Http::post(route('passport.token'), [
+        $tokenRequest = Request::create(route('passport.token'), 'POST', [
             'grant_type' => 'social',
             'client_id' => $request->validated('client_id'),
             'client_secret' => $request->validated('client_secret'),
@@ -67,52 +82,23 @@ class AuthController extends Controller
             'access_token' => $request->validated('access_token'),
         ]);
 
-        if ($tokenGrantResponse->successful()) {
-            return $this->createTokenResponse($tokenGrantResponse);
-        } else {
-            return $this->createErrorResponse($tokenGrantResponse);
-        }
+        $response = app()->handle($tokenRequest);
+
+        if ($response->isOk())
+            return TokenResponse::fromResponse($response);
+        else
+            return ErrorResponse::fromResponse($response);
     }
 
-    // logout function
+    /**
+     * Revokes the current user's access token
+     *
+     */
     public function logout(Request $request)
     {
         $user = auth('api')->user();
         $user->tokens()->where('client_id', $request->input('client_id'))->delete();
-        
+
         return response()->json(['message' => 'logout successfully']);
-    }
-
-    private function createTokenResponse(Response $response, int $status = 0): TokenResponse
-    {
-        return new TokenResponse(
-            $response->json('access_token'),
-            $response->json('refresh_token'),
-            ($status == 0) ? $response->status() : $status
-        );
-    }
-
-    private function createErrorResponse(Response $response): ErrorResponse
-    {
-        return new ErrorResponse(
-            $response->json('message'),
-            $this->mapTokenGrantErrorType($response),
-            $response->status()
-        );
-    }
-
-    private function mapTokenGrantErrorType(Response $response): ErrorType
-    {
-        $error = $response->json('error');
-
-        $errorMap = [
-            'unsupported_grant_type' => ErrorType::InvalidRequestInput,
-            'invalid_client' => ErrorType::InvalidClient,
-            'invalid_request' => ErrorType::InvalidRequestInput,
-            'invalid_grant' => ErrorType::InvalidRequestInput,
-            'access_denied' => ErrorType::NotAuthenticated,
-        ];
-
-        return $errorMap[$error] ?? ErrorType::Unknown;
     }
 }

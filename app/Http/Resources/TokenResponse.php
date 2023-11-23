@@ -19,6 +19,17 @@ class TokenResponse implements Responsable
     {
     }
 
+    public function fromResponse(Response $response): self
+    {
+        $responseJson = json_decode($response->getContent(), true);
+
+        return new self(
+            $responseJson['access_token'],
+            $responseJson['refresh_token'],
+            $response->getStatusCode()
+        );
+    }
+
 
     public function toResponse($request): JsonResponse|Response
     {

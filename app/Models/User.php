@@ -55,6 +55,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
             ->withPivot('balance');
     }
 
+    public function trivias(): HasMany
+    {
+        return $this->hasMany(Trivia::class);
+    }
+
     public function school() : BelongsTo
     {
         return $this->belongsTo(School::class);

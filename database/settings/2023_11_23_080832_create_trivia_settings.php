@@ -6,8 +6,9 @@ return new class extends SettingsMigration
 {
     public function up(): void
     {
-        $this->migrator->add('trivia.startTime', '10:00');
-        $this->migrator->add('trivia.endTime', '22:00');
+        $this->migrator->add('trivia.startTime', '10:00 AM');
+        $this->migrator->add('trivia.endTime', '08:00 PM');
+        $this->migrator->add('trivia.resetTime', '12:00 AM');
         $this->migrator->add('trivia.questionPerDay', 3);
     }
 };

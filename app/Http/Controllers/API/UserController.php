@@ -9,8 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    function GetUser()
+    public function show()
     {
-        return new UserResource(Auth::guard('api')->user());
+        return new UserResource(auth('api')->user());
+    }
+
+    public function update(Request $request)
+    {
+        $user = auth('api')->user();
+
+        $user->update($request->only('name', 'username', 'email'));
+
+        return new UserResource($user);
     }
 }

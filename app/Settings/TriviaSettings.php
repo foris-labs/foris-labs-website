@@ -8,6 +8,7 @@ class TriviaSettings extends Settings
 {
     public string $startTime;
     public string $endTime;
+    public string $resetTime;
     public int $questionPerDay;
 
     public static function group(): string

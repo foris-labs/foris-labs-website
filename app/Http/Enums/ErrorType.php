@@ -16,4 +16,16 @@ enum ErrorType: string
 
     case Unknown = 'unknown';
 
+    public static function fromValue(string $value): self
+    {
+        return match ($value) {
+            'not_connected' => self::NotConnected,
+            'not_authenticated', 'access_denied' => self::NotAuthenticated,
+            'cannot_deserialize' => self::CannotDeserialize,
+            'invalid_client' => self::InvalidClient,
+            'invalid_request', 'invalid_grant', 'unsupported_grant_type' => self::InvalidRequestInput,
+            default => self::Unknown,
+        };
+    }
+
 }
