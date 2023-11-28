@@ -15,4 +15,9 @@ class TriviaSettings extends Settings
     {
         return 'trivia';
     }
+
+    public static function get() :self
+    {
+        return app(self::class);
+    }
 }

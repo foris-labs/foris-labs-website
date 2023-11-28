@@ -19,7 +19,7 @@ class TokenResponse implements Responsable
     {
     }
 
-    public function fromResponse(Response $response): self
+    public static function fromResponse(Response $response): self
     {
         $responseJson = json_decode($response->getContent(), true);
 

@@ -47,6 +47,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'social_data' => 'array'
     ];
 
+    public static function booting()
+    {
+        static::creating(function ($user) {
+            if (empty($user->username)) {
+                $user->username = explode('@', $user->email)[0];
+            }
+        });
+    }
+
     public function currencies(): BelongsToMany
     {
         return $this

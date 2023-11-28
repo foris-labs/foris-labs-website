@@ -21,7 +21,6 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'avatar_url' => '',

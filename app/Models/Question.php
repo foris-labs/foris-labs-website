@@ -12,9 +12,14 @@ class Question extends Model
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'body',
-    ];
+    protected $fillable = ['body'];
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['options'];
 
     public function options(): HasMany
     {

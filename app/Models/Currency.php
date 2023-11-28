@@ -11,6 +11,10 @@ class Currency extends Model
 {
     use HasFactory;
 
+
+    public const FORIS_POINTS = 'FP';
+    public const LAB_CREDITS = 'LC';
+
     /**
      * The attributes that are mass assignable.
      *

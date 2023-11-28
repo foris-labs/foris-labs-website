@@ -24,10 +24,12 @@ Route::post('/login/{provider}', [AuthController::class, 'socialLogin'])->name('
 Route::post('/logout', [AuthController::class, 'logout'])->name('api.logout');
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('/user', [UserController::class, 'show']);
-    Route::put('/user', [UserController::class, 'update']);
+    Route::get('/user', [UserController::class, 'show'])->name('api.user');
+    Route::put('/user', [UserController::class, 'update'])->name('api.user.update');
 
-    Route::get('/trivia', [TriviaController::class, 'getForToday']);
-    Route::post('/trivia/start', [TriviaController::class, 'start']);
-    Route::post('/trivia/submit', [TriviaController::class, 'submit']);
+    Route::get('/trivia', [TriviaController::class, 'getForToday'])->name('api.trivia');
+    Route::post('/trivia/start', [TriviaController::class, 'start'])->name('api.trivia.start');
+    Route::post('/trivia/submit', [TriviaController::class, 'submit'])->name('api.trivia.submit');
+
+    Route::get('/leaderboard', [UserController::class, 'leaderboard'])->name('api.leaderboard');
 });

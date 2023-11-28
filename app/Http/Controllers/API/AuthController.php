@@ -29,12 +29,16 @@ class AuthController extends Controller
         ]);
 
         $tokenRequest = Request::create(route('passport.token'), 'POST', [
-            'grant_type' => 'password',
-            'client_id' => $request->validated('client_id'),
-            'client_secret' => $request->validated('client_secret'),
-            'username' => $request->validated('email'),
-            'password' => $request->validated('password'),
-        ]);
+                'grant_type' => 'password',
+                'client_id' => $request->validated('client_id'),
+                'client_secret' => $request->validated('client_secret'),
+                'username' => $request->validated('email'),
+                'password' => $request->validated('password'),
+            ]
+            , server: [
+                'HTTP_Accept' => 'application/json',
+                'HTTP_Content-Type' => 'application/json',
+            ]);
 
         $response = app()->handle($tokenRequest);
 
@@ -51,13 +55,20 @@ class AuthController extends Controller
      */
     public function emailLogin(EmailLoginRequest $request)
     {
-        $tokenRequest = Request::create(route('passport.token'), 'POST', [
-            'grant_type' => 'password',
-            'client_id' => $request->validated('client_id'),
-            'client_secret' => $request->validated('client_secret'),
-            'username' => $request->validated('email'),
-            'password' => $request->validated('password'),
-        ]);
+        $tokenRequest = Request::create(
+            uri: route('passport.token'),
+            method: 'POST',
+            parameters: [
+                'grant_type' => 'password',
+                'client_id' => $request->validated('client_id'),
+                'client_secret' => $request->validated('client_secret'),
+                'username' => $request->validated('email'),
+                'password' => $request->validated('password'),
+            ],
+            server: [
+                'HTTP_Accept' => 'application/json',
+            ]);
+
 
         $response = app()->handle($tokenRequest);
 

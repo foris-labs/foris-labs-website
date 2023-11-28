@@ -19,8 +19,8 @@ class CurrencySeeder extends Seeder
         ]);
 
         Currency::factory()->create([
-            'name' => 'Foris Credits',
-            'code' => 'FC',
+            'name' => 'Lab Credits',
+            'code' => 'LC',
         ]);
     }
 }

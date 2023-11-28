@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Exceptions\ForisLabsException;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\QuestionResource;
 use App\Models\Question;
+use App\Models\Trivia;
 use App\Settings\TriviaSettings;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
+use Throwable;
 
 class TriviaController extends Controller
 {
+    /**
+     * @throws ForisLabsException|Throwable
+     */
     public function getForToday(TriviaSettings $triviaSettings)
     {
         $currentTime = now();
@@ -19,24 +26,18 @@ class TriviaController extends Controller
         $endTime = CarbonImmutable::createFromTimeString($triviaSettings->endTime);
         $resetTime = CarbonImmutable::createFromTimeString($triviaSettings->resetTime);
 
-        if($currentTime->isAfter($endTime) && $currentTime->isBefore($resetTime->addDay())) {
-            return response()->json([
-                'message' => 'Trivia time window has elapsed.',
-                'data' => null,
-            ]);
-        }
+        throw_if(
+            condition: $currentTime->isAfter($endTime) && $currentTime->isBefore($resetTime->addDay()),
+            exception: ForisLabsException::TriviaWindowClosed()
+        );
 
-        $hasTakenTrivia = $user->trivias()
-            ->whereTime('created_at', '>=',  $startTime)
-            ->whereTime('created_at', '<=',  $endTime)
-            ->exists();
-
-        if ($hasTakenTrivia) {
-            return response()->json([
-                'message' => 'Trivia already taken for today.',
-                'data' => null,
-            ]);
-        }
+        throw_if(
+            condition: $user->trivias()
+                ->whereTime('created_at', '>=', $startTime)
+                ->whereTime('created_at', '<=', $endTime)
+                ->exists(),
+            exception: ForisLabsException::TriviaAlreadyTaken()
+        );
 
         $questions = Question::inRandomOrder()
             ->with('options')
@@ -45,7 +46,9 @@ class TriviaController extends Controller
 
         return response()->json([
             'message' => 'Trivia available. You can participate now.',
-            'data' => $questions,
+            'questions' => QuestionResource::collection($questions),
+            'startTime' => $startTime->toTimeString(),
+            'endTime' => $endTime->toTimeString(),
         ]);
     }
 

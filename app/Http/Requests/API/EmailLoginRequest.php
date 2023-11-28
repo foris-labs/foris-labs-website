@@ -27,7 +27,7 @@ class EmailLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => 'required|string',
+            'client_id' => 'required',
             'client_secret' => 'required|string',
             'email' => 'required|email',
             'password' => 'required|string',

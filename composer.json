@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "codewithkyrian/laravel_position": "^1.0",
         "filament/filament": "^3.0-stable",
         "filament/spatie-laravel-settings-plugin": "^3.0-stable",
         "guzzlehttp/guzzle": "^7.2",
@@ -23,6 +24,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "pestphp/pest": "^2.25",
+        "pestphp/pest-plugin-laravel": "^2.2",
         "phpunit/phpunit": "^10.0",
         "spatie/laravel-ignition": "^2.0"
     },

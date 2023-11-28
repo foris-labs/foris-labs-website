@@ -11,6 +11,8 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
+use Laravel\Passport\Exceptions\OAuthServerException;
+use League\OAuth2\Server\Exception\OAuthServerException as LeagueException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -59,6 +61,13 @@ class Handler extends ExceptionHandler
         if (!$request->wantsJson())
             return parent::render($request, $e);
 
+        if($e instanceof ForisLabsException) {
+            return new ErrorResponse(
+                $e->getMessage(),
+                $e->getErrorType(),
+                $e->getStatusCode()
+            );
+        }
 
         if ($e instanceof ValidationException) {
             return new ErrorResponse(
@@ -76,11 +85,22 @@ class Handler extends ExceptionHandler
             );
         }
 
+        if($e instanceof OAuthServerException) {
+            $leagueException = $e->getPrevious();
+
+            if($leagueException instanceof LeagueException) {
+                return new ErrorResponse(
+                    $leagueException->getMessage(),
+                    ErrorType::fromValue($leagueException->getErrorType()),
+                    $leagueException->getHttpStatusCode()
+                );
+            }
+        }
+
         return new ErrorResponse(
             $e->getMessage(),
             ErrorType::Unknown,
-            $e->status
+            500
         );
-
     }
 }

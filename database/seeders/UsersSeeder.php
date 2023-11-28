@@ -21,13 +21,27 @@ class UsersSeeder extends Seeder
         ]);
 
         $admin->currencies()->attach([
-            1 => ['balance' => 100],
-            2 => ['balance' => 50],
+            1 => ['balance' => fake()->numberBetween(1, 100)],
+            2 => ['balance' => fake()->numberBetween(1, 100)],
         ]);
 
-        User::factory()->create([
+        $fbUser = User::factory()->create([
             'email' => 'charles_oxpgouy_bridgerton@tfbnw.net',
             "social_data->facebook" => 102096212603932
         ]);
+
+        $fbUser->currencies()->attach([
+            1 => ['balance' => fake()->numberBetween(1, 100)],
+            2 => ['balance' => fake()->numberBetween(1, 100)],
+        ]);
+
+        $users = User::factory()->count(10)->create();
+
+        foreach ($users as $user) {
+            $user->currencies()->attach([
+                1 => ['balance' => fake()->numberBetween(1, 100)],
+                2 => ['balance' => fake()->numberBetween(1, 100)],
+            ]);
+        }
     }
 }

@@ -17,7 +17,7 @@ class TriviaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+
         ];
     }
 }

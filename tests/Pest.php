@@ -11,10 +11,28 @@
 |
 */
 
+use App\Models\User;
+
 uses(
     Tests\TestCase::class,
-    // Illuminate\Foundation\Testing\RefreshDatabase::class,
-)->in('Feature');
+     Illuminate\Foundation\Testing\RefreshDatabase::class,
+)->beforeEach(function () {
+    $this->oauthClientID = 1;
+    $this->oauthClientSecret = "FBj2AOK0cwFSn99WOHa46qVsfXX8BzduNWC1jIYt";
+
+    DB::table('oauth_clients')->insert([
+        "id" => $this->oauthClientID,
+        "name" => "QuizLand Password Grant Client",
+        "secret" => $this->oauthClientSecret,
+        'provider' => 'users',
+        'redirect' => 'http://localhost',
+        'personal_access_client' => 0,
+        'password_client' => 1,
+        'revoked' => 0,
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+})->in('API');
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +45,6 @@ uses(
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +57,15 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function createUser(
+    string $name = 'John Doe',
+    string $email = 'johndoe@forislabs.com',
+    string $password = 'password'
+): User
 {
-    // ..
+    return User::factory()->create([
+        'name' => $name,
+        'email' => $email,
+        'password' => bcrypt($password),
+    ]);
 }

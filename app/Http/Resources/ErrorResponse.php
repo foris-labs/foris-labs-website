@@ -27,9 +27,11 @@ class ErrorResponse implements Responsable
     {
         $responseJson = json_decode($response->getContent(), true);
 
+        $errorKey = self::detectErrorKey($responseJson);
+
         return new self(
             $responseJson['message'],
-            ErrorType::fromValue($responseJson['type']),
+            ErrorType::fromValue($responseJson[$errorKey]),
             $response->getStatusCode()
         );
     }
@@ -41,6 +43,16 @@ class ErrorResponse implements Responsable
             'type' => $this->type->value,
             'message' => $this->message ?? "Internal Server Error",
         ], $this->code);
+    }
+
+    private static function detectErrorKey(array $responseJson): ?string
+    {
+        return match (true) {
+            array_key_exists('error', $responseJson) => 'error',
+            array_key_exists('error_type', $responseJson) => 'error_type',
+            array_key_exists('type', $responseJson) => 'type',
+            default => null,
+        };
     }
 }
 
