@@ -54,14 +54,9 @@ class TriviaSettings extends SettingsPage
     {
         return [
             Action::make('clear')
-                ->label('Clear Written Trivias for Today')
+                ->label('Clear All Written Trivias')
                 ->requiresConfirmation()
-                ->action(function (Settings $triviaSettings) {
-                    Trivia::query()
-                        ->whereTime('created_at', '>=', $triviaSettings->startTime)
-                        ->whereTime('created_at', '<=', $triviaSettings->endTime)
-                        ->delete();
-                })
+                ->action(fn () => Trivia::delete())
         ];
     }
 }
