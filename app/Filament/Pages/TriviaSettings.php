@@ -2,7 +2,9 @@
 
 namespace App\Filament\Pages;
 
+use App\Models\Trivia;
 use App\Settings\TriviaSettings as Settings;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
@@ -46,5 +48,20 @@ class TriviaSettings extends SettingsPage
     protected function getSavedNotificationMessage(): ?string
     {
         return 'Trivia settings updated!';
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Action::make('clear')
+                ->label('Clear Written Trivias for Today')
+                ->requiresConfirmation()
+                ->action(function (Settings $triviaSettings) {
+                    Trivia::query()
+                        ->whereTime('created_at', '>=', $triviaSettings->startTime)
+                        ->whereTime('created_at', '<=', $triviaSettings->endTime)
+                        ->delete();
+                })
+        ];
     }
 }
