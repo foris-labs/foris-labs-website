@@ -19,8 +19,8 @@ class QuestionResource extends JsonResource
         return [
             'id' => $this->id,
             'question' => $this->body,
-            'options' => OptionResource::collection($this->whenLoaded('options')),
-            'correct_option' => new OptionResource($this->options->where('is_correct', true))
+            'options' => $this->options->map(fn($option) => $option->body),
+            'answer' => $this->options->where('is_correct', true)->first()->body,
         ];
     }
 }

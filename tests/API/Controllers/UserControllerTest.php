@@ -95,12 +95,15 @@ it('can get the leaderboard', function () {
     $user->currencies()->attach(2, ['balance' => 100]);
 
     actingAs($user, 'api')
-        ->getJson(route('api.leaderboard'))
+        ->getJson(route('api.user.leaderboard'))
         ->assertOk()
         ->assertJsonFragment([
-            'fullname' => $user->name,
-            'username' => $user->username,
-            'foris_points' => 100,
+            'user_entry' => [
+                'username' => $user->username,
+                'avatar_url' => $user->avatar_url,
+                'score' => 100,
+                'rank' => '1st',
+            ],
         ]);
 });
 

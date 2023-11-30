@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\UserUpdateRequest;
+use App\Http\Resources\Leaderboard;
 use App\Http\Resources\UserResource;
 use App\Models\Currency;
 use App\Models\User;
@@ -28,34 +29,22 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function leaderboard()
+    public function leaderboard(Request $request)
     {
-        $leaderboard = User::query()
-            ->select(['users.name', 'username', 'avatar_url', 'currency_user.balance as lab_credits'])
-            ->join('currency_user', 'users.id', '=', 'currency_user.user_id')
-            ->join('currencies', 'currency_user.currency_id', '=', 'currencies.id')
-            ->where('currencies.code', Currency::LAB_CREDITS)
-//            ->orderBy('currency_user.balance', 'desc')
-            ->get()
-            ->rankBy('lab_credits');
+        $currency = $request->input('currency', Currency::LAB_CREDITS);
 
-       $leaderboard = Cache::remember('leaderboard', 3600, function () {
-            return User::query()
-                ->select(['users.name', 'username', 'avatar_url', 'currency_user.balance as lab_credits'])
+        $leaderboard = Cache::remember("leaderboard-$currency", 3600, function () use ($currency) {
+            $users = User::query()
+                ->select(['users.name', 'username', 'avatar_url', 'currency_user.balance as score'])
                 ->join('currency_user', 'users.id', '=', 'currency_user.user_id')
                 ->join('currencies', 'currency_user.currency_id', '=', 'currencies.id')
-                ->where('currencies.code', Currency::LAB_CREDITS)
+                ->where('currencies.code', $currency)
                 ->orderBy('currency_user.balance', 'desc')
                 ->get();
+
+            return $users->rankBy('score');
         });
 
-
-       dd($leaderboard->toArray());
-
-
-
-
-
-        return UserResource::collection($users);
+        return new Leaderboard($leaderboard);
     }
 }
