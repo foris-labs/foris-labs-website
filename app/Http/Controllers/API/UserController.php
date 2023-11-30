@@ -42,7 +42,13 @@ class UserController extends Controller
                 ->orderBy('currency_user.balance', 'desc')
                 ->get();
 
-            return $users->rankBy('score');
+            $rank = 0;
+            $users->transform(function ($user) use (&$rank) {
+                $user->rank = $rank++;
+                return $user;
+            });
+
+            return $users;
         });
 
         return new Leaderboard($leaderboard);
