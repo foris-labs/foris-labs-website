@@ -29,7 +29,6 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/user/leaderboard', [UserController::class, 'leaderboard'])->name('api.user.leaderboard');
 
     Route::get('/trivia', [TriviaController::class, 'getForToday'])->name('api.trivia');
-    Route::post('/trivia/start', [TriviaController::class, 'start'])->name('api.trivia.start');
     Route::post('/trivia/submit', [TriviaController::class, 'submit'])->name('api.trivia.submit');
 
 });

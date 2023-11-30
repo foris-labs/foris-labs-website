@@ -33,8 +33,8 @@ class TriviaController extends Controller
 
         throw_if(
             condition: $user->trivias()
-                ->whereTime('created_at', '>=', $startTime)
-                ->whereTime('created_at', '<=', $endTime)
+                ->whereTime('created_at', '>=', $resetTime)
+                ->whereTime('created_at', '<=', $resetTime->addDay())
                 ->exists(),
             exception: ForisLabsException::TriviaAlreadyTaken()
         );
@@ -52,21 +52,17 @@ class TriviaController extends Controller
         ]);
     }
 
-    public function start(Request $request)
+    public function submit(Request $request)
     {
         $user = auth('api')->user();
+
         $user->trivias()->create([
-            'score' => 0,
+            'score' => $request->input('score'),
         ]);
 
         return response()->json([
-            'message' => 'Trivia started.',
-            'data' => null,
+            'message' => 'Trivia submitted.'
         ]);
-    }
-
-    public function submit(Request $request)
-    {
     }
 
 }
