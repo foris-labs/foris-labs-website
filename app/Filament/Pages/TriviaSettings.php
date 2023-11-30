@@ -56,7 +56,7 @@ class TriviaSettings extends SettingsPage
             Action::make('clear')
                 ->label('Clear All Written Trivias')
                 ->requiresConfirmation()
-                ->action(fn () => Trivia::delete())
+                ->action(fn () => Trivia::query()->delete())
         ];
     }
 }
