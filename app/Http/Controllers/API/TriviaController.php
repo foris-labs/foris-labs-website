@@ -27,7 +27,7 @@ class TriviaController extends Controller
         $resetTime = CarbonImmutable::createFromTimeString($triviaSettings->resetTime);
 
         throw_if(
-            condition: $currentTime->isAfter($endTime) && $currentTime->isBefore($resetTime->addDay()),
+            condition: $currentTime->isAfter($endTime) && $currentTime->isBefore($resetTime),
             exception: ForisLabsException::TriviaWindowClosed()
         );
 
