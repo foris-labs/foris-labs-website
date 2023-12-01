@@ -45,11 +45,11 @@ class UserResource extends Resource
                 Forms\Components\FileUpload::make('avatar_url')
                     ->label('Avatar')
                     ->directory('avatars')
+                    ->avatar()
                     ->image()
                     ->imageEditor()
                     ->imagePreviewHeight('150')
                     ->maxWidth('150'),
-//                    ->panelLayout('circle'),
                 Forms\Components\Select::make('school_id')
                     ->relationship('school', 'name'),
             ]);
