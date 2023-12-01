@@ -44,6 +44,8 @@ class UserResource extends Resource
 //                    ->maxLength(255),
                 Forms\Components\FileUpload::make('avatar_url')
                     ->label('Avatar')
+                    ->directory('avatars')
+                    ->name
                     ->image()
                     ->imageEditor()
                     ->imagePreviewHeight('150')
