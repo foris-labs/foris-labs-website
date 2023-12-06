@@ -16,6 +16,7 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         $admin = User::factory()->create([
+            'name' => 'Administrator',
             'email' => 'admin@forislabs.com',
             'password' => Hash::make('forislabs'),
         ]);
@@ -25,14 +26,37 @@ class UsersSeeder extends Seeder
             2 => ['balance' => fake()->numberBetween(1, 100)],
         ]);
 
-        $fbUser = User::factory()->create([
-            'email' => 'charles_oxpgouy_bridgerton@tfbnw.net',
-            "social_data->facebook" => 102096212603932
+        $kyrian = User::factory()->create([
+            'name' => 'Kyrian Obikwelu',
+            'email' => 'kyrianobikwelu@forislabs.com',
+            'password' => Hash::make('forislabs'),
         ]);
 
-        $fbUser->currencies()->attach([
-            1 => ['balance' => fake()->numberBetween(1, 100)],
-            2 => ['balance' => fake()->numberBetween(1, 100)],
+        $kyrian->currencies()->attach([
+            1 => ['balance' => fake()->numberBetween(1, 80)],
+            2 => ['balance' => fake()->numberBetween(1, 200)],
+        ]);
+
+        $elvis = User::factory()->create([
+            'name' => 'Elvis Emezi',
+            'email' => 'elvisemezi@forislabs.com',
+            'password' => Hash::make('forislabs'),
+        ]);
+
+        $elvis->currencies()->attach([
+            1 => ['balance' => fake()->numberBetween(1, 70)],
+            2 => ['balance' => fake()->numberBetween(1, 156)],
+        ]);
+
+        $promise = User::factory()->create([
+            'name' => 'Enwongo-Abasi Udomah',
+            'email' => 'enwongo-abasi@forislabs.com',
+            'password' => Hash::make('forislabs'),
+        ]);
+
+        $promise->currencies()->attach([
+            1 => ['balance' => fake()->numberBetween(1, 83)],
+            2 => ['balance' => fake()->numberBetween(1, 103)],
         ]);
 
         $users = User::factory()->count(10)->create();

@@ -38,7 +38,8 @@ class QuestionResource extends Resource
                             ->required(),
                     ])
                     ->grid(2)
-                    ->defaultItems(4)
+                    ->minItems(4)
+                    ->maxItems(4)
                     ->columnSpanFull(),
             ]);
     }
