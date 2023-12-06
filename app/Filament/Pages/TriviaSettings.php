@@ -25,18 +25,21 @@ class TriviaSettings extends SettingsPage
             ->schema([
                 Forms\Components\TimePicker::make('startTime')
                     ->label('Starts At')
-                    ->native(false)
+                    ->seconds(false)
                     ->format('h:i A')
+                    ->displayFormat('h:i A')
                     ->required(),
                 Forms\Components\TimePicker::make('endTime')
                     ->label('Stops At')
-                    ->native(false)
+                    ->seconds(false)
                     ->format('h:i A')
+                    ->displayFormat('h:i A')
                     ->required(),
                 Forms\Components\TimePicker::make('resetTime')
                     ->label('Resets At')
-                    ->native(false)
+                    ->seconds(false)
                     ->format('h:i A')
+                    ->displayFormat('h:i A')
                     ->required(),
                 Forms\Components\TextInput::make('questionPerDay')
                     ->integer()

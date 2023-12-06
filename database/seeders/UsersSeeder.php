@@ -21,10 +21,6 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('forislabs'),
         ]);
 
-        $admin->currencies()->attach([
-            1 => ['balance' => fake()->numberBetween(1, 100)],
-            2 => ['balance' => fake()->numberBetween(1, 100)],
-        ]);
 
         $kyrian = User::factory()->create([
             'name' => 'Kyrian Obikwelu',
@@ -32,10 +28,6 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('forislabs'),
         ]);
 
-        $kyrian->currencies()->attach([
-            1 => ['balance' => fake()->numberBetween(1, 80)],
-            2 => ['balance' => fake()->numberBetween(1, 200)],
-        ]);
 
         $elvis = User::factory()->create([
             'name' => 'Elvis Emezi',
@@ -43,10 +35,6 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('forislabs'),
         ]);
 
-        $elvis->currencies()->attach([
-            1 => ['balance' => fake()->numberBetween(1, 70)],
-            2 => ['balance' => fake()->numberBetween(1, 156)],
-        ]);
 
         $promise = User::factory()->create([
             'name' => 'Enwongo-Abasi Udomah',
@@ -54,18 +42,7 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('forislabs'),
         ]);
 
-        $promise->currencies()->attach([
-            1 => ['balance' => fake()->numberBetween(1, 83)],
-            2 => ['balance' => fake()->numberBetween(1, 103)],
-        ]);
 
         $users = User::factory()->count(10)->create();
-
-        foreach ($users as $user) {
-            $user->currencies()->attach([
-                1 => ['balance' => fake()->numberBetween(1, 100)],
-                2 => ['balance' => fake()->numberBetween(1, 100)],
-            ]);
-        }
     }
 }

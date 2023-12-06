@@ -27,14 +27,13 @@ class TriviaController extends Controller
         $resetTime = CarbonImmutable::createFromTimeString($triviaSettings->resetTime);
 
         throw_if(
-            condition: $currentTime->isAfter($endTime) && $currentTime->isBefore($resetTime),
+            condition: !$currentTime->isBetween($resetTime, $endTime),
             exception: ForisLabsException::TriviaWindowClosed()
         );
 
         throw_if(
             condition: $user->trivias()
-                ->whereTime('created_at', '>=', $resetTime)
-                ->whereTime('created_at', '<=', $resetTime->addDay())
+                ->whereBetween('created_at', [$resetTime, $resetTime->addDay()])
                 ->exists(),
             exception: ForisLabsException::TriviaAlreadyTaken()
         );

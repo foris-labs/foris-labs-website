@@ -7,7 +7,6 @@ use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Query\Builder;
@@ -25,7 +24,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'username', 'email', 'gender', 'password', 'avatar_url', 'social_data->facebook', 'social_data->google'
+        'name', 'username', 'email', 'gender', 'password', 'avatar_url',
+        'socials->facebook', 'socials->google', 'currencies',
     ];
 
     /**
@@ -44,24 +44,17 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'social_data' => 'array'
+        'social_data' => 'array',
+        'currencies' => 'array',
     ];
 
-    public static function booting()
+    public static function booting(): void
     {
         static::creating(function ($user) {
             if (empty($user->username)) {
                 $user->username = explode('@', $user->email)[0];
             }
         });
-    }
-
-    public function currencies(): BelongsToMany
-    {
-        return $this
-            ->belongsToMany(Currency::class)
-            ->as('wallet')
-            ->withPivot('balance');
     }
 
     public function trivias(): HasMany

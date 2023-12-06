@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Enum\Currency;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\UserUpdateRequest;
 use App\Http\Resources\Leaderboard;
 use App\Http\Resources\UserResource;
-use App\Models\Currency;
 use App\Models\User;
 use Cache;
 use Illuminate\Http\Request;
@@ -20,6 +20,12 @@ class UserController extends Controller
         return new UserResource(auth('api')->user());
     }
 
+    public function currencies()
+    {
+        return auth()->user()->currencies;
+    }
+
+
     public function update(UserUpdateRequest $request)
     {
         $user = auth('api')->user();
@@ -31,16 +37,14 @@ class UserController extends Controller
 
     public function leaderboard(Request $request)
     {
-        $currency = $request->input('currency', Currency::LAB_CREDITS);
+        $currency = $request->enum('currency', Currency::class) ?? Currency::LAB_CREDITS;
 
-        $leaderboard = Cache::remember("leaderboard-$currency", 3600, function () use ($currency) {
+        $leaderboard = Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
             $users = User::query()
-                ->select(['users.name', 'username', 'avatar_url', 'currency_user.balance as score'])
-                ->join('currency_user', 'users.id', '=', 'currency_user.user_id')
-                ->join('currencies', 'currency_user.currency_id', '=', 'currencies.id')
-                ->where('currencies.code', $currency)
-                ->orderBy('currency_user.balance', 'desc')
+                ->select(['users.name', 'username', 'avatar_url', "currencies->{$currency->value} as score"])
+                ->orderBy('currencies->' . $currency->value, 'desc')
                 ->get();
+
 
             $rank = 0;
             $users->transform(function ($user) use (&$rank) {

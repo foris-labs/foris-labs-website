@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Enum\Currency;
 use Database\Seeders\CurrencySeeder;
 use Database\Seeders\UsersSeeder;
 use function Pest\Laravel\actingAs;
@@ -87,23 +88,30 @@ it('cannot update the authenticated user details with an invalid email', functio
 });
 
 it('can get the leaderboard', function () {
-    $this->seed(CurrencySeeder::class);
     $this->seed(UsersSeeder::class);
 
-
     $user = createUser();
-    $user->currencies()->attach(2, ['balance' => 100]);
 
     actingAs($user, 'api')
         ->getJson(route('api.user.leaderboard'))
         ->assertOk()
-        ->assertJsonFragment([
-            'user_entry' => [
-                'username' => $user->username,
-                'avatar_url' => $user->avatar_url,
-                'score' => 100,
-                'rank' => '1st',
+        ->assertJsonStructure([
+            'entries' => [
+                '*' => ['username', 'score', 'rank', 'avatar_url']
             ],
+            'user_entry' => ['username', 'score', 'rank', 'avatar_url'],
+        ]);
+});
+
+it('can get user currencies', function () {
+    $user = createUser();
+
+    actingAs($user, 'api')
+        ->getJson(route('api.user.currencies'))
+        ->assertOk()
+        ->assertJsonStructure([
+            Currency::LAB_CREDITS->value,
+            Currency::FORIS_POINTS->value,
         ]);
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enum\Currency;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
@@ -39,9 +40,7 @@ class UserResource extends Resource
                         'female' => 'Female',
                         'other' => 'Other'
                     ]),
-//                Forms\Components\TextInput::make('password')
-//                    ->password()
-//                    ->maxLength(255),
+
                 Forms\Components\FileUpload::make('avatar_url')
                     ->label('Avatar')
                     ->directory('avatars')
@@ -52,6 +51,17 @@ class UserResource extends Resource
                     ->maxWidth('150'),
                 Forms\Components\Select::make('school_id')
                     ->relationship('school', 'name'),
+                Forms\Components\Repeater::make('currencies')
+                    ->schema([
+                        Forms\Components\Select::make('currency')
+                            ->options(Currency::toArray()),
+                        Forms\Components\TextInput::make('balance')
+                            ->numeric()
+                    ])
+                    ->grid()
+                    ->columns()
+                    ->columnSpan(2)
+
             ]);
     }
 
@@ -68,6 +78,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('gender')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('avatar_url')
+                    ->label('Avatar')
                     ->defaultImageUrl(asset('img/avatar.png'))
                     ->circular(),
                 Tables\Columns\TextColumn::make('school.name')

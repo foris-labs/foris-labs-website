@@ -54,8 +54,7 @@ class QuestionResource extends Resource
                     ->limit(),
                 Tables\Columns\TextColumn::make('options_count')
                     ->label('Options')
-                    ->counts('options')
-                    ->sortable(),
+                    ->counts('options'),
             ])
             ->filters([
                 //
