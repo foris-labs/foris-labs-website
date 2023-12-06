@@ -53,13 +53,11 @@ class UserResource extends Resource
                     ->relationship('school', 'name'),
                 Forms\Components\Repeater::make('currencies')
                     ->schema([
-                        Forms\Components\Select::make('currency')
-                            ->options(Currency::toArray()),
-                        Forms\Components\TextInput::make('balance')
-                            ->numeric()
+                        Forms\Components\TextInput::make('balance')->numeric()
                     ])
+                    ->addable(false)
+                    ->itemLabel(fn(array $state) => Currency::toArray()[$state['currency']] ?? null)
                     ->grid()
-                    ->columns()
                     ->columnSpan(2)
 
             ]);
