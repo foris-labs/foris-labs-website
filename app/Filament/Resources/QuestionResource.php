@@ -49,6 +49,7 @@ class QuestionResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('body')
+                    ->label('Question')
                     ->html()
                     ->limit(),
                 Tables\Columns\TextColumn::make('options_count')
