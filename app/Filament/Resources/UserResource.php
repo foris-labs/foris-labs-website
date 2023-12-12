@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Enum\Currency;
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -58,9 +57,13 @@ class UserResource extends Resource
                     ->addable(false)
                     ->itemLabel(fn(array $state) => Currency::toArray()[$state['currency']] ?? null)
                     ->grid()
-                    ->columnSpan(2)
+                    ->columnSpan([
+                        'md' => 1,
+                        'lg' => 2,
+                    ]),
 
-            ]);
+            ])
+            ->columns();
     }
 
     public static function table(Table $table): Table
