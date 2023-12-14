@@ -48,7 +48,7 @@ class TriviaController extends Controller
             'questions' => QuestionResource::collection($questions),
             'startTime' => $startTime->toTimeString(),
             'endTime' => $endTime->toTimeString(),
-            'resetTime' => $resetTime->toTimeString(),
+            'resetTime' => $resetTime->addDay()->toTimeString(),
         ]);
     }
 
