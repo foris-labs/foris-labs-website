@@ -11,10 +11,12 @@ services:
             - app_network
         environment:
             SSL_MODE: 'off'
+        labels:
+            - dev.orbstack.domains=${APP_DOMAIN}
         depends_on:
             - mysql
 
-    npm:
+    bun:
         image: 'oven/bun:alpine'
         working_dir: /var/www
         ports:
@@ -28,15 +30,15 @@ services:
         command: sh -c "bun run dev"
 
     mysql:
-        image: 'mysql/mysql-server:8.0'
+        image: 'mysql:8.0'
         ports:
             - '${DB_PORT:-3306}:3306'
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ROOT_HOST: '%'
             MYSQL_DATABASE: '${DB_DATABASE}'
-            MYSQL_USER: '${DB_USERNAME}'
-            MYSQL_PASSWORD: '${DB_PASSWORD}'
+#            MYSQL_USER: '${DB_USERNAME}'
+#            MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
             - 'mysql_storage:/var/lib/mysql'
