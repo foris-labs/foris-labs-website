@@ -29,4 +29,16 @@ class UpdateCurrencyRequest extends FormRequest
             'currencies.*.amount' => 'required|numeric|min:0',
         ];
     }
+
+    protected function prepareForValidation(): void
+    {
+        $currencies = $this->input('currencies');
+        if(is_string($currencies)) {
+            $decodedCurrencies = json_decode($currencies, true);
+
+            if ($decodedCurrencies !== null) {
+                $this->merge(['currencies' => $decodedCurrencies]);
+            }
+        }
+    }
 }
