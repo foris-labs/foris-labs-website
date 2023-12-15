@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enum\Currency;
+use App\Services\LeaderboardService;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -14,6 +15,10 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+
+/*
+ * @property int $rank
+ */
 
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
@@ -51,15 +56,20 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public static function booting(): void
     {
-        static::creating(function ($user) {
-            if (empty($user->username)) {
-                $user->username = explode('@', $user->email)[0];
-            }
-            if (empty($user->currencies)) {
-                $user->currencies = [
-                    Currency::LAB_CREDITS->value => 0,
-                    Currency::FORIS_POINTS->value => 0,
-                ];
+        static::creating(function (User $user) {
+            $user->username ??= explode('@', $user->email)[0];
+
+            $user->currencies ??= [
+                Currency::LAB_CREDITS->value => 0,
+                Currency::FORIS_POINTS->value => 0,
+            ];
+        });
+
+        static::saving(function (User $user) {
+            if ($user->isDirty('currencies')
+                || $user->wasChanged('currencies')
+                || $user->wasRecentlyCreated) {
+                LeaderboardService::refreshAllLeaderboards();
             }
         });
     }

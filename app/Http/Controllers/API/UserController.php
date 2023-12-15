@@ -9,6 +9,7 @@ use App\Http\Requests\API\UserUpdateRequest;
 use App\Http\Resources\Leaderboard;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Services\LeaderboardService;
 use Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -63,22 +64,6 @@ class UserController extends Controller
     {
         $currency = $request->enum('currency', Currency::class) ?? Currency::LAB_CREDITS;
 
-        $leaderboard = Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
-            $users = User::query()
-                ->select(['users.name', 'username', 'avatar_url', "currencies->{$currency->value} as score"])
-                ->orderBy('currencies->' . $currency->value, 'desc')
-                ->get();
-
-
-            $rank = 0;
-            $users->transform(function ($user) use (&$rank) {
-                $user->rank = ++$rank;
-                return $user;
-            });
-
-            return $users;
-        });
-
-        return new Leaderboard($leaderboard);
+        return LeaderboardService::getLeaderboard($currency);
     }
 }
