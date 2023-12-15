@@ -28,6 +28,7 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/user', [UserController::class, 'update'])->name('api.user.update');
     Route::get('/user/leaderboard', [UserController::class, 'leaderboard'])->name('api.user.leaderboard');
     Route::get('/user/currencies', [UserController::class, 'currencies'])->name('api.user.currencies');
+    Route::put('/user/currencies', [UserController::class, 'updateCurrencies'])->name('api.user.currencies.update');
 
     Route::get('/trivia', [TriviaController::class, 'getForToday'])->name('api.trivia');
     Route::post('/trivia/submit', [TriviaController::class, 'submit'])->name('api.trivia.submit');

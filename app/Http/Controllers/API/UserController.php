@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Enum\Currency;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\API\UpdateCurrencyRequest;
 use App\Http\Requests\API\UserUpdateRequest;
 use App\Http\Resources\Leaderboard;
 use App\Http\Resources\UserResource;
@@ -23,6 +24,20 @@ class UserController extends Controller
     public function currencies()
     {
         return auth()->user()->currencies;
+    }
+
+
+    public function updateCurrencies(UpdateCurrencyRequest $request)
+    {
+        $user = auth()->user();
+
+        foreach ($request->validated('currencies') as $currency) {
+            $user->currencies[$currency['currency']] = $currency['amount'];
+        }
+
+        $user->save();
+
+        return $user->currencies;
     }
 
 
