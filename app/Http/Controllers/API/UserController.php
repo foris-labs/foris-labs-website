@@ -31,11 +31,16 @@ class UserController extends Controller
     {
         $user = auth()->user();
 
+        $currencies = $user->currencies;
+
         foreach ($request->validated('currencies') as $currency) {
-            $user->currencies[$currency['currency']] = $currency['amount'];
+            $currencies[$currency['currency']] = $currency['amount'];
         }
 
-        $user->save();
+        $user->update([
+            'currencies' => $currencies
+        ]);
+
 
         return $user->currencies;
     }
