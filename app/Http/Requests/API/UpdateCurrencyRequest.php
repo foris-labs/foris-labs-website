@@ -25,7 +25,7 @@ class UpdateCurrencyRequest extends FormRequest
     {
         return [
             'currencies' => ['required', 'array'],
-            'currencies.*.currency' => ['required', 'string', Rule::in(Currency::values())],
+            'currencies.*.currency' => ['required', 'string'],
             'currencies.*.amount' => 'required|numeric|min:0',
         ];
     }
