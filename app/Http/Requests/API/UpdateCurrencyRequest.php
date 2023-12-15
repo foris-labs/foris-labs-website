@@ -34,7 +34,7 @@ class UpdateCurrencyRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $currencies = $this->input('currencies');
-        if(is_string($currencies)) {
+        if (is_string($currencies)) {
             $decodedCurrencies = json_decode($currencies, true);
 
             if ($decodedCurrencies !== null) {
@@ -43,12 +43,8 @@ class UpdateCurrencyRequest extends FormRequest
         }
 
         $relative = $this->input('relative');
-        if(is_string($relative)) {
-            $decodedRelative = json_decode($relative, true);
-
-            if ($decodedRelative !== null) {
-                $this->merge(['relative' => $decodedRelative]);
-            }
+        if (is_string($relative)) {
+            $this->merge(['relative' => filter_var($relative, FILTER_VALIDATE_BOOLEAN)]);
         }
     }
 }
