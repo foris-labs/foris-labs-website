@@ -41,5 +41,14 @@ class UpdateCurrencyRequest extends FormRequest
                 $this->merge(['currencies' => $decodedCurrencies]);
             }
         }
+
+        $relative = $this->input('relative');
+        if(is_string($relative)) {
+            $decodedRelative = json_decode($relative, true);
+
+            if ($decodedRelative !== null) {
+                $this->merge(['relative' => $decodedRelative]);
+            }
+        }
     }
 }
