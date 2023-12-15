@@ -26,8 +26,15 @@ class UpdateCurrencyRequest extends FormRequest
         return [
             'currencies' => ['required', 'array'],
             'currencies.*.currency' => ['required', 'string'],
-            'currencies.*.amount' => 'required|numeric|min:0',
+            'currencies.*.amount' => ['required', 'numeric', Rule::when(!$this->boolean('relative'), fn () => 'min:0')],
             'relative' => ['nullable', 'boolean'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'currencies.*.amount.min' => 'Amount must not be negative.',
         ];
     }
 
