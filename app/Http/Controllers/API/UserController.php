@@ -48,7 +48,7 @@ class UserController extends Controller
 
             $rank = 0;
             $users->transform(function ($user) use (&$rank) {
-                $user->rank = $rank++;
+                $user->rank = ++$rank;
                 return $user;
             });
 
