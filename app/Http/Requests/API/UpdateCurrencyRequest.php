@@ -27,6 +27,7 @@ class UpdateCurrencyRequest extends FormRequest
             'currencies' => ['required', 'array'],
             'currencies.*.currency' => ['required', 'string'],
             'currencies.*.amount' => 'required|numeric|min:0',
+            'relative' => ['nullable', 'boolean'],
         ];
     }
 

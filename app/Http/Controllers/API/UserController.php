@@ -34,7 +34,11 @@ class UserController extends Controller
         $currencies = $user->currencies;
 
         foreach ($request->validated('currencies') as $currency) {
-            $currencies[$currency['currency']] = $currency['amount'];
+            if ($request->boolean('relative')) {
+                $currencies[$currency['currency']] += $currency['amount'];
+            } else {
+                $currencies[$currency['currency']] = $currency['amount'];
+            }
         }
 
         $user->update([
