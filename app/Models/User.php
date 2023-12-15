@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\Currency;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -54,6 +55,12 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
             if (empty($user->username)) {
                 $user->username = explode('@', $user->email)[0];
             }
+            if (empty($user->currencies)) {
+                $user->currencies = [
+                    Currency::LAB_CREDITS->value => 0,
+                    Currency::FORIS_POINTS->value => 0,
+                ];
+            }
         });
     }
 
@@ -62,17 +69,17 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return $this->hasMany(Trivia::class);
     }
 
-    public function school() : BelongsTo
+    public function school(): BelongsTo
     {
         return $this->belongsTo(School::class);
     }
 
-    public function subscriptions() : HasMany
+    public function subscriptions(): HasMany
     {
         return $this->hasMany(Subscription::class);
     }
 
-    public function activeSubscription() : HasOne
+    public function activeSubscription(): HasOne
     {
         return $this->hasOne(Subscription::class)->ofMany([], function (Builder $query) {
             $query->where('ended_at', '<', now());
@@ -86,6 +93,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return asset('storage/'. $this->avatar_url);
+        return asset('storage/' . $this->avatar_url);
     }
 }
