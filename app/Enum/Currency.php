@@ -14,6 +14,13 @@ enum Currency : string implements \JsonSerializable
             self::FORIS_POINTS->value => 'Foris Points',
         ];
     }
+    public static function values(): array
+    {
+        return [
+            self::LAB_CREDITS,
+            self::FORIS_POINTS,
+        ];
+    }
     public function jsonSerialize(): string
     {
         return $this->value;
