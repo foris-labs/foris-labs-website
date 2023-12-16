@@ -17,18 +17,25 @@ class LeaderboardService
     {
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
 //            $users = User::query()
-//                ->select(['users.name', 'username', 'avatar_url', "currencies->{$currency->value} as score"])
-//                ->orderBy('currencies->' . $currency->value, 'desc')
+//                ->select([
+//                    'users.name',
+//                    'username',
+//                    'avatar_url',
+//                    DB::raw("CAST(currencies->{$currency->value} AS SIGNED) AS score"),
+//                ])
+//                ->orderBy(DB::raw("CAST(currencies->{$currency->value} AS SIGNED)"), 'desc')
 //                ->get();
+
             $users = User::query()
                 ->select([
                     'users.name',
                     'username',
                     'avatar_url',
-                    DB::raw("JSON_EXTRACT(currencies, '$." . $currency->value . "') AS score"),
+                    DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS DECIMAL(10,2)) AS score"),
                 ])
-                ->orderBy(DB::raw("JSON_EXTRACT(currencies, '$." . $currency->value . "')"), 'desc')
+                ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS DECIMAL(10,2))"), 'desc')
                 ->get();
+
 
 
             $rank = 0;
