@@ -92,6 +92,9 @@ it('can get the leaderboard', function () {
 
     $user = createUser();
 
+    cache()->forget('leaderboard-' . Currency::LAB_CREDITS->value);
+    cache()->forget('leaderboard-' . Currency::FORIS_POINTS->value);
+
     actingAs($user, 'api')
         ->getJson(route('api.user.leaderboard'))
         ->assertOk()

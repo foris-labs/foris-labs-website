@@ -65,7 +65,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
             ];
         });
 
-        static::saving(function (User $user) {
+        static::saved(function (User $user) {
+            LeaderboardService::refreshAllLeaderboards();
+        });
+
+        static::deleted(function (User $user) {
             LeaderboardService::refreshAllLeaderboards();
         });
     }

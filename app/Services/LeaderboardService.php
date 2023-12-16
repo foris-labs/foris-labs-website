@@ -9,15 +9,25 @@ use App\Enum\Currency;
 use App\Http\Resources\Leaderboard;
 use App\Models\User;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class LeaderboardService
 {
     public static function getLeaderboard(Currency $currency): Leaderboard
     {
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
+//            $users = User::query()
+//                ->select(['users.name', 'username', 'avatar_url', "currencies->{$currency->value} as score"])
+//                ->orderBy('currencies->' . $currency->value, 'desc')
+//                ->get();
             $users = User::query()
-                ->select(['users.name', 'username', 'avatar_url', "currencies->{$currency->value} as score"])
-                ->orderBy('currencies->' . $currency->value, 'desc')
+                ->select([
+                    'users.name',
+                    'username',
+                    'avatar_url',
+                    DB::raw("JSON_EXTRACT(currencies, '$." . $currency->value . "') AS score"),
+                ])
+                ->orderBy(DB::raw("JSON_EXTRACT(currencies, '$." . $currency->value . "')"), 'desc')
                 ->get();
 
 
@@ -29,6 +39,7 @@ class LeaderboardService
 
             return $users;
         });
+
 
         return new Leaderboard($leaderboard);
     }
