@@ -66,11 +66,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         });
 
         static::saving(function (User $user) {
-            if ($user->isDirty('currencies')
-                || $user->wasChanged('currencies')
-                || $user->wasRecentlyCreated) {
-                LeaderboardService::refreshAllLeaderboards();
-            }
+            LeaderboardService::refreshAllLeaderboards();
         });
     }
 
