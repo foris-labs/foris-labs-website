@@ -31,9 +31,9 @@ class LeaderboardService
                     'users.name',
                     'username',
                     'avatar_url',
-                    DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS DECIMAL(10,2)) AS score"),
+                    DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
                 ])
-                ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS DECIMAL(10,2))"), 'desc')
+                ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
                 ->get();
 
 
