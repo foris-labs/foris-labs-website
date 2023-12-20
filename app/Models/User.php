@@ -57,8 +57,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public static function booting(): void
     {
         static::creating(function (User $user) {
-            $user->username ??= explode('@', $user->email)[0];
-
             $user->currencies ??= [
                 Currency::LAB_CREDITS->value => 0,
                 Currency::FORIS_POINTS->value => 0,
