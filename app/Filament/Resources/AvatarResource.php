@@ -14,6 +14,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class AvatarResource extends Resource
@@ -78,6 +79,7 @@ class AvatarResource extends Resource
                 Tables\Columns\ImageColumn::make('image_url')
                     ->label('Image')
                     ->disk('public')
+                    ->state(fn (Avatar $avatar) => Storage::disk('public')->url("avatars/$avatar->image_url"))
                     ->circular(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable()
