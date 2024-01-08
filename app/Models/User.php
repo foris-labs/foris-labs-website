@@ -128,6 +128,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         $this->loadMissing('currentAvatar');
 
-        return asset("storage/{$this->currentAvatar?->image_url}");
+        return asset("storage/avatars/{$this->currentAvatar?->image_url}");
     }
 }

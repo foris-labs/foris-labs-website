@@ -31,7 +31,7 @@ class AvatarController extends Controller
 
 
         return response(\Storage::disk('public')
-            ->get($avatar->image_url));
+            ->get("avatars/$avatar->image_url"));
     }
 
 
