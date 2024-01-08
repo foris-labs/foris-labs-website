@@ -34,6 +34,7 @@ class AvatarsRelationManager extends RelationManager
                 Tables\Columns\ImageColumn::make('image_url')
                     ->label('Image')
                     ->disk('public')
+                    ->state(fn (Avatar $avatar) => $avatar->external_url)
                     ->circular(),
 
                 Tables\Columns\TextColumn::make('slug'),
