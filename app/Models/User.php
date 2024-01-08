@@ -9,8 +9,10 @@ use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -63,13 +65,13 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
             ];
         });
 
-        static::saved(function (User $user) {
-            LeaderboardService::refreshAllLeaderboards();
-        });
-
-        static::deleted(function (User $user) {
-            LeaderboardService::refreshAllLeaderboards();
-        });
+//        static::saved(function (User $user) {
+//            LeaderboardService::refreshAllLeaderboards();
+//        });
+//
+//        static::deleted(function (User $user) {
+//            LeaderboardService::refreshAllLeaderboards();
+//        });
     }
 
     public function trivias(): HasMany
@@ -81,6 +83,29 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return $this->belongsTo(School::class);
     }
+
+    public function avatars(): BelongsToMany
+    {
+        return $this->belongsToMany(Avatar::class)
+            ->using(AvatarUser::class)
+            ->withPivot('is_current');
+    }
+
+    public function currentAvatar(): HasOneThrough
+    {
+        return $this->hasOneThrough(Avatar::class, AvatarUser::class, 'user_id', 'id', 'id', 'avatar_id')
+            ->where('is_current', true);
+    }
+
+    public function setCurrentAvatar(Avatar $avatar): void
+    {
+        $this->loadMissing('avatars');
+        foreach ($this->avatars as $userAvatar) {
+            $userAvatar->pivot->is_current = $userAvatar->id === $avatar->id;
+            $userAvatar->pivot->save();
+        }
+    }
+
 
     public function subscriptions(): HasMany
     {
@@ -101,6 +126,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return asset('storage/' . $this->avatar_url);
+        $this->loadMissing('currentAvatar');
+
+        return asset("storage/{$this->currentAvatar?->image_url}");
     }
 }

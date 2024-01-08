@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('gender')->nullable();
             $table->string('password')->nullable();
-            $table->string('avatar_url')->nullable();
             $table->json('socials')->nullable();
             $table->json('currencies')->nullable();
             $table->timestamp('email_verified_at')->nullable();

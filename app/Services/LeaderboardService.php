@@ -23,6 +23,7 @@ class LeaderboardService
                     'avatar_url',
                     DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
                 ])
+                ->with('currentAvatar')
                 ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
                 ->get();
 

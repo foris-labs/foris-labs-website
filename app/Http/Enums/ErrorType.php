@@ -6,6 +6,8 @@ enum ErrorType: string
 {
     case NotConnected = 'not_connected';
 
+    case NotFound = 'not_found';
+
     case NotAuthenticated = 'not_authenticated';
 
     case CannotDeserialize = 'cannot_deserialize';

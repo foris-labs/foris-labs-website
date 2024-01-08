@@ -27,6 +27,15 @@ class UserController extends Controller
         return auth()->user()->currencies;
     }
 
+    public function avatars()
+    {
+        $user = auth()->user();
+
+        $user->loadMissing('avatars');
+
+        return auth()->user()->avatars->map(fn ($avatar) => $avatar->slug);
+    }
+
 
     public function updateCurrencies(UpdateCurrencyRequest $request)
     {

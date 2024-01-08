@@ -11,13 +11,15 @@ class UserResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
+        $this->loadMissing('currentAvatar');
+
         return [
             'id' => $this->id,
             'fullname' => $this->name,
             'username' => $this->username,
             'email' => $this->email,
             'gender' => $this->gender,
-            'avatar_url' => asset('storage/' . $this->avatar_url),
+            'avatar_slug' => $this->currentAvatar->slug,
             'currencies' => $this->currencies,
         ];
     }

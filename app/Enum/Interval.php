@@ -2,21 +2,32 @@
 
 namespace App\Enum;
 
-enum Interval: string
+use Filament\Support\Contracts\HasLabel;
+
+enum Interval: int implements HasLabel
 {
-    case hourly = 'hourly';
-    case monthly = 'monthly';
-    case weekly = 'weekly';
-    case daily = 'daily';
+    case HOURLY = 1;
+
+    case BI_HOURLY = 2;
+
+    case DAILY = 24;
+
+    case WEEKLY = 168;
+
+    case MONTHLY = 730;
+
+    case YEARLY = 8760;
 
 
-    public static function toArray(): array
+    public function getLabel(): ?string
     {
-        return [
-            'hourly' => 'Hourly',
-            'monthly' => 'Monthly',
-            'weekly' => 'Weekly',
-            'daily' => 'Daily',
-        ];
+        return match ($this) {
+            self::HOURLY => 'Hourly',
+            self::BI_HOURLY => 'Bi-Hourly',
+            self::DAILY => 'Daily',
+            self::WEEKLY => 'Weekly',
+            self::MONTHLY => 'Monthly',
+            self::YEARLY => 'Yearly',
+        };
     }
 }

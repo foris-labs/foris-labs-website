@@ -22,9 +22,9 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'username' => $this->faker->unique()->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'gender' => $this->faker->randomElement(['male', 'female']),
-            'avatar_url' => '',
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // password,
             'school_id' => $this->faker->numberBetween(0, School::count()),

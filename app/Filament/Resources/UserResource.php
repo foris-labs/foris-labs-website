@@ -40,16 +40,9 @@ class UserResource extends Resource
                         'other' => 'Other'
                     ]),
 
-                Forms\Components\FileUpload::make('avatar_url')
-                    ->label('Avatar')
-                    ->directory('avatars')
-                    ->avatar()
-                    ->image()
-                    ->imageEditor()
-                    ->imagePreviewHeight('150')
-                    ->maxWidth('150'),
                 Forms\Components\Select::make('school_id')
                     ->relationship('school', 'name'),
+
                 Forms\Components\Repeater::make('currencies')
                     ->schema([
                         Forms\Components\TextInput::make('balance')->numeric()
@@ -78,9 +71,8 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('gender')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('avatar_url')
+                Tables\Columns\ImageColumn::make('currentAvatar.image_url')
                     ->label('Avatar')
-                    ->defaultImageUrl(asset('img/avatar.png'))
                     ->circular(),
                 Tables\Columns\TextColumn::make('school.name')
                     ->placeholder('—')
@@ -107,7 +99,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            UserResource\RelationManagers\AvatarsRelationManager::class,
         ];
     }
 
