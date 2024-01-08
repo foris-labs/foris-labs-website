@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Enum\Currency;
 use App\Filament\Resources\UserResource\Pages;
+use App\Models\Avatar;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -73,6 +74,7 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('currentAvatar.image_url')
                     ->label('Avatar')
+                    ->state(fn (User $user) => $user->currentAvatar->external_url)
                     ->circular(),
                 Tables\Columns\TextColumn::make('school.name')
                     ->placeholder('—')
