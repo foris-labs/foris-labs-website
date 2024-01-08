@@ -23,7 +23,7 @@ Route::post('/register/email', [AuthController::class, 'emailRegister'])->name('
 Route::post('/login/email', [AuthController::class, 'emailLogin'])->name('api.login.email');
 Route::post('/login/{provider}', [AuthController::class, 'socialLogin'])->name('api.login.social');
 
-Route::get('/avatar', [AvatarController::class, 'show'])->name('api.avatar.show');
+
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('api.forgot-password');
@@ -37,7 +37,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/user/avatars', [UserController::class, 'avatars'])->name('api.user.avatars');
     Route::put('/user/avatars', [UserController::class, 'updateAvatar'])->name('api.user.avatars.update');
 
-
+    Route::get('/avatar', [AvatarController::class, 'show'])->name('api.avatar.show');
 
     Route::get('/trivia', [TriviaController::class, 'getForToday'])->name('api.trivia');
     Route::post('/trivia/submit', [TriviaController::class, 'submit'])->name('api.trivia.submit');
