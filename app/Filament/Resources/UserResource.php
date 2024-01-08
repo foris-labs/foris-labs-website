@@ -74,7 +74,7 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('currentAvatar.image_url')
                     ->label('Avatar')
-                    ->state(fn (User $user) => $user->currentAvatar->external_url)
+                    ->state(fn (User $user) => $user->currentAvatar?->external_url)
                     ->circular(),
                 Tables\Columns\TextColumn::make('school.name')
                     ->placeholder('—')
