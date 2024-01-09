@@ -56,24 +56,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'currencies' => 'array',
     ];
 
-    public static function booting(): void
-    {
-        static::creating(function (User $user) {
-            $user->currencies ??= [
-                Currency::LAB_CREDITS->value => 0,
-                Currency::FORIS_POINTS->value => 0,
-            ];
-        });
-
-//        static::saved(function (User $user) {
-//            LeaderboardService::refreshAllLeaderboards();
-//        });
-//
-//        static::deleted(function (User $user) {
-//            LeaderboardService::refreshAllLeaderboards();
-//        });
-    }
-
     public function trivias(): HasMany
     {
         return $this->hasMany(Trivia::class);

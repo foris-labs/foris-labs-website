@@ -17,6 +17,14 @@ enum Currency: string implements \JsonSerializable, HasLabel
         ];
     }
 
+    public static function defaults(): array
+    {
+        return [
+            self::LAB_CREDITS->value => 0,
+            self::FORIS_POINTS->value => 0,
+        ];
+    }
+
     public static function values(): array
     {
         return [

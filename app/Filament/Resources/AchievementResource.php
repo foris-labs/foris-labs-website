@@ -24,46 +24,50 @@ class AchievementResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_active')
-                    ->required(),
-                Forms\Components\Repeater::make('reward')
+                Forms\Components\Section::make( 'General Information')
+                    ->columns()
                     ->schema([
-                        Forms\Components\Grid::make()
-                            ->extraAttributes(['class' => 'filament-input-group'])
+                        Forms\Components\TextInput::make('title')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('slug')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Textarea::make('description')
+                            ->maxLength(65535)
+                            ->columnSpanFull(),
+                        Forms\Components\Toggle::make('is_active')
+                            ->required(),
+                        Forms\Components\Repeater::make('reward')
                             ->schema([
-                                Forms\Components\Select::make('currency')
-                                    ->native(false)
-                                    ->options(Currency::class)
-                                    ->distinct()
-                                    ->fixIndistinctState(),
-                                Forms\Components\TextInput::make('amount')->live()->numeric()
+                                Forms\Components\Grid::make()
+                                    ->extraAttributes(['class' => 'filament-input-group'])
+                                    ->schema([
+                                        Forms\Components\Select::make('currency')
+                                            ->native(false)
+                                            ->options(Currency::class)
+                                            ->distinct()
+                                            ->fixIndistinctState(),
+                                        Forms\Components\TextInput::make('amount')->live()->numeric()
+                                    ])
                             ])
-                    ])
-                    ->itemLabel(function (array $state) {
-                        if (!isset($state['currency'])) {
-                            return null;
-                        }
+                            ->itemLabel(function (array $state) {
+                                if (!isset($state['currency'])) {
+                                    return null;
+                                }
 
-                        return Currency::from($state['currency'])->format($state['amount'] ?? 0);
-                    })
-                    ->grid()
-                    ->columnSpan([
-                        'md' => 1,
-                        'lg' => 2,
-                    ]),
-                Forms\Components\KeyValue::make('meta')
-                    ->columnSpan([
-                        'md' => 1,
-                        'lg' => 2,
+                                return Currency::from($state['currency'])->format($state['amount'] ?? 0);
+                            })
+                            ->grid()
+                            ->columnSpan([
+                                'md' => 1,
+                                'lg' => 2,
+                            ]),
+                        Forms\Components\KeyValue::make('meta')
+                            ->columnSpan([
+                                'md' => 1,
+                                'lg' => 2,
+                            ]),
                     ]),
             ]);
     }
