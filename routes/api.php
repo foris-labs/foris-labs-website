@@ -35,7 +35,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/user/currencies', [UserController::class, 'currencies'])->name('api.user.currencies');
     Route::put('/user/currencies', [UserController::class, 'updateCurrencies'])->name('api.user.currencies.update');
     Route::get('/user/avatars', [UserController::class, 'avatars'])->name('api.user.avatars');
-    Route::put('/user/avatars', [UserController::class, 'updateAvatar'])->name('api.user.avatars.update');
+    Route::put('/user/avatar', [UserController::class, 'updateAvatar'])->name('api.user.avatar.update');
 
     Route::get('/avatars', [AvatarController::class, 'index'])->name('api.avatars');
     Route::get('/avatar', [AvatarController::class, 'show'])->name('api.avatar.show');

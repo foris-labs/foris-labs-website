@@ -20,7 +20,6 @@ class LeaderboardService
                 ->select([
                     'users.name',
                     'username',
-                    'avatar_url',
                     DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
                 ])
                 ->with('currentAvatar')
