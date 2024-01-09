@@ -11,6 +11,7 @@ use App\Http\Resources\AvatarResource;
 use App\Http\Resources\ErrorResponse;
 use App\Models\Avatar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AvatarController extends Controller
 {
