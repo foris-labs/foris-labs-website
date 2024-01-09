@@ -41,7 +41,7 @@ class UserController extends Controller
     {
         $user = auth()->user();
 
-        $avatar = Avatar::where('slug', $request->input('avatar'))->first();
+        $avatar = Avatar::where('slug', $request->input('name'))->first();
 
         if (!$avatar) {
             return response()->json([
