@@ -82,6 +82,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function setCurrentAvatar(Avatar $avatar): void
     {
         $this->loadMissing('avatars');
+
+        if (!$this->avatars->contains($avatar)) {
+            $this->avatars()->attach($avatar->id, ['is_current' => true]);
+        }
+
         foreach ($this->avatars as $userAvatar) {
             $userAvatar->pivot->is_current = $userAvatar->id === $avatar->id;
             $userAvatar->pivot->save();

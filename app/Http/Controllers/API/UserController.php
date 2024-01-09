@@ -8,6 +8,7 @@ use App\Http\Requests\API\UpdateCurrencyRequest;
 use App\Http\Requests\API\UserUpdateRequest;
 use App\Http\Resources\Leaderboard;
 use App\Http\Resources\UserResource;
+use App\Models\Avatar;
 use App\Models\User;
 use App\Services\LeaderboardService;
 use Cache;
@@ -34,6 +35,25 @@ class UserController extends Controller
         $user->loadMissing('avatars');
 
         return auth()->user()->avatars->map(fn ($avatar) => $avatar->slug);
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        $user = auth()->user();
+
+        $avatar = Avatar::where('slug', $request->input('avatar'))->first();
+
+        if (!$avatar) {
+            return response()->json([
+                'message' => 'Avatar not found'
+            ], 404);
+        }
+
+        $user->setCurrentAvatar($avatar);
+
+        return response()->json([
+            'message' => 'Avatar updated successfully'
+        ]);
     }
 
 
