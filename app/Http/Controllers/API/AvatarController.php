@@ -14,11 +14,17 @@ use Illuminate\Http\Request;
 
 class AvatarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return [
-            'avatars' => AvatarResource::collection(Avatar::all()),
-        ];
+        $free = $request->boolean('free');
+
+        $avatars = Avatar::query();
+
+        if ($free) {
+            $avatars = $avatars->where('price', DB::raw("json_array()"));
+        }
+
+        return AvatarResource::collection($avatars->get());
     }
 
     public function show(Request $request)
