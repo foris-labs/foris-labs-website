@@ -17,9 +17,7 @@ class AvatarResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
             'slug' => $this->slug,
-            'image_url' => asset("storage/$this->image_url"),
             'price' => $this->price,
         ];
     }

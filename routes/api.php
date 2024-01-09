@@ -37,6 +37,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/user/avatars', [UserController::class, 'avatars'])->name('api.user.avatars');
     Route::put('/user/avatars', [UserController::class, 'updateAvatar'])->name('api.user.avatars.update');
 
+    Route::get('/avatars', [AvatarController::class, 'index'])->name('api.avatars');
     Route::get('/avatar', [AvatarController::class, 'show'])->name('api.avatar.show');
 
     Route::get('/trivia', [TriviaController::class, 'getForToday'])->name('api.trivia');
