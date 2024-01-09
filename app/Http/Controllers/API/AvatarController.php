@@ -16,7 +16,9 @@ class AvatarController extends Controller
 {
     public function index()
     {
-        return AvatarResource::collection(Avatar::all());
+        return [
+            'avatars' => AvatarResource::collection(Avatar::all()),
+        ];
     }
 
     public function show(Request $request)
