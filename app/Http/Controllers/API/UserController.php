@@ -6,6 +6,7 @@ use App\Enum\Currency;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\UpdateCurrencyRequest;
 use App\Http\Requests\API\UserUpdateRequest;
+use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\Leaderboard;
 use App\Http\Resources\UserResource;
 use App\Models\Avatar;
@@ -44,9 +45,7 @@ class UserController extends Controller
         $avatar = Avatar::where('slug', $request->input('name'))->first();
 
         if (!$avatar) {
-            return response()->json([
-                'message' => 'Avatar not found'
-            ], 404);
+            return ErrorResponse::notFound('Avatar not found');
         }
 
         $user->setCurrentAvatar($avatar);
