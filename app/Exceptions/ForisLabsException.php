@@ -59,4 +59,5 @@ class ForisLabsException extends Exception
     {
         return new self('Trivia already taken for today.', ErrorType::TriviaAlreadyTaken);
     }
+
 }

@@ -12,9 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(CurrencySeeder::class);
+        $this->call(OauthClientSeeder::class);
         $this->call(SchoolsSeeder::class);
         $this->call(QuestionsSeeder::class);
+        $this->call(AvatarSeeder::class);
         $this->call(UsersSeeder::class);
+
+        $this->call(ActivitySeeder::class);
+        $this->call(AchievementSeeder::class);
     }
 }

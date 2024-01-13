@@ -38,7 +38,8 @@ class QuestionResource extends Resource
                             ->required(),
                     ])
                     ->grid(2)
-                    ->defaultItems(4)
+                    ->minItems(4)
+                    ->maxItems(4)
                     ->columnSpanFull(),
             ]);
     }
@@ -48,12 +49,12 @@ class QuestionResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('body')
+                    ->label('Question')
                     ->html()
                     ->limit(),
                 Tables\Columns\TextColumn::make('options_count')
                     ->label('Options')
-                    ->counts('options')
-                    ->sortable(),
+                    ->counts('options'),
             ])
             ->filters([
                 //

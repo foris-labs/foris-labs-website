@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enum\Currency;
 use App\Models\School;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -21,13 +22,17 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'username' => $this->faker->unique()->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'gender' => $this->faker->randomElement(['male', 'female']),
-            'avatar_url' => '',
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // password,
             'school_id' => $this->faker->numberBetween(0, School::count()),
             'remember_token' => Str::random(10),
+            'currencies' => [
+                Currency::LAB_CREDITS->value => $this->faker->numberBetween(0, 1000),
+                Currency::FORIS_POINTS->value => $this->faker->numberBetween(0, 1000),
+            ],
         ];
     }
 
@@ -36,7 +41,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }

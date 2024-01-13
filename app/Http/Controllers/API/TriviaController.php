@@ -27,14 +27,13 @@ class TriviaController extends Controller
         $resetTime = CarbonImmutable::createFromTimeString($triviaSettings->resetTime);
 
         throw_if(
-            condition: $currentTime->isAfter($endTime) && $currentTime->isBefore($resetTime->addDay()),
+            condition: !$currentTime->isBetween($resetTime, $endTime),
             exception: ForisLabsException::TriviaWindowClosed()
         );
 
         throw_if(
             condition: $user->trivias()
-                ->whereTime('created_at', '>=', $startTime)
-                ->whereTime('created_at', '<=', $endTime)
+                ->whereBetween('created_at', [$resetTime, $resetTime->addDay()])
                 ->exists(),
             exception: ForisLabsException::TriviaAlreadyTaken()
         );
@@ -49,24 +48,21 @@ class TriviaController extends Controller
             'questions' => QuestionResource::collection($questions),
             'startTime' => $startTime->toTimeString(),
             'endTime' => $endTime->toTimeString(),
-        ]);
-    }
-
-    public function start(Request $request)
-    {
-        $user = auth('api')->user();
-        $user->trivias()->create([
-            'score' => 0,
-        ]);
-
-        return response()->json([
-            'message' => 'Trivia started.',
-            'data' => null,
+            'resetTime' => $resetTime->addDay()->toTimeString(),
         ]);
     }
 
     public function submit(Request $request)
     {
+        $user = auth('api')->user();
+
+        $user->trivias()->create([
+            'score' => $request->input('score'),
+        ]);
+
+        return response()->json([
+            'message' => 'Trivia submitted.'
+        ]);
     }
 
 }

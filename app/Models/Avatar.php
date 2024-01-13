@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-use App\Enum\Interval;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
 
-class Currency extends Model
+class Avatar extends Model
 {
     use HasFactory;
 
-
-    public const FORIS_POINTS = 'FP';
-    public const LAB_CREDITS = 'LC';
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +20,7 @@ class Currency extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'code', 'description', 'can_recharge', 'recharge_amount', 'recharge_interval', 'recharge_at'
+        'slug', 'image_url', 'price',
     ];
 
     /**
@@ -30,14 +29,18 @@ class Currency extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'can_recharge' => 'boolean',
-        'recharge_interval' => Interval::class,
-        'recharge_at' => 'timestamp',
+        'price' => 'array',
     ];
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class)->withPivot('balance');
+        return $this->belongsToMany(User::class)->withPivot('is_current');
     }
 
+    public function externalUrl(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value, array $attributes) => Storage::disk('public')->url("avatars/$attributes[image_url]")
+        );
+    }
 }

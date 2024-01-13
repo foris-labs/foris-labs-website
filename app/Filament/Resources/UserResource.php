@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources;
 
+use App\Enum\Currency;
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Models\Avatar;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -39,19 +40,24 @@ class UserResource extends Resource
                         'female' => 'Female',
                         'other' => 'Other'
                     ]),
-//                Forms\Components\TextInput::make('password')
-//                    ->password()
-//                    ->maxLength(255),
-                Forms\Components\FileUpload::make('avatar_url')
-                    ->label('Avatar')
-                    ->image()
-                    ->imageEditor()
-                    ->imagePreviewHeight('150')
-                    ->maxWidth('150'),
-//                    ->panelLayout('circle'),
+
                 Forms\Components\Select::make('school_id')
                     ->relationship('school', 'name'),
-            ]);
+
+                Forms\Components\Repeater::make('currencies')
+                    ->schema([
+                        Forms\Components\TextInput::make('balance')->numeric()
+                    ])
+                    ->addable(false)
+                    ->itemLabel(fn(array $state) => Currency::toArray()[$state['currency']] ?? null)
+                    ->grid()
+                    ->columnSpan([
+                        'md' => 1,
+                        'lg' => 2,
+                    ]),
+
+            ])
+            ->columns();
     }
 
     public static function table(Table $table): Table
@@ -66,8 +72,9 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('gender')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('avatar_url')
-                    ->defaultImageUrl(asset('img/avatar.png'))
+                Tables\Columns\ImageColumn::make('currentAvatar.image_url')
+                    ->label('Avatar')
+                    ->state(fn (User $user) => $user->currentAvatar?->external_url)
                     ->circular(),
                 Tables\Columns\TextColumn::make('school.name')
                     ->placeholder('—')
@@ -82,6 +89,7 @@ class UserResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -93,7 +101,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            UserResource\RelationManagers\AvatarsRelationManager::class,
         ];
     }
 

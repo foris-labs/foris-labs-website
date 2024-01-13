@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Listeners\PruneOldTokens;
 use App\Listeners\RevokeOldTokens;
+use App\Models\User;
+use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -32,11 +34,20 @@ class EventServiceProvider extends ServiceProvider
     ];
 
     /**
+     * The model observers to register.
+     *
+     * @var array<string, string|object|array<int, string|object>>
+     */
+    protected $observers = [
+        User::class => UserObserver::class,
+    ];
+
+    /**
      * Register any events for your application.
      */
     public function boot(): void
     {
-        //
+
     }
 
     /**

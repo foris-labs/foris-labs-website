@@ -60,7 +60,7 @@ uses(
 function createUser(
     string $name = 'John Doe',
     string $email = 'johndoe@forislabs.com',
-    string $password = 'password'
+    string $password = 'password',
 ): User
 {
     return User::factory()->create([

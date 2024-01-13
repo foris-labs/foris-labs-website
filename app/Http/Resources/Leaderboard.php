@@ -23,7 +23,7 @@ class Leaderboard extends ResourceCollection
                 ->map(function (User $user) {
                     return [
                         'username' => $user->username,
-                        'avatar_url' => $user->avatar_url,
+                        'avatar_slug' => $user->currentAvatar?->slug,
                         'score' => $user->score,
                         'rank' => $user->rank,
                     ];

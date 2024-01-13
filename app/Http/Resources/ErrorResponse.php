@@ -36,6 +36,11 @@ class ErrorResponse implements Responsable
         );
     }
 
+    public static function notFound(string $message = 'Not Found'): self
+    {
+        return new self($message, ErrorType::NotFound, 404);
+    }
+
 
     public function toResponse($request): JsonResponse|Response
     {

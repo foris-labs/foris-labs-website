@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enum\Currency;
+use App\Services\LeaderboardService;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -10,10 +12,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+
+/*
+ * @property int $rank
+ */
 
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
@@ -25,7 +32,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'username', 'email', 'gender', 'password', 'avatar_url', 'social_data->facebook', 'social_data->google'
+        'name', 'username', 'email', 'gender', 'password', 'avatar_url',
+        'socials->facebook', 'socials->google', 'currencies',
     ];
 
     /**
@@ -44,42 +52,54 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'social_data' => 'array'
+        'social_data' => 'array',
+        'currencies' => 'array',
     ];
-
-    public static function booting()
-    {
-        static::creating(function ($user) {
-            if (empty($user->username)) {
-                $user->username = explode('@', $user->email)[0];
-            }
-        });
-    }
-
-    public function currencies(): BelongsToMany
-    {
-        return $this
-            ->belongsToMany(Currency::class)
-            ->as('wallet')
-            ->withPivot('balance');
-    }
 
     public function trivias(): HasMany
     {
         return $this->hasMany(Trivia::class);
     }
 
-    public function school() : BelongsTo
+    public function school(): BelongsTo
     {
         return $this->belongsTo(School::class);
     }
 
-    public function subscriptions() : HasMany
+    public function avatars(): BelongsToMany
+    {
+        return $this->belongsToMany(Avatar::class)
+            ->using(AvatarUser::class)
+            ->withPivot('is_current');
+    }
+
+    public function currentAvatar(): HasOneThrough
+    {
+        return $this->hasOneThrough(Avatar::class, AvatarUser::class, 'user_id', 'id', 'id', 'avatar_id')
+            ->where('is_current', true);
+    }
+
+    public function setCurrentAvatar(Avatar $avatar): void
+    {
+        $this->loadMissing('avatars');
+
+        if (!$this->avatars->contains($avatar)) {
+            $this->avatars()->attach($avatar->id, ['is_current' => true]);
+        }
+
+        foreach ($this->avatars as $userAvatar) {
+            $userAvatar->pivot->is_current = $userAvatar->id === $avatar->id;
+            $userAvatar->pivot->save();
+        }
+    }
+
+
+    public function subscriptions(): HasMany
     {
         return $this->hasMany(Subscription::class);
     }
 
-    public function activeSubscription() : HasOne
+    public function activeSubscription(): HasOne
     {
         return $this->hasOne(Subscription::class)->ofMany([], function (Builder $query) {
             $query->where('ended_at', '<', now());
@@ -93,6 +113,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function getFilamentAvatarUrl(): ?string
     {
-        return asset('storage/'. $this->avatar_url);
+        $this->loadMissing('currentAvatar');
+
+        return asset("storage/avatars/{$this->currentAvatar?->image_url}");
     }
 }
