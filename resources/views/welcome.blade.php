@@ -75,16 +75,6 @@
         <div class="container mx-auto px-4 md:px-12 lg:px-16">
             <h2 class="text-center mb-3 text-gray-400 font-medium">Endorsed by reputable brands
                 worldwide</h2>
-{{--            <div class="grid grid-cols-3 lg:grid-cols-7 gap-4 justify-items-center">--}}
-{{--                <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"--}}
-{{--                     class="h-7  opacity-60">--}}
-{{--                <img src="{{ asset('img/brands/stanford.png') }}" alt="stanford" class="h-9  opacity-60">--}}
-{{--                <img src="{{ asset('img/brands/injini.png') }}" alt="injini" class="h-9  opacity-60">--}}
-{{--                <img src="{{asset('img/brands/zenith-bank.svg')}}" alt="zenith-bank" class="h-9  opacity-60">--}}
-{{--                <img src="{{asset('img/brands/shifters-logo.png')}}" alt="social shifter" class="h-9  opacity-60">--}}
-{{--                <img src="{{asset('img/brands/techcrunch.svg')}}" alt="techcrunch" class="h-8  opacity-60">--}}
-{{--                <img src="{{asset('img/brands/gesa-2023_white.webp')}}" alt="gesa" class="h-8  opacity-60">--}}
-{{--            </div>--}}
             <div class="flex flex-wrap justify-center">
                 <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"
                      class="h-7 px-6  opacity-60">

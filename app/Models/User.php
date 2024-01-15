@@ -33,7 +33,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
      */
     protected $fillable = [
         'name', 'username', 'email', 'gender', 'password', 'avatar_url',
-        'socials->facebook', 'socials->google', 'currencies',
+        'socials->facebook', 'socials->google', 'currencies', 'metadata'
     ];
 
     /**
