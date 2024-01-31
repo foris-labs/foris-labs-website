@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    protected User $user;
+    protected ?User $user;
 
     public function __construct()
     {
-        $this->user = \auth('api')->user();
+        $this->user = auth('api')->user();
     }
 
     public function show()
