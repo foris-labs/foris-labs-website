@@ -20,7 +20,7 @@ class UserObserver
 
     public function deleted(User $user): void
     {
-        // LeaderboardService::refreshAllLeaderboards();
+         LeaderboardService::refreshAllLeaderboards();
     }
 
     public function forceDeleted(User $user): void
