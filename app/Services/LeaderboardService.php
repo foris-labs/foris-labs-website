@@ -16,19 +16,32 @@ class LeaderboardService
 {
     public static function getLeaderboard(Currency $currency)
     {
-        $currentAvatarSubquery = AvatarUser::select('avatar_id')
-            ->whereColumn('users.id', 'avatar_user.user_id')
-            ->where('is_current', true)
-            ->limit(1);
+//        $currentAvatarSubquery = AvatarUser::select('avatar_id')
+//            ->whereColumn('users.id', 'avatar_user.user_id')
+//            ->where('is_current', true)
+//            ->limit(1);
+//
+//        $users = User::select([
+//            'users.name',
+//            'username',
+//            DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
+//        ])
+//            ->selectSub($currentAvatarSubquery, 'avatar_id')
+//
+//            ->orderBy(\DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
+//            ->get();
 
-        $users = User::select([
-            'users.name',
-            'username',
-            DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
-        ])
-            ->selectSub($currentAvatarSubquery, 'avatar_id')
-
-            ->orderBy(\DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
+        $users = User::query()
+            ->join('avatar_user', 'users.id', '=', 'avatar_user.user_id')
+            ->join('avatars', 'avatar_user.avatar_id', '=', 'avatars.id')
+            ->select([
+                'users.name',
+                'users.username',
+                DB::raw("CAST(JSON_EXTRACT(users.currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
+                'avatars.slug as avatar_slug',
+            ])
+            ->where('avatar_user.is_current', true)
+            ->orderBy(DB::raw("CAST(JSON_EXTRACT(users.currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
             ->get();
 
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
