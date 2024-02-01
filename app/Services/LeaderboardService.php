@@ -37,8 +37,8 @@ class LeaderboardService
             return $users;
         });
 
-
-        return new Leaderboard($leaderboard);
+        return $leaderboard->toArray();
+//        return new Leaderboard($leaderboard);
     }
 
     public static function refreshLeaderboard(Currency $currency): Leaderboard
