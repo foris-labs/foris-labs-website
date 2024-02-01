@@ -9,5 +9,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class AvatarUser extends Pivot
 {
+    protected $table = 'avatar_user';
 
 }
