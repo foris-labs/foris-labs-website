@@ -17,7 +17,7 @@ class LeaderboardService
     public static function getLeaderboard(Currency $currency)
     {
         $currentAvatarSubquery = AvatarUser::select('avatar_id')
-            ->whereColumn('users.id', 'avatar_users.user_id')
+            ->whereColumn('users.id', 'avatar_user.user_id')
             ->where('is_current', true)
             ->limit(1);
 
