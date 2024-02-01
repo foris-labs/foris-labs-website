@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Enum\Currency;
 use App\Models\User;
+use App\Services\LeaderboardService;
 
 class UserObserver
 {
@@ -14,7 +15,7 @@ class UserObserver
 
     public function saved(User $user): void
     {
-        // LeaderboardService::refreshAllLeaderboards();
+         LeaderboardService::refreshAllLeaderboards();
     }
 
     public function deleted(User $user): void
