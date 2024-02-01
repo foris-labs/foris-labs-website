@@ -28,10 +28,19 @@ class Leaderboard extends ResourceCollection
                         'rank' => $user->rank,
                     ];
                 }),
-            'user_entry' => $this->collection
-                ->where('username', $request->user()->username)
-                ->first()
-                ?->only(['username', 'avatar_url', 'score', 'rank']),
+
+            'user_entry' => function () use ($request) {
+                $user = $this->collection
+                    ->where('username', $request->user()->username)
+                    ->first();
+
+                return [
+                    'username' => $user->username,
+                    'avatar_slug' => $user->currentAvatar?->slug,
+                    'score' => $user->score,
+                    'rank' => $user->rank,
+                ];
+            },
         ];
     }
 }
