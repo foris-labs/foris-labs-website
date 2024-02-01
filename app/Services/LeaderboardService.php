@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class LeaderboardService
 {
-    public static function getLeaderboard(Currency $currency): Leaderboard
+    public static function getLeaderboard(Currency $currency)
     {
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
             $users = User::query()
@@ -38,7 +38,8 @@ class LeaderboardService
         });
 
         return $leaderboard->toArray();
-//        return new Leaderboard($leaderboard);
+
+        return new Leaderboard($leaderboard);
     }
 
     public static function refreshLeaderboard(Currency $currency): Leaderboard
