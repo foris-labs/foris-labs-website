@@ -7,6 +7,7 @@ namespace App\Services;
 
 use App\Enum\Currency;
 use App\Http\Resources\Leaderboard;
+use App\Models\AvatarUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -15,15 +16,21 @@ class LeaderboardService
 {
     public static function getLeaderboard(Currency $currency)
     {
-        $users = User::query()
-            ->with('currentAvatar')
-            ->select([
-                'users.name',
-                'username',
-                'users.currencies',
-                DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
-            ])
-            ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
+        $currentAvatarSubquery = AvatarUser::select('avatar_id')
+            ->whereColumn('users.id', 'avatar_users.user_id')
+            ->where('is_current', true)
+            ->limit(1);
+
+        $users = User::select([
+            'users.name',
+            'username',
+            DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
+        ])
+            ->selectSub($currentAvatarSubquery, 'avatar_id')
+            ->with(['avatar' => function ($query) {
+                $query->select('id', 'slug');
+            }])
+            ->orderBy(\DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
             ->get();
 
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
