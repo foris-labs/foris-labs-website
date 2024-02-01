@@ -27,9 +27,7 @@ class LeaderboardService
             DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
         ])
             ->selectSub($currentAvatarSubquery, 'avatar_id')
-            ->with(['avatar' => function ($query) {
-                $query->select('id', 'slug');
-            }])
+
             ->orderBy(\DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
             ->get();
 
