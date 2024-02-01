@@ -84,12 +84,13 @@ class UserController extends Controller
         $key = $request->input('key');
         $value = $request->input('value');
 
-//        $this->user->metadata[$key] = $value;
-        $this->user->metadata = array_merge($this->user->metadata ?? [], [
-            $key => $value
+        $metadata = $this->user->metadata;
+
+        $metadata[$key] = $value;
+
+        $this->user->update([
+            'metadata' => $metadata
         ]);
-        $this->user->save();
-        $this->user->refresh();
 
         return $this->user->metadata;
     }

@@ -54,6 +54,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'email_verified_at' => 'datetime',
         'social_data' => 'array',
         'currencies' => 'array',
+        'metadata' => 'array',
     ];
 
     public function trivias(): HasMany
