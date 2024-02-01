@@ -16,12 +16,12 @@ class LeaderboardService
     public static function getLeaderboard(Currency $currency)
     {
         $users = User::query()
-//            ->select([
-//                'users.name',
-//                'username',
-//                DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
-//            ])
             ->with('currentAvatar')
+            ->select([
+                'users.name',
+                'username',
+                DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
+            ])
             ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
             ->get();
 
