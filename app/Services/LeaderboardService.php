@@ -16,22 +16,6 @@ class LeaderboardService
 {
     public static function getLeaderboard(Currency $currency)
     {
-//        $currentAvatarSubquery = AvatarUser::select('avatar_id')
-//            ->whereColumn('users.id', 'avatar_user.user_id')
-//            ->where('is_current', true)
-//            ->limit(1);
-//
-//        $users = User::select([
-//            'users.name',
-//            'username',
-//            DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
-//        ])
-//            ->selectSub($currentAvatarSubquery, 'avatar_id')
-//
-//            ->orderBy(\DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
-//            ->get();
-
-
 
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
             $users = User::query()

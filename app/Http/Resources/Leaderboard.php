@@ -30,7 +30,7 @@ class Leaderboard extends ResourceCollection
                     ];
                 }),
 
-            'user_entry' => function () use ($request) {
+            'user_entry' => (function () use ($request) {
                 $user = $this->collection
                     ->where('username', $request->user('api')->username)
                     ->first();
@@ -41,7 +41,7 @@ class Leaderboard extends ResourceCollection
                     'score' => $user->score,
                     'rank' => $user->rank,
                 ];
-            },
+            })(),
         ];
     }
 }
