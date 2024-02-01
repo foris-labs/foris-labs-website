@@ -20,6 +20,7 @@ class LeaderboardService
             ->select([
                 'users.name',
                 'username',
+                'users.currencies',
                 DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
             ])
             ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
