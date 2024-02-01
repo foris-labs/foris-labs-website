@@ -17,40 +17,31 @@ class Leaderboard extends ResourceCollection
      */
     public function toArray(Request $request): array
     {
-        $user = $this->collection
-            ->where('username', $request->user('api')->username)
-            ->first();
 
-        return $user->toArray();
+        return [
+            'entries' => $this->collection
+                ->take($request->input('count', 10))
+                ->map(function (User $user) {
+                    return [
+                        'username' => $user->username,
+                        'avatar_slug' => $user->avatar_slug,
+                        'score' => $user->score,
+                        'rank' => $user->rank,
+                    ];
+                }),
 
-//        return [
-//            'entries' => $this->collection
-//                ->take($request->input('count', 10))
-//                ->map(function (User $user) {
-//                    $user->loadMissing('currentAvatar');
-//
-//                    return [
-//                        'username' => $user->username,
-//                        'avatar_slug' => $user->currentAvatar?->slug,
-//                        'score' => $user->score,
-//                        'rank' => $user->rank,
-//                    ];
-//                }),
-//
-//            'user_entry' => function () use ($request) {
-//                $user = $this->collection
-//                    ->where('username', $request->user('api')->username)
-//                    ->first();
-//
-//                $user->loadMissing('currentAvatar');
-//
-//                return [
-//                    'username' => $user->username,
-//                    'avatar_slug' => $user->currentAvatar?->slug,
-//                    'score' => $user->score,
-//                    'rank' => $user->rank,
-//                ];
-//            },
-//        ];
+            'user_entry' => function () use ($request) {
+                $user = $this->collection
+                    ->where('username', $request->user('api')->username)
+                    ->first();
+
+                return [
+                    'username' => $user->username,
+                    'avatar_slug' => $user->avatar_slug,
+                    'score' => $user->score,
+                    'rank' => $user->rank,
+                ];
+            },
+        ];
     }
 }

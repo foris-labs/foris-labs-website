@@ -31,28 +31,20 @@ class LeaderboardService
 //            ->orderBy(\DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
 //            ->get();
 
-        $users = User::query()
-            ->join('avatar_user', 'users.id', '=', 'avatar_user.user_id')
-            ->join('avatars', 'avatar_user.avatar_id', '=', 'avatars.id')
-            ->select([
-                'users.name',
-                'users.username',
-                DB::raw("CAST(JSON_EXTRACT(users.currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
-                'avatars.slug as avatar_slug',
-            ])
-            ->where('avatar_user.is_current', true)
-            ->orderBy(DB::raw("CAST(JSON_EXTRACT(users.currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
-            ->get();
+
 
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
             $users = User::query()
+                ->join('avatar_user', 'users.id', '=', 'avatar_user.user_id')
+                ->join('avatars', 'avatar_user.avatar_id', '=', 'avatars.id')
                 ->select([
                     'users.name',
-                    'username',
-                    DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
+                    'users.username',
+                    DB::raw("CAST(JSON_EXTRACT(users.currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
+                    'avatars.slug as avatar_slug',
                 ])
-                ->with('currentAvatar')
-                ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
+                ->where('avatar_user.is_current', true)
+                ->orderBy(DB::raw("CAST(JSON_EXTRACT(users.currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
                 ->get();
 
 
@@ -65,8 +57,6 @@ class LeaderboardService
 
             return $users;
         });
-
-        return $users->toArray();
 
         return new Leaderboard($leaderboard);
     }
