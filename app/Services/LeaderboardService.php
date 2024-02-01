@@ -15,6 +15,16 @@ class LeaderboardService
 {
     public static function getLeaderboard(Currency $currency)
     {
+        $users = User::query()
+            ->select([
+                'users.name',
+                'username',
+                DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER) AS score"),
+            ])
+            ->with('currentAvatar')
+            ->orderBy(DB::raw("CAST(JSON_EXTRACT(currencies, '$." . $currency->value . "') AS INTEGER)"), 'desc')
+            ->get();
+
         $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
             $users = User::query()
                 ->select([
@@ -37,7 +47,7 @@ class LeaderboardService
             return $users;
         });
 
-        return $leaderboard->toArray();
+        return $users->toArray();
 
         return new Leaderboard($leaderboard);
     }
