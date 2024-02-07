@@ -94,7 +94,7 @@
     </div>
 
     <!-- how we do it section -->
-    <div class="section-container bg-16A4E1 flex flex-col pr-20 pl-20 mt-10">
+    <section class="section-container bg-16A4E1 flex flex-col pr-20 pl-20 mt-10">
         
     
         <!-- Tired of boring classes -->
@@ -143,11 +143,120 @@
         <div class="flex justify-center items-start ">
             <img src="{{ asset('img/redesign/Vector26.png') }}" alt="arrow" class="h-20 w-6">
         </div>
+        
+        <button class="bg-FF9649 text-2xl text-white border-2 border-white px-6 py-2 mb-20 mt-2  uppercase mx-auto max-w-md" style="font-family:'Burbank Big Condensed Black';">Here's how we do it</button>
 
+        <!-- First Row -->
+        <div class="flex justify-center mb-20 max-w-screen-lg">
+            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+                <!-- Left side with image -->
+                <div class="flex items-center flex-shrink-0">
+                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
+                </div>
+        
+                <!-- Right side with text -->
+                <div class="text-white p-8 pr-20 pb-0 whitespace-normal max-w-lg">
+                    <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Making Science Accessible</h2>
+                    <p class="text-base" style="font-family:Josefin Sans,sans-serif;">No need to worry about expensive lab equipments, you can just pick up your device, learn and explore anywhere at anytime.</p>
+                </div>
+            </div>
+        
+            <!-- Arrow image on the right -->
+            <div class="flex items-center flex-shrink-0 ml-8">
+                <img src="{{ asset('img/redesign/Vector22.png') }}" alt="New Image" class="w-20 h-20" style="width: 150px; height: 150px;">
+            </div>
+        </div>
+
+        <!-- Second row-->
+         <div class="flex justify-center mb-20 max-w-screen-lg ml-8">
+            <!-- Arrow image on the right -->
+            <div class="flex items-center flex-shrink-0 ml-8">
+                <img src="{{ asset('img/redesign/Vector22.png') }}" alt="New Image" class="w-20 h-20 transform scale-x-[-1]" style="width: 150px; height: 150px;">
+            </div>
+
+            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+                <!-- Left side with image -->
+                <div class="flex items-center flex-shrink-0">
+                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
+                </div>
+        
+                <!-- Right side with text -->
+                <div class="text-white p-8 pr-20 pb-0 whitespace-normal max-w-lg">
+                    <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Engaging & Interactive</h2>
+                    <p class="text-base" style="font-family:Josefin Sans,sans-serif;">Gamified learning keeps you hooked, boosting your understanding and curiosity.</p>
+                </div>
+            </div>
+        </div>
+
+         <!-- third Row -->
+         <div class="flex justify-center mb-20 max-w-screen-lg">
+            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+                <!-- Left side with image -->
+                <div class="flex items-center flex-shrink-0">
+                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
+                </div>
+        
+                <!-- Right side with text -->
+                <div class="text-white p-8 pr-20 pb-0 whitespace-normal max-w-lg">
+                    <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Collaborative Learning</h2>
+                    <p class="text-base" style="font-family:Josefin Sans,sans-serif;">Work with friends and classmates to solve scientific puzzles and make discoveries together.</p>
+                </div>
+            </div>
+        
+            <!-- Arrow image on the right -->
+            <div class="flex items-center flex-shrink-0 ml-8">
+                <img src="{{ asset('img/redesign/Vector22.png') }}" alt="New Image" class="w-20 h-20" style="width: 150px; height: 150px;">
+            </div>
+        </div>
+
+         <!-- fourth Row-->
+         <div class="flex justify-center mb-20 max-w-screen-lg ml-8">
+            <!-- Arrow image on the right -->
+            <div class="flex items-center flex-shrink-0 ml-8">
+                <img src="{{ asset('img/redesign/Vector22.png') }}" alt="New Image" class="w-20 h-20 transform scale-x-[-1]" style="width: 150px; height: 150px;">
+            </div>
+
+            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+                <!-- Left side with image -->
+                <div class="flex items-center flex-shrink-0">
+                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
+                </div>
+        
+                <!-- Right side with text -->
+                <div class="text-white p-8 pr-20 pb-0 whitespace-normal max-w-lg">
+                    <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Alligned with your Curriculum</h2>
+                    <p class="text-base" style="font-family:Josefin Sans,sans-serif;">Experiments match real-world science concepts, helping you ace those exams.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fifth Row -->
+        <div class="flex justify-center mb-20 max-w-screen-lg">
+            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+                <!-- Left side with image -->
+                <div class="flex items-center flex-shrink-0">
+                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
+                </div>
+        
+                <!-- Right side with text -->
+                <div class="text-white p-8 pr-20 pb-0 whitespace-normal max-w-lg">
+                    <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Empowering Teachers</h2>
+                    <p class="text-base" style="font-family:Josefin Sans,sans-serif;">Provide your students with a dynamic learning tool that sparks their imagination and ignites a passion for science.</p>
+                </div>
+            </div>
+        
+            <!-- Arrow image on the right -->
+            <div class="flex items-center flex-shrink-0 ml-8 hidden">
+                <img src="{{ asset('img/redesign/Vector22.png') }}" alt="New Image" class="w-20 h-20" style="width: 150px; height: 150px;">
+            </div>
+        </div>
+        
+        <!-- Experience -->
+    
+  
 
         
-        
-    </div>
+    </section>
     
     
     
