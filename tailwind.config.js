@@ -11,6 +11,7 @@ export default {
         './resources/views/filament/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
     ],
+    
     theme: {
         extend: {
             animation: {
@@ -28,7 +29,18 @@ export default {
         fontFamily: {
             'sans': ['Josefin Sans', 'sans-serif'],
             'heading': ['Shantell Sans', 'cursive'],
-        }
+        },
+        
     },
+    theme: {
+        extend: {
+          colors: {
+            'ff4343': '#FF4343',
+            'ff9999': '#FF9999',
+            '16A4E1': '#16A4E1',
+            '0499D9': '#0499D9'
+          },
+        },
+      },
     plugins: [],
 }

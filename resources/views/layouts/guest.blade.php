@@ -19,6 +19,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&family=Shantell+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+        <link href="https://db.onlinewebfonts.com/c/cdc8c3de1e6bd5a9a67c6a001f9fedd0?family=Burbank+Big+Condensed+Black" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/dilo-world" rel="stylesheet">
+     
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
