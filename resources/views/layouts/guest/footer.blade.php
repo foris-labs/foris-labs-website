@@ -1,4 +1,4 @@
-<footer class="bg-orange-50 border border-gray-200">
+<footer class="bg-16A4E1">
     <div class="container mx-auto px-4 py-6 lg:py-8">
         <div class="grid gap-12 grid-cols-2 lg:grid-cols-6 lg:gap-18">
             <div class="col-span-2">
@@ -6,13 +6,13 @@
                     <img class="block h-12 w-auto transition-all duration-300" src="{{ asset('img/logo-black.png') }}"
                          alt="Foris Labs">
                 </a>
-                <p class="text-gray-600">Foris Labs empowers students with superpowers to turn any
+                <p class="text-white"style="font-family:Josefin Sans,sans-serif;">Foris Labs empowers students with superpowers to turn any
                     space into a science lab using our gamified 3D virtual science lab for realistic hands-on
                     experiments.</p>
             </div>
             <div>
-                <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Resources</h2>
-                <ul class="text-gray-500 font-medium">
+                <h2 class="mb-6 text-xl font-bold text-white uppercase"style="font-family:'Burbank Big Condensed Black';">Resources</h2>
+                <ul class="text-white font-medium">
                     <li class="mb-2">
                         <a href="#" class="hover:underline">News</a>
                     </li>
@@ -22,8 +22,8 @@
                 </ul>
             </div>
             <div>
-                <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">Legal</h2>
-                <ul class="text-gray-500 font-medium">
+                <h2 class="mb-6 text-xl font-bold text-white uppercase"style="font-family:'Burbank Big Condensed Black';">Legal</h2>
+                <ul class="text-white font-medium">
                     <li class="mb-2">
                         <a href="{{ route('privacy-policy') }}" class="hover:underline">Privacy Policy</a>
                     </li>
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div class="col-span-2">
-                <h2 class="font-heading mb-6 text-sm font-bold text-blue-950 uppercase">In the News</h2>
+                <h2 class="mb-6 text-xl font-bold text-white uppercase"style="font-family:'Burbank Big Condensed Black';">In the News</h2>
                 <div class="flex gap-4 flex-wrap">
                     <a href="https://punchng.com/science-startup-developed-by-anambra-students-emerges-finalist-at-global-competition/" target="_blank">
                         <img src="{{ asset('img/brands/punch.svg') }}" alt="punch" class="h-9">
@@ -53,12 +53,12 @@
         <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8"/>
         <div class="sm:flex sm:items-center sm:justify-between">
 
-          <span class="text-sm text-gray-500 sm:text-center">
-              © 2023 <a href="https://forislabs.com/" class="hover:underline">Foris Labs™</a>. All Rights Reserved.
+          <span class="text-sm text-white sm:text-center">
+              © 2024 <a href="https://forislabs.com/" class="hover:underline">Foris Labs™</a>. All Rights Reserved.
           </span>
             <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                 <a href="https://web.facebook.com/profile.php?id=100067094550865" target="_blank"
-                   class="text-gray-500 hover:text-gray-900">
+                   class="text-white hover:text-gray-900">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                          viewBox="0 0 8 19">
                         <path fill-rule="evenodd"
@@ -67,21 +67,21 @@
                     </svg>
                     <span class="sr-only">Facebook page</span>
                 </a>
-                <a href="https://twitter.com/forislabs?lang=en" class="text-gray-500 hover:text-gray-900">
+                <a href="https://twitter.com/forislabs?lang=en" class="text-white hover:text-gray-900">
                     <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4" fill="currentColor">
                         <path
                             d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                     </svg>
                     <span class="sr-only">Twitter Page</span>
                 </a>
-                <a href="https://linkedin.com/company/foris-labs/" class="text-gray-500 hover:text-gray-900">
+                <a href="https://linkedin.com/company/foris-labs/" class="text-white hover:text-gray-900">
                     <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
                         <path
                             d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
                     </svg>
                     <span class="sr-only">LinkedIn page</span>
                 </a>
-                <a href="mailto:forislabs@gmail.com" class="text-gray-500 hover:text-gray-900">
+                <a href="mailto:forislabs@gmail.com" class="text-white hover:text-gray-900">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                          aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round"

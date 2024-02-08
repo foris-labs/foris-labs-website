@@ -27,7 +27,28 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <script defer data-domain="forislabs.com" src="https://analytics.codewithkyrian.com/js/script.js"></script>
-
+    <style>
+        .experience::before{
+            content:'';
+            position: absolute;
+            right: 0;
+            left:0;
+            top: -25px;
+            height: 50px;
+            background-color: white;
+            transform: skewY(-2deg);
+        }
+        .experience::after{
+            content:'';
+            position: absolute;
+            right: 0;
+            left:0;
+            bottom: -40px;
+            height: 50px;
+            background-color: white;
+            transform: skewY(1deg);
+        }
+    </style>
 </head>
 
 <body x-data>

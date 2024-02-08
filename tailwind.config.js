@@ -29,6 +29,7 @@ export default {
         fontFamily: {
             'sans': ['Josefin Sans', 'sans-serif'],
             'heading': ['Shantell Sans', 'cursive'],
+            'Burbank': ['Burbank Big Condensed Black',]
         },
         
     },
@@ -40,6 +41,9 @@ export default {
             '16A4E1': '#16A4E1',
             '0499D9': '#0499D9',
             'FF9649': '#FF9649',
+            'FF9D43': '#FF9D43',
+            '67249B': '#67249B',
+            '1CBB6F': '#1CBB6F',
           },
         },
       },
