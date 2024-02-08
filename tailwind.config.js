@@ -44,6 +44,7 @@ export default {
             'FF9D43': '#FF9D43',
             '67249B': '#67249B',
             '1CBB6F': '#1CBB6F',
+            '1E1E1E': '#1E1E1E',
           },
         },
       },
