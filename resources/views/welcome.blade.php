@@ -106,7 +106,7 @@
             <img src="{{ asset('img/redesign/chemistry.png?s') }}" alt="Chemistry Image"
                  class="mx-auto w-80 h-auto lg:w-100">
             <h2 class="text-3xl font-bold mt-4 text-center font-burbank text-[#4EAE4C]">Chemistry</h2>
-            <p class="text-lg font-bold mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Unlock the world
+            <p class="text-lg mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Unlock the world
                 of molecules and reactions. Explore chemistry with interactive experiments.</p>
         </div>
 
@@ -115,7 +115,7 @@
             <img src="{{ asset('img/redesign/physics.png?fs') }}" alt="Physics Image"
                  class="mx-auto w-80 h-auto lg:w-100">
             <h2 class="text-3xl font-bold mt-4 text-center font-burbank text-[#4EAE4C]">Physics</h2>
-            <p class="text-lg font-bold mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Dive into the law
+            <p class="text-lg mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Dive into the law
                 of motion, energy and beyond. Experience Physics with captivating simulations.</p>
         </div>
 
@@ -124,7 +124,7 @@
             <img src="{{ asset('img/redesign/biology2.png?sg') }}" alt="Biology Image"
                  class="mx-auto w-80 h-auto lg:w-100">
             <h2 class="text-3xl font-bold mt-4 text-center font-burbank text-[#4EAE4C]">Biology</h2>
-            <p class="text-lg font-bold mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Discover the
+            <p class="text-lg mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Discover the
                 wonders of life and ecosystem. Engage in Biology with hands-on experiments.</p>
         </div>
     </section>
