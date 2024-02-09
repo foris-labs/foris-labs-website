@@ -179,7 +179,7 @@
             class="flex flex-col md:flex-row items-center justify-center bg-0499D9 max-w-screen-lg mx-auto overflow-visible">
             <!-- Left side with image -->
             <div class="flex items-center flex-shrink-0">
-                <img src="{{ asset('img/redesign/rectangle265.png') }}" alt="Image"
+                <img src="{{ asset('img/features/girls-group.png') }}" alt="girls group"
                      class="w-64 ml-2 md:ml-4 lg:ml-10 -mt-20 md:-mt-30 md:-mb-10">
             </div>
 
