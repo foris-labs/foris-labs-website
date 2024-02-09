@@ -10,15 +10,19 @@
              style="background-image: url('{{ asset('img/redesign/Rectangle 284.png') }}');max-height:95vh;"></div>
 
         <!-- Text Overlay on the image-->
-        <div class="absolute top-1/2 ml-8 md:ml-10 lg:ml-20 left-1/8 transform -translate-y-1/2 text-white text-left font-burbank">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">Learn Science through Games</h1>
-            <p class="text-4xl md:text-5xl lg:text-6xl text-16A4E1 mb-2 md:mb-4">Anywhere, Anytime!</p>
-            <p class="text-sm md:text-base" style="font-family: Shantell Sans, cursive;">Gamified contents to learn
+        <div
+            class="absolute top-1/2 ml-8 md:ml-10 lg:ml-20 left-1/8 transform -translate-y-1/2 text-white text-left font-burbank">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+                Learn Science through Games
+                <br/>
+                <span class="text-16A4E1">Anywhere, Anytime!</span>
+            </h1>
+            <p class="text-lg md:text-xl font-josefin">Gamified contents to learn
                 complex science topics and experiments</p>
 
             <!-- Button for Booking a Demo -->
             <a href="#"
-               class="inline-block mt-4 border border-white bg-16A4E1 text-white text-lg md:text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none">
+               class="inline-block mt-4 border border-white bg-16A4E1 text-white text-lg md:text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none uppercase font-burbank">
                 Book a Demo
                 <span class="ml-2">&#8594;</span> <!-- Right arrow -->
             </a>
