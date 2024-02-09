@@ -21,6 +21,7 @@ services:
         working_dir: /var/www
         ports:
             - '${VITE_PORT:-5173}:5173'
+        restart: 'unless-stopped'
         volumes:
             - ./:/var/www
         networks:

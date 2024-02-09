@@ -1,8 +1,8 @@
 <header x-data="{ open: false, scrolled: false, atTop: true }">
     <div x-data="{ scrolled: false }"
-         @scroll.window="scrolled = window.scrollY > 0"
+         @scroll.window="scrolled = window.scrollY >150"
          class="fixed top-0 w-full text-white p-4 z-50 transition duration-300 ease-in-out"
-         :class="{ 'bg-16A4E1': scrolled }" style="background-color: #16A4E1;">
+         :class="{ 'bg-gradient-to-r from-primary to-primary-light': scrolled }">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center">
