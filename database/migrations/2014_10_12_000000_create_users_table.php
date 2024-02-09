@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->json('socials')->nullable();
             $table->json('currencies')->nullable();
+            $table->json('metadata')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

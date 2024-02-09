@@ -19,36 +19,39 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    protected ?User $user;
+
+    public function __construct()
+    {
+        $this->user = auth('api')->user();
+    }
+
     public function show()
     {
-        return new UserResource(auth('api')->user());
+        return new UserResource($this->user);
     }
 
     public function currencies()
     {
-        return auth()->user()->currencies;
+        return $this->user->currencies;
     }
 
     public function avatars()
     {
-        $user = auth()->user();
+        $this->user->loadMissing('avatars');
 
-        $user->loadMissing('avatars');
-
-        return auth()->user()->avatars->map(fn ($avatar) => $avatar->slug);
+        return $this->user->avatars->map(fn($avatar) => $avatar->slug);
     }
 
     public function updateAvatar(Request $request)
     {
-        $user = auth()->user();
-
         $avatar = Avatar::where('slug', $request->input('name'))->first();
 
         if (!$avatar) {
             return ErrorResponse::notFound('Avatar not found');
         }
 
-        $user->setCurrentAvatar($avatar);
+        $this->user->setCurrentAvatar($avatar);
 
         return response()->json([
             'message' => 'Avatar updated successfully'
@@ -58,9 +61,7 @@ class UserController extends Controller
 
     public function updateCurrencies(UpdateCurrencyRequest $request)
     {
-        $user = auth()->user();
-
-        $currencies = $user->currencies;
+        $currencies = $this->user->currencies;
 
         foreach ($request->validated('currencies') as $currency) {
             if ($request->boolean('relative')) {
@@ -70,22 +71,37 @@ class UserController extends Controller
             }
         }
 
-        $user->update([
+        $this->user->update([
             'currencies' => $currencies
         ]);
 
 
-        return $user->currencies;
+        return $this->user->currencies;
+    }
+
+    public function updateMetadata(Request $request)
+    {
+        $key = $request->input('key');
+        $value = $request->input('value');
+
+        $metadata = $this->user->metadata;
+
+        $metadata[$key] = $value;
+
+        $this->user->update([
+            'metadata' => $metadata
+        ]);
+
+        return $this->user->metadata;
     }
 
 
     public function update(UserUpdateRequest $request)
     {
-        $user = auth('api')->user();
+        $this->user->update($request->validated());
+        $this->user->refresh();
 
-        $user->update($request->validated());
-
-        return new UserResource($user);
+        return new UserResource($this->user);
     }
 
     public function leaderboard(Request $request)

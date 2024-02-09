@@ -17,21 +17,31 @@ class Leaderboard extends ResourceCollection
      */
     public function toArray(Request $request): array
     {
+
         return [
             'entries' => $this->collection
                 ->take($request->input('count', 10))
                 ->map(function (User $user) {
                     return [
                         'username' => $user->username,
-                        'avatar_slug' => $user->currentAvatar?->slug,
+                        'avatar_slug' => $user->avatar_slug,
                         'score' => $user->score,
                         'rank' => $user->rank,
                     ];
                 }),
-            'user_entry' => $this->collection
-                ->where('username', $request->user()->username)
-                ->first()
-                ?->only(['username', 'avatar_url', 'score', 'rank']),
+
+            'user_entry' => (function () use ($request) {
+                $user = $this->collection
+                    ->where('username', $request->user('api')->username)
+                    ->first();
+
+                return [
+                    'username' => $user->username,
+                    'avatar_slug' => $user->avatar_slug,
+                    'score' => $user->score,
+                    'rank' => $user->rank,
+                ];
+            })(),
         ];
     }
 }

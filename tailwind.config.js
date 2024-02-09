@@ -11,8 +11,20 @@ export default {
         './resources/views/filament/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
     ],
+
     theme: {
         extend: {
+            colors: {
+                'ff4343': '#FF4343',
+                'ff9999': '#FF9999',
+                '16A4E1': '#16A4E1',
+                '0499D9': '#0499D9',
+                'FF9649': '#FF9649',
+                'FF9D43': '#FF9D43',
+                '67249B': '#67249B',
+                '1CBB6F': '#1CBB6F',
+                '1E1E1E': '#1E1E1E',
+            },
             animation: {
                 'float-3': 'float 3s ease-in-out infinite',
                 'float-4': 'float 4s ease-in-out infinite',
@@ -28,7 +40,10 @@ export default {
         fontFamily: {
             'sans': ['Josefin Sans', 'sans-serif'],
             'heading': ['Shantell Sans', 'cursive'],
-        }
+            'burbank': ['Burbank', 'sans-serif'],
+            'josefin': ['Josefin Sans', 'sans-serif'],
+        },
+
     },
     plugins: [],
 }

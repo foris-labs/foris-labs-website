@@ -15,12 +15,15 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://db.onlinewebfonts.com/c/cdc8c3de1e6bd5a9a67c6a001f9fedd0?family=Burbank+Big+Condensed+Black" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/dilo-world" rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+     <!-- Scripts -->
+     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>

@@ -21,6 +21,7 @@ class UserResource extends JsonResource
             'gender' => $this->gender,
             'avatar_slug' => $this->currentAvatar?->slug,
             'currencies' => $this->currencies,
+            'metadata' => $this->metadata,
         ];
     }
 }

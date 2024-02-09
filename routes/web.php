@@ -17,6 +17,7 @@ Route::view('/', 'welcome')->name('home');
 Route::view('/privacy-policy', 'privacy')->name('privacy-policy');
 Route::view('/terms-of-use', 'terms')->name('terms');
 Route::view('/contact-us', 'contact')->name('contact-us');
+Route::view('/login2', 'login2')->name('login');
 
 
 require __DIR__ . '/auth.php';

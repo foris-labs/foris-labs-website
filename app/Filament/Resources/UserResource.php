@@ -56,6 +56,9 @@ class UserResource extends Resource
                         'lg' => 2,
                     ]),
 
+                Forms\Components\KeyValue::make('metadata')
+                    ->addable()
+
             ])
             ->columns();
     }
