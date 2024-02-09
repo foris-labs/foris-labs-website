@@ -11,7 +11,7 @@
                     experiments.</p>
             </div>
             <div>
-                <h2 class="mb-6 text-xl font-bold text-white uppercase"style="font-family:'Burbank Big Condensed Black';">Resources</h2>
+                <h2 class="mb-6 text-xl font-bold text-white uppercase font-burbank">Resources</h2>
                 <ul class="text-white font-medium">
                     <li class="mb-2">
                         <a href="#" class="hover:underline">News</a>
@@ -22,7 +22,7 @@
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-xl font-bold text-white uppercase"style="font-family:'Burbank Big Condensed Black';">Legal</h2>
+                <h2 class="mb-6 text-xl font-bold text-white uppercase font-burbank">Legal</h2>
                 <ul class="text-white font-medium">
                     <li class="mb-2">
                         <a href="{{ route('privacy-policy') }}" class="hover:underline">Privacy Policy</a>
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div class="col-span-2">
-                <h2 class="mb-6 text-xl font-bold text-white uppercase"style="font-family:'Burbank Big Condensed Black';">In the News</h2>
+                <h2 class="mb-6 text-xl font-bold text-white uppercase font-burbank">In the News</h2>
                 <div class="flex gap-4 flex-wrap">
                     <a href="https://punchng.com/science-startup-developed-by-anambra-students-emerges-finalist-at-global-competition/" target="_blank">
                         <img src="{{ asset('img/brands/punch.svg') }}" alt="punch" class="h-9">

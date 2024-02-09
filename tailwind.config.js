@@ -40,7 +40,7 @@ export default {
         fontFamily: {
             'sans': ['Josefin Sans', 'sans-serif'],
             'heading': ['Shantell Sans', 'cursive'],
-            'Burbank': ['Burbank Big Condensed Black',],
+            'burbank': ['Burbank', 'sans-serif'],
             'josefin': ['Josefin Sans', 'sans-serif'],
         },
 

@@ -4,6 +4,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'BurBank';
+    src:
+        url('/resources/fonts/BurbankBigCondensed/BurbankBigCondensed-Bold.ttf') format('truetype'),
+        url("/resources/fonts/BurbankBigCondensed/BurbankBigCondensed-Bold.woff2") format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BurBank';
+    src:
+        url('/resources/fonts/BurbankBigCondensed/BurbankBigCondensed-Medium.ttf') format('truetype'),
+        url("/resources/fonts/BurbankBigCondensed/BurbankBigCondensed-Medium.woff2") format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BurBank';
+    src:
+        url('/resources/fonts/BurbankBigCondensed/BurbankBigCondensed-Light.ttf') format('truetype'),
+        url("/resources/fonts/BurbankBigCondensed/BurbankBigCondensed-Light.woff2") format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
 html, body {
     scroll-behavior: smooth
 }
@@ -11,6 +38,27 @@ html, body {
 [x-cloak] {
     display: none;
 }
+
 @layer components {
+    .experience::before{
+        content:'';
+        position: absolute;
+        right: 0;
+        left:0;
+        top: -25px;
+        height: 50px;
+        background-color: white;
+        transform: skewY(-2deg);
+    }
+    .experience::after{
+        content:'';
+        position: absolute;
+        right: 0;
+        left:0;
+        bottom: -40px;
+        height: 50px;
+        background-color: white;
+        transform: skewY(1deg);
+    }
 }
 
