@@ -3,7 +3,7 @@
         <div class="grid gap-12 grid-cols-2 lg:grid-cols-6 lg:gap-18">
             <div class="col-span-2">
                 <a href="{{ route('home') }}" class="flex flex-shrink-0 mb-2 items-center">
-                    <img class="block h-12 w-auto transition-all duration-300" src="{{ asset('img/logo-black.png') }}"
+                    <img class="block h-12 w-auto transition-all duration-300" src="{{ asset('img/redesign/logo2.png') }}"
                          alt="Foris Labs">
                 </a>
                 <p class="text-white"style="font-family:Josefin Sans,sans-serif;">Foris Labs empowers students with superpowers to turn any

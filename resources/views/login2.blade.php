@@ -44,6 +44,22 @@
                                 <!-- Right arrow icon -->
                                 <span class="ml-2">&#8594;</span>
                             </button>
+                             <!-- Horizontal Line with OR -->
+                            <div class="flex items-center mt-4">
+                                <hr class="border-t border-black flex-grow">
+                                <span class="mx-4 text-black">OR</span>
+                                <hr class="border-t border-black flex-grow">
+                            </div>
+
+                            <!-- Facebook and Google Buttons -->
+                            <div class="flex justify-between mt-4">
+                                <button class="bg-white border border-black text-black px-4 py-3 flex items-center justify-center w-48 mr-2">
+                                    Google
+                                </button>
+                                <button class="bg-white border border-black text-black px-4 py-3 flex items-center justify-center w-48">
+                                    Facebook
+                                </button>
+                            </div>
                         </div>
                     </div>
                     

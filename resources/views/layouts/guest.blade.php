@@ -48,6 +48,17 @@
             background-color: white;
             transform: skewY(1deg);
         }
+        @media(min-width: 1000px) and (max-width: 1280px) {
+        /* Your CSS rules for the specified range */
+            .slant {
+                top: 0px;
+                height: 400px;
+        }
+        .slant{
+            height:500px; 
+            
+        }
+}
     </style>
 </head>
 
@@ -61,6 +72,62 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+<script>
+    // Function to replace content based on screen size
+    function replaceContent() {
+        var ScreenSection = document.getElementById('experience');
+        if (window.innerWidth <= 1200) {
+            // Medium/small screen design
+            ScreenSection.innerHTML = `
+                <!-- Stretched Image with Black and White Filter -->
+                <img src="{{ asset('img/redesign/team-smile.jpg') }}" alt="Stretched Image" class="w-full h-80 object-cover top-1/2">
+
+                <!-- Overlay Image with Blue Border and Linear Gradient -->
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black opacity-400">
+                    <div class="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 text-white text-left" style="margin-left: 80px">
+                        <h2 class="text-3xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Experience Foris Labs in Action Now!</h2>
+                        <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Are you ready to revolutionize science education or take your institution's teaching to the next level?</p>
+                        <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
+                        <!-- Button for Booking a Demo -->
+                        <a href="#" class="inline-block mt-4 border border-white bg-transperent text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none" style="font-family:'Burbank Big Condensed Black';">
+                            Book a Demo
+                            <span class="ml-2 font-bold">&#8594;</span> <!-- Right arrow character -->
+                        </a>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Large screen design
+            ScreenSection.innerHTML = `
+                <img src="{{ asset('img/redesign/team-smile.jpg') }}" alt="Stretched Image" class="w-full h-80 object-cover grayscale top-1/2">
+
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-black ">
+                    <div class="relative">
+                        <img src="{{ asset('img/redesign/team-smile.jpg') }}" alt="Overlay Image" class="w-full border-4 border-blue-500 shadow-lg object-cover" >
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black  opacity-400"></div>
+                        
+                        <div class="absolute top-1/2 left-1/4 inset-0 transform -translate-x-1/2 -translate-y-1/2 text-white text-left" style="margin-left: 80px">
+                            <h2 class="text-3xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Experience Foris Labs in Action Now!</h2>
+                            <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Are you ready to revolutionize science education or take your institution's teaching to the next level?.</p>
+                            <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
+                            <a href="#" class="inline-block mt-4 border border-white bg-transperent text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none" style="font-family:'Burbank Big Condensed Black';">
+                                Book a Demo
+                                <span class="ml-2 font-bold">&#8594;</span> <!-- Right arrow character -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // Event listener for window resize
+    window.addEventListener('resize', replaceContent);
+
+    // Initial check on page load
+    window.addEventListener('load', replaceContent);
+</script>
+
 </body>
 
 </html>
