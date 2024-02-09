@@ -2,23 +2,24 @@
 
     <section class="h-screen relative" style="font-family: 'Burbank Big Condensed Black';">
         <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('img/redesign/image_015_0016.png') }}'); max-height:95vh;"></div>
+        <div class="absolute inset-0 bg-cover bg-center max-h-screen" style="background-image: url('{{ asset('img/redesign/image_015_0016.png') }}'); max-height:95vh;"></div>
     
-        <!-- Additional Background Image with Opacity -->
+        <!-- Background Image with Opacity -->
         <div class="absolute inset-0 bg-cover bg-center opacity-100" style="background-image: url('{{ asset('img/redesign/Rectangle 284.png') }}');max-height:95vh;"></div>
     
-        <!-- Text Overlay on the Left Side -->
-        <div class="absolute top-1/2  lg:ml-20 left-1/8 md:ml-10 transform -translate-y-1/2 text-white text-left" style="font-family: 'Burbank Big Condensed Black', sans-serif;">
-            <h1 class="text-6xl font-bold mb-4">Learn Science through Games</h1>
-            <p class="text-6xl text-16A4E1">Anywhere, Anytime!</p>
-            <p class="text-sm" style="font-family:Shantell Sans,cursive;">Gamified contents to learn complex science topics and experiments</p>
-
+        <!-- Text Overlay on the image-->
+        <div class="absolute top-1/2 lg:ml-20 left-1/8 md:ml-10 transform -translate-y-1/2 text-white text-left" style="font-family: 'Burbank Big Condensed Black', sans-serif;">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">Learn Science through Games</h1>
+            <p class="text-4xl md:text-5xl lg:text-6xl text-16A4E1 mb-2 md:mb-4">Anywhere, Anytime!</p>
+            <p class="text-sm md:text-base" style="font-family: Shantell Sans, cursive;">Gamified contents to learn complex science topics and experiments</p>
+        
             <!-- Button for Booking a Demo -->
-            <a href="#" class="inline-block mt-4 border border-white bg-blue-500 text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none">
+            <a href="#" class="inline-block mt-4 border border-white bg-blue-500 text-white text-lg md:text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none">
                 Book a Demo
-                <span class="ml-2">&#8594;</span> <!-- Right arrow character -->
+                <span class="ml-2">&#8594;</span> <!-- Right arrow -->
             </a>
         </div>
+        
 
     
         <!-- Scroll-down Arrow Button -->
@@ -62,43 +63,46 @@
             
         </section>
         <!-- Slanted Div -->
-        <div class="absolute bg-16A4E1 top-25 left-0 right-0 h-20" style="transform:skewY(2deg); height:500px; top: 380px;"></div>
+        <div class="absolute bg-16A4E1 top-25 left-0 right-0 " style="transform:skewY(2deg); height:500px; top: 380px;"></div>
         
-        <div class="relative top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center max-w-screen-md" style="top: 120px">
+        <div class="relative top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center max-w-screen-md" style="">
             <h1 class="text-4xl font-bold p-10" style="font-family: 'Dilo World', sans-serif;">WELCOME TO FORIS LABS</h1>
             <p class="text-xl" style="font-family:Josefin Sans,sans-serif;">Your Gateway to Interactive Science Education!<br> Immerse yourself in an engaging Virtual science Laboratory<br> experience designed to bring science to life.<br> Join us on a captivating journey into the <br> world of science!</p>
         </div>
 
     </div>
-    <div class="flex justify-center items-center space-x-8 relative z-10 pl-40 pr-40"style="width:90%;" >
+    <div class="flex flex-col lg:flex-row items-center space-y-8 relative z-10 pl-4 pr-4 md:pl-16 md:pr-16 lg:pl-40 lg:pr-40" style="width:90%;">
         <!-- Chemistry Section -->
-        <div class="text-container text-center">
-            <img src="{{ asset('img/redesign/chemistry.png') }}" alt="Chemistry Image" class="w-22 h-22 " style="width: 240px; height: 260px;">
-            <h2 class="text-3xl font-bold mt-1 text-left pl-4" style="font-family:'Burbank Big Condensed Black'; color:#4EAE4C; width:100%">Chemistry</h2>
-            <p class="text-sm font-bold text-left pl-4" style="font-family:Josefin Sans,sans-serif;">Unlock the world of molecules and reactions. Explore chemistry with interactive experiments.</p>
+        <div class="text-container text-center p-5">
+            <img src="{{ asset('img/redesign/chemistry.png') }}" alt="Chemistry Image" class="w-80 h-80 md:w-80 md:h-80 lg:w-100 lg:h-100">
+            <h2 class="text-3xl font-bold mt-4 text-center" style="font-family:'Burbank Big Condensed Black'; color:#4EAE4C; width:100%">Chemistry</h2>
+            <p class="text-sm font-bold mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Unlock the world of molecules and reactions. Explore chemistry with interactive experiments.</p>
         </div>
     
         <!-- Physics Section -->
-        <div class="text-container text-center">
-            <img src="{{ asset('img/redesign/physics.png') }}" alt="Physics Image" class="w-22 h-22 " style="width: 250px; height: 260px;">
-            <h2 class="text-3xl font-bold mt-2 text-left pl-4" style="font-family:'Burbank Big Condensed Black'; color:#FF4343;">Physics</h2>
-            <p class="text-sm font-bold text-left pl-4" style="font-family:Josefin Sans,sans-serif;">Dive into the law of motion, energy and beyond. Experience Physics with captivating simulations.</p>
+        <div class="text-container text-center p-5">
+            <img src="{{ asset('img/redesign/physics.png') }}" alt="Physics Image" class="w-80 h-80 md:w-80 md:h-80 lg:w-80 lg:h-80" >
+            <h2 class="text-3xl font-bold mt-4 text-center" style="font-family:'Burbank Big Condensed Black'; color:#FF4343;">Physics</h2>
+            <p class="text-sm font-bold mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Dive into the law of motion, energy and beyond. Experience Physics with captivating simulations.</p>
         </div>
     
         <!-- Biology Section -->
-        <div class="text-container text-center">
-            <img src="{{ asset('img/redesign/biology2.png') }}" alt="Biology Image" class="w-22 h-22 " style="width: 250px; height: 260px;">
-            <h2 class="text-3xl font-bold mt-2 text-left pl-4" style="font-family:'Burbank Big Condensed Black'; color:#FC9700;">Biology</h2>
-            <p class="text-sm font-bold text-left pl-4" style="font-family:Josefin Sans,sans-serif;">Discover the wonders of life and ecosystem. Engage in Biology with hands-on experiments.</p>
+        <div class="text-container text-center p-5">
+            <img src="{{ asset('img/redesign/biology2.png') }}" alt="Biology Image" class="w-80 h-80 md:w-80 md:h-80 lg:w-80 lg:h-80" >
+            <h2 class="text-3xl font-bold mt-4 text-center" style="font-family:'Burbank Big Condensed Black'; color:#FC9700;">Biology</h2>
+            <p class="text-sm font-bold mt-2 text-center" style="font-family:Josefin Sans,sans-serif;">Discover the wonders of life and ecosystem. Engage in Biology with hands-on experiments.</p>
         </div>
     </div>
+    
+    
+
 
     <!-- how we do it section -->
     <section class="section-container bg-16A4E1 flex flex-col pr-20 pl-20 mt-10">
         
     
         <!-- Tired of boring classes -->
-        <div class="flex justify-center p-0 mb-20 bg-0499D9 items-start max-w-screen-lg mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-center p-0 mb-20 bg-0499D9 items-start max-w-screen-lg mx-auto">
             <!-- Left side with image -->
             <div class="flex items-center flex-shrink-0">
                 <img src="{{ asset('img/redesign/Vector20.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 300px; height: 300px;">
@@ -106,18 +110,18 @@
             </div>
         
             <!-- Right side with text -->
-            <div class="text-white p-20 pb-0 whitespace-normal">
-                <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Tired of boring Science Classes?</h2>
-                <p class="text-xl" style="font-family:Josefin Sans,sans-serif;">Get ready to transform any space into your own laboratory with Foris Labs! We're an award-winning platform that unlocks the magic of Science through immersive 3D virtual experiments and fun, gamified learning.</p>
+            <div class="text-white text-center md:text-left sm:p-4 md:p-0 lg:p-0 pb-0">
+                <h2 class="text-2xl md:text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Tired of boring Science Classes?</h2>
+                <p class="text-base md:text-xl" style="font-family:Josefin Sans,sans-serif;">Get ready to transform any space into your own laboratory with Foris Labs! We're an award-winning platform that unlocks the magic of Science through immersive 3D virtual experiments and fun, gamified learning.</p>
             </div>
         </div>
 
           <!-- Imagine -->
-        <div class="flex justify-center p-0 mb-20 bg-0499D9 items-start max-w-screen-lg mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-center p-0 mb-40 bg-0499D9 items-start max-w-screen-lg mx-auto">
             <!-- left side with text -->
-            <div class="text-white p-20 pb-0 whitespace-normal">
-               <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Imagine</h2>
-               <p class="text-xl" style="font-family:Josefin Sans,sans-serif;">Conducting explosive chemistry experiments on your laptop or Dissecting a virtual frog without the fear factor. Better still building a simulated rocket that soars into the stratosphere. With Foris Labs, all this and more is just a tap away.</p>
+            <div class="text-white text-center md:text-left sm:p-4 md:p-0 lg:p-0 pb-0">
+               <h2 class="text-2xl md:text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Imagine</h2>
+               <p class="text-base md:text-xl" style="font-family:Josefin Sans,sans-serif;">Conducting explosive chemistry experiments on your laptop or Dissecting a virtual frog without the fear factor. Better still building a simulated rocket that soars into the stratosphere. With Foris Labs, all this and more is just a tap away.</p>
            </div>
            <!-- right side with image -->
            <div class="flex items-center flex-shrink-0 pr-0">
@@ -127,15 +131,15 @@
        </div>
 
         <!-- Tired of boring classes -->
-        <div class="flex justify-center p-0  bg-0499D9 items-start max-w-screen-lg mx-auto overflow-visible">
+        <div class="flex flex-col md:flex-row items-center justify-center p-0  bg-0499D9 items-start max-w-screen-lg mx-auto overflow-visible">
             <!-- Left side with image -->
             <div class="flex items-center flex-shrink-0">
-                <img src="{{ asset('img/redesign/rectangle265.png') }}" alt="Image" class="w-20 h-40 ml-20 -mt-10 -mb-10 " style="width: 230px; height: 300px;">
+                <img src="{{ asset('img/redesign/rectangle265.png') }}" alt="Image" class="w-20 h-40 ml-2 sm:ml-2 md:ml-2 lg-ml-10 -mt-20 sm:-mt-20 md:-mt-30 sm:-mb-0 md:-mb-10 lg:-mb-10 " style="width: 230px; height: 300px;">
             </div>
         
             <!-- Right side with text -->
-            <div class="text-white p-20 pb-0 whitespace-normal">
-                <h2 class="text-3xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">We're not just about cool simulations, though. We're revolutionizing science education for students of all backgrounds through gamification.</h2>
+            <div class="text-white text-center md:text-left sm:p-4 md:p-4 lg:p-8 pb-0">
+                <h2 class="text-3xl md:text-4xlfont-bold mb-4" style="font-family:'Burbank Big Condensed Black';">We're not just about cool simulations, though. We're revolutionizing science education for students of all backgrounds through gamification.</h2>
             </div>
         </div>
         
@@ -147,10 +151,10 @@
         <button class="bg-FF9649 text-2xl text-white border-2 border-white px-6 py-2 mb-20 mt-2  uppercase mx-auto max-w-md" style="font-family:'Burbank Big Condensed Black';">Here's how we do it</button>
 
         <!-- First Row -->
-        <div class="flex justify-center mb-20 max-w-screen-lg">
-            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+        <div class="flex justify-center mb-20 max-w-screen-lg flex-col md:flex-row">
+            <div class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                 <!-- Left side with image -->
-                <div class="flex items-center flex-shrink-0">
+                <div class="flex items-center flex-shrink-0 mb-0 sm:mb-4 lg:mb-0">
                     <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
                 </div>
         
@@ -168,32 +172,34 @@
         </div>
 
         <!-- Second row-->
-         <div class="flex justify-center mb-20 max-w-screen-lg ml-8">
-            <!-- Arrow image on the right -->
+         <div class="flex justify-center mb-20 max-w-screen-lg ml-8 flex-col-reverse md:flex-row">
+            <!-- Arrow image on the left -->
             <div class="flex items-center flex-shrink-0 ml-8">
                 <img src="{{ asset('img/redesign/Vector22.png') }}" alt="New Image" class="w-20 h-20 transform scale-x-[-1]" style="width: 150px; height: 150px;">
             </div>
 
-            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
-                <!-- Left side with image -->
-                <div class="flex items-center flex-shrink-0">
-                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
+            <!-- Engaging & Interactive Section -->
+            <div class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
+                <!-- right side with image -->
+                <div class="flex items-center flex-shrink-0 mb-0 sm:mb-4 lg:mb-0">
+                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 md:w-32 md:h-32 mr-4 md:mr-8" style="width: 250px; height: 250px;">
                 </div>
-        
+
                 <!-- Right side with text -->
-                <div class="text-white p-8 pr-20 pb-0 whitespace-normal max-w-lg">
-                    <h2 class="text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Engaging & Interactive</h2>
-                    <p class="text-base" style="font-family:Josefin Sans,sans-serif;">Gamified learning keeps you hooked, boosting your understanding and curiosity.</p>
+                <div class="text-white text-center md:text-left p-4 md:p-8 pb-0 whitespace-normal max-w-lg">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-4" style="font-family:'Burbank Big Condensed Black';">Engaging & Interactive</h2>
+                    <p class="text-base md:text-lg" style="font-family:Josefin Sans,sans-serif;">Gamified learning keeps you hooked, boosting your understanding and curiosity.</p>
                 </div>
             </div>
+
         </div>
 
          <!-- third Row -->
-         <div class="flex justify-center mb-20 max-w-screen-lg">
-            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+         <div class="flex justify-center mb-20 max-w-screen-lg flex-col md:flex-row">
+            <div class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                 <!-- Left side with image -->
                 <div class="flex items-center flex-shrink-0">
-                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
+                    <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4 md:w-32 md:h-32 mr-4 md:mr-8" style="width: 250px; height: 250px;">
                 </div>
         
                 <!-- Right side with text -->
@@ -210,13 +216,13 @@
         </div>
 
          <!-- fourth Row-->
-         <div class="flex justify-center mb-20 max-w-screen-lg ml-8">
+         <div class="flex justify-center mb-20 max-w-screen-lg ml-8 flex-col-reverse md:flex-row">
             <!-- Arrow image on the right -->
             <div class="flex items-center flex-shrink-0 ml-8">
                 <img src="{{ asset('img/redesign/Vector22.png') }}" alt="New Image" class="w-20 h-20 transform scale-x-[-1]" style="width: 150px; height: 150px;">
             </div>
 
-            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                 <!-- Left side with image -->
                 <div class="flex items-center flex-shrink-0">
                     <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
@@ -231,8 +237,8 @@
         </div>
         
         <!-- Fifth Row -->
-        <div class="flex justify-center mb-20 max-w-screen-lg">
-            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto">
+        <div class="flex justify-center mb-20 max-w-screen-lg flex-col md:flex-row">
+            <div class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                 <!-- Left side with image -->
                 <div class="flex items-center flex-shrink-0">
                     <img src="{{ asset('img/redesign/Rectangle277.png') }}" alt="Image" class="w-20 h-20 mr-4" style="width: 250px; height: 250px;">
