@@ -61,23 +61,23 @@
             <!-- List of Brands -->
             <div class=" brands-box flex flex-wrap justify-end md:justify-start ml-10 md:ml-48 xl:ml-12">
                 <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"
-                     class="sm:h-8 h-8 px-0.5 py-0.5 my-4  filter grayscale opacity-60">
+                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/stanford.png') }}" alt="stanford"
-                     class="sm:h-10 h-8 px-0.5 py-0.5 my-4  filter grayscale opacity-60">
+                     class="sm:h-10 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/injini.png') }}" alt="injini"
-                     class="sm:h-10 h-8 px-0.5 py-0.5 my-4  filter grayscale opacity-60">
+                     class="sm:h-10 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/zenith-bank.svg') }}" alt="zenith-bank"
-                     class="sm:h-10 h-8 px-0.5 py-0.5  my-4  filter grayscale opacity-60">
+                     class="sm:h-10 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6  my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/techcrunch.svg') }}" alt="techcrunch"
-                     class="sm:h-8 h-8 px-0.5 py-0.5 my-4 filter grayscale opacity-60">
+                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/gesa-2023_white.webp') }}" alt="gesa"
-                     class="sm:h-10 h-8 px-0.5 py-0.5 my-4 filter grayscale opacity-60">
+                     class="sm:h-10 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/shifters-logo.png') }}" alt="gesa"
-                     class="sm:h-8 h-8 px-0.5 py-0.5 my-4 filter grayscale opacity-60">
+                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/seedstars.png') }}" alt="gesa"
-                     class="sm:h-8 h-8 px-0.5 py-0.5 my-4 filter grayscale opacity-60">
+                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/fitch.png') }}" alt="fitch"
-                     class="sm:h-10 h-10  px-0.5 py-0.5 my-4 filter grayscale opacity-60">
+                     class="sm:h-10 h-10  px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
             </div>
         </div>
 
