@@ -54,12 +54,12 @@
         <!-- Right Content -->
         <div class="container max-w-5xl mx-auto px-8">
             <!-- Wording -->
-            <p class="font-bold mb-6 text-4xl md:text-5xl md:ml-48 lg:ml-24 text-16A4E1 font-burbank">
+            <p class="font-bold mb-6 text-4xl md:text-5xl md:ml-48 text-16A4E1 font-burbank">
                 Endorsed by Reputable Brands Worldwide
             </p>
 
             <!-- List of Brands -->
-            <div class=" brands-box flex flex-wrap justify-end md:justify-start ml-10 md:ml-48 lg:ml-24">
+            <div class=" brands-box flex flex-wrap justify-end md:justify-start ml-10 md:ml-48">
                 <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"
                      class="sm:h-8 h-8 px-0.5 py-0.5 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/stanford.png') }}" alt="stanford"
