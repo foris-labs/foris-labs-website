@@ -29,6 +29,7 @@ export default {
                 '67249B': '#67249B',
                 '1CBB6F': '#1CBB6F',
                 '1E1E1E': '#1E1E1E',
+                '262626': '#262626',
             },
             animation: {
                 'float-3': 'float 3s ease-in-out infinite',

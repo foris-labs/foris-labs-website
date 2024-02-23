@@ -405,10 +405,42 @@
                 </div>
             </div>
         </div>
+
+        
     </section>
-    <div class="bg- -mt-14">
-        <img src="{{ asset('img/redesign/Group134.png') }}" alt="Full Width Image" class="w-full h-auto">
+    <div class="h-96 flex flex-col md:flex-row relative">
+        <div class="h-96 sm:w-full lg:w-1/4 bg-blue-500 text-white relative flex items-center justify-center">
+          <img src="{{ asset('img/features/happy-girl.png') }}" alt="Happy Girl" class="sm:w-full lg:hidden sm:block">
+        </div>
+        <div class="h-96 sm:w-full lg:w-3/4 bg-white flex items-center justify-center relative">
+            <div class="lg:max-w-2xl sm:max-w-lg lg:mx-auto m-8 p-8 text-center">
+                <p class="text-16A4E1 text-left font-bold text-3xl md:text-3xl lg:text-5xl font-burbank">
+                  Join our thriving community of science enthusiasts and experience the future of learning.
+                </p>
+                <!-- Black Box with Text -->
+                <div class="bg-262626 text-white p-4 mt-4">
+                  <p class="text-3xl md:text-3xl lg:text-5xl text-left font-bold font-burbank">
+                    Start your scientific adventure with us today!
+                  </p>
+                </div>
+            </div>
+              
+        </div>
+        <img src="{{ asset('img/features/happy-girl.png') }}" alt="Overlay Image" class="hidden lg:block sm:hidden absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 h-96">
     </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   
     <script src="{{ asset('js/fslightbox.js') }}"></script>
 </x-guest-layout>
 
