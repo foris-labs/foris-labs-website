@@ -66,10 +66,10 @@
                 <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black opacity-400">
                     <div class="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 text-white text-left" style="margin-left: 80px">
                         <h2 class="text-3xl font-bold mb-4 font-burbank">Experience Foris Labs in Action Now!</h2>
-                        <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Are you ready to revolutionize science education or take your institution's teaching to the next level?</p>
-                        <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
+                        <p class="text-base mb-4 font-arlon">Are you ready to revolutionize science education or take your institution's teaching to the next level?</p>
+                        <p class="text-base mb-4 font-arlon">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
                         <!-- Button for Booking a Demo -->
-                        <a href="#" class="inline-block mt-4 border border-white bg-transparent  font-burbank text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none" >
+                        <a href="#" class="inline-block mt-4 border border-white bg-transparent font-black font-burbank text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none" >
                             Book a Demo
                             <span class="ml-2 font-bold">&#8594;</span> <!-- Right arrow character -->
                         </a>
@@ -88,9 +88,9 @@
 
                         <div class="absolute top-1/2 left-1/4 inset-0 transform -translate-x-1/2 -translate-y-1/2 text-white text-left" style="margin-left: 80px">
                             <h2 class="text-3xl font-bold mb-4 font-burbank">Experience Foris Labs in Action Now!</h2>
-                            <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Are you ready to revolutionize science education or take your institution's teaching to the next level?.</p>
-                            <p class="text-base mb-4" style="font-family:Josefin Sans,sans-serif;">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
-                            <a href="#" class="inline-block mt-4 border border-white bg-transperent font-burbank text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none">
+                            <p class="text-base mb-4 font-arlon">Are you ready to revolutionize science education or take your institution's teaching to the next level?.</p>
+                            <p class="text-base mb-4 font-arlon">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
+                            <a href="#" class="inline-block mt-4 border border-white bg-transperent font-burbank text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none font-black">
                                 Book a Demo
                                 <span class="ml-2 font-bold">&#8594;</span> <!-- Right arrow character -->
                             </a>

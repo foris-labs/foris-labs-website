@@ -17,17 +17,17 @@
                 <!-- Home link inside a white parallelogram box -->
                 <a href="{{ route('home') }}"
                    class="hover:underline bg-white hover:bg-gray focus:outline-none px-2">
-                    <span class="parallelogram-box uppercase font-bold text-xl"
+                    <span class="parallelogram-box uppercase font-bold text-2xl"
                           style="transform: skewY(2deg); color:#16A4E1;">Home</span>
                 </a>
 
-                <a href="#" class="hover:underline uppercase font-bold text-xl">Who We Are</a>
-                <a href="#" class="hover:underline uppercase font-bold text-xl">Contact Us</a>
+                <a href="#" class="hover:underline uppercase font-bold text-2xl">Who We Are</a>
+                <a href="{{ route('contact-us') }}" class="hover:underline uppercase font-bold text-2xl">Contact Us</a>
             </div>
 
             <!-- Login Button inside a red rectangle box -->
             <button class="hidden sm:block w-20 h-8 bg-ff4343 text-white uppercase font-bold hover:bg-ff9999 focus:outline-none
-            font-burbank">
+            font-burbank text-xl">
                 Log In
             </button>
 
@@ -69,7 +69,7 @@
                         <span class="parallelogram-box uppercase font-bold text-xl"
                               style="transform: skewY(2deg); color:#16A4E1;">Home</span>
                             <a href="#" class="hover:underline text-white">Who We Are</a>
-                            <a href="#" class="hover:underline text-white">Contact Us</a>
+                            <a href="{{ route('contact-us') }}" class="hover:underline text-white">Contact Us</a>
                     </div>
                     <!-- Login Button inside a red rectangle box -->
                     <button

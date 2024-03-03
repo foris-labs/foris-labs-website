@@ -30,6 +30,20 @@
     font-weight: 300;
     font-style: normal;
 }
+@font-face {
+    font-family: 'arlon';
+    src:
+        url('/resources/fonts/arlon/arlon-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'arlon';
+    src:
+        url('/resources/fonts/arlon/arlon-semi-bold.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
 
 html, body {
     scroll-behavior: smooth
