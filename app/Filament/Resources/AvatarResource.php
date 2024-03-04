@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Filament\Resources\AvatarResource\Pages;
 use App\Models\Avatar;
 use Filament\Actions\DeleteAction;

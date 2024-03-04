@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Models\Achievement;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

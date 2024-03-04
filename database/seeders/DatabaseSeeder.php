@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AvatarSeeder::class);
         $this->call(UsersSeeder::class);
 
-        $this->call(ActivitySeeder::class);
-        $this->call(AchievementSeeder::class);
+//        $this->call(AchievementSeeder::class);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Services\LeaderboardService;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
@@ -94,6 +94,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         }
     }
 
+    public function activities(): HasMany
+    {
+        return $this->hasMany(UserActivity::class);
+    }
+
+    public function feedbacks(): HasMany
+    {
+        return $this->hasMany(Feedback::class);
+    }
 
     public function subscriptions(): HasMany
     {

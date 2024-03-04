@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Models\School;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Filament\Resources\AchievementResource\Pages;
 use App\Filament\Resources\AchievementResource\RelationManagers;
 use App\Models\Achievement;

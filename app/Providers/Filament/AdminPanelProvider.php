@@ -22,10 +22,11 @@ class AdminPanelProvider extends PanelProvider
 {
     public function boot(): void
     {
-        if(str_contains(config('app.url'), 'https')) {
+        if (str_contains(config('app.url'), 'https')) {
             url()->forceScheme('https');
         }
     }
+
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -46,10 +47,7 @@ class AdminPanelProvider extends PanelProvider
                 Pages\Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

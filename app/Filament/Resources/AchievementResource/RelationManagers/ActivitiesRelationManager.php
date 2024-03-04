@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\AchievementResource\RelationManagers;
 
-use App\Enum\Interval;
+use App\Enums\Interval;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;

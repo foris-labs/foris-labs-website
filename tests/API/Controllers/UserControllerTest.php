@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use Database\Seeders\CurrencySeeder;
 use Database\Seeders\UsersSeeder;
 use function Pest\Laravel\actingAs;

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\UpdateCurrencyRequest;
 use App\Http\Requests\API\UserUpdateRequest;
+use App\Http\Requests\UserFeedbackRequest;
 use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\Leaderboard;
 use App\Http\Resources\UserResource;
@@ -102,6 +103,15 @@ class UserController extends Controller
         $this->user->refresh();
 
         return new UserResource($this->user);
+    }
+
+    public function feedback(UserFeedbackRequest $request)
+    {
+        $this->user->feedbacks()->create($request->validated());
+
+        return response()->json([
+            'message' => 'Feedback submitted successfully'
+        ]);
     }
 
     public function leaderboard(Request $request)
