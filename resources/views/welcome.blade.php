@@ -139,7 +139,7 @@
                 class="flex flex-col md:flex-row items-center justify-center py-1 my-12 bg-0499D9 mx-auto">
                 <!-- Left side with image -->
                 <div class="flex items-center flex-shrink-0">
-                    <img src="{{ asset('img/features/boring-straight.png') }}" alt="Image" class="w-full md:hidden">
+                    <img src="{{ asset('img/features/thinking-straight.png') }}" alt="Image" class="w-full md:hidden">
                     <img src="{{ asset('img/features/thinking-slant.png') }}" alt="Image"
                          class="w-full hidden md:block max-w-[300px]">
 
@@ -169,7 +169,7 @@
                 </div>
                 <!-- right side with image -->
                 <div class="flex items-center flex-shrink-0 pr-0">
-                    <img src="{{ asset('img/features/imagine-straight.png') }}" alt="Image" class="w-full md:hidden">
+                    <img src="{{ asset('img/features/rocket-straight.png') }}" alt="Image" class="w-full md:hidden">
                     <img src="{{ asset('img/features/rocket-slant.png') }}" alt="Image"
                          class="w-full hidden md:block max-w-[300px]">
 
