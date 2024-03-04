@@ -6,7 +6,7 @@
                     <img class="block h-12 w-auto transition-all duration-300" src="{{ asset('img/redesign/logo2.png') }}"
                          alt="Foris Labs">
                 </a>
-                <p class="text-white"style="font-family:Josefin Sans,sans-serif;">Foris Labs empowers students with superpowers to turn any
+                <p class="text-white font-arlon">Foris Labs empowers students with superpowers to turn any
                     space into a science lab using our gamified 3D virtual science lab for realistic hands-on
                     experiments.</p>
             </div>

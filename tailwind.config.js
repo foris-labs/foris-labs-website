@@ -48,6 +48,7 @@ export default {
             'heading': ['Shantell Sans', 'cursive'],
             'burbank': ['Burbank', 'sans-serif'],
             'josefin': ['Josefin Sans', 'sans-serif'],
+            'arlon': ['arlon'],
         },
 
     },
