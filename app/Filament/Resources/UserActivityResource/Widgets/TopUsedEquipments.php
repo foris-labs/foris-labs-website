@@ -15,23 +15,36 @@ class TopUsedEquipments extends ChartWidget
     {
         $count = (int)$this->filter;
 
-        $activities = collect(Activity::cases())
-            ->filter(fn(Activity $activity) => str_starts_with($activity->name, 'Use'))
-            ->take($count)
-            ->values();
-
+//        $activities = collect(Activity::cases())
+//            ->filter(fn(Activity $activity) => str_starts_with($activity->name, 'Use'))
+//            ->take($count)
+//            ->values();
+//
+//        $userActivities = UserActivity::query()
+//            ->whereIn('activity', $activities)
+//            ->selectRaw('
+//                SUBSTRING_INDEX(activity, "_", -1) as activity,
+//                COUNT(*) as count
+//            ')
+//            ->groupBy('activity')
+//            ->orderByDesc('count')
+//            ->get();
         $userActivities = UserActivity::query()
-            ->whereIn('activity', $activities)
+            ->where('activity', Activity::UseEquipment)
             ->selectRaw('
-                SUBSTRING_INDEX(activity, "_", -1) as activity,
+                JSON_EXTRACT(meta, "$.equipment") as equipment,
                 COUNT(*) as count
             ')
-            ->groupBy('activity')
+            ->groupBy('equipment')
             ->orderByDesc('count')
+            ->take($count)
             ->get();
 
         return [
-            'labels' => $userActivities->pluck('activity')->transform(fn(string $activity) => ucfirst($activity))->toArray(),
+            'labels' => $userActivities
+                ->pluck('equipment')
+                ->transform(fn(string $equipment) => trim($equipment, '"'))
+                ->toArray(),
             'datasets' => [
                 [
                     'label' => 'Usage',
@@ -59,7 +72,7 @@ class TopUsedEquipments extends ChartWidget
 
     public function getHeading(): string|Htmlable|null
     {
-       return "Top $this->filter Used Equipments";
+        return "Top $this->filter Used Equipments";
     }
 
     protected function getFilters(): ?array
