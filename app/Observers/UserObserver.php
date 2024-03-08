@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Models\User;
 use App\Services\LeaderboardService;
 

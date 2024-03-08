@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Http\Resources\Leaderboard;
 use App\Models\AvatarUser;
 use App\Models\User;

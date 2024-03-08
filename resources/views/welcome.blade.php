@@ -2,11 +2,15 @@
 
     <section class="h-screen relative font-burbank">
         <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 bg-cover bg-center max-h-screen"
-             style="background-image: url('{{ asset('img/redesign/image_015_0016.png') }}'); max-height:95vh;"></div>
+        <video class="absolute inset-0 w-full min-h-[95vh] md:max-h-[95vh] object-cover object-center" autoplay muted loop>
+            <source src="{{ asset('videos/demo_video.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+
 
         <!-- Background Image with Opacity -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-100"
+        <div class="absolute inset-0 bg-cover bg-center opacity-[8]"
              style="background-image: url('{{ asset('img/redesign/Rectangle 284.png') }}');max-height:95vh;"></div>
 
         <!-- Text Overlay on the image-->

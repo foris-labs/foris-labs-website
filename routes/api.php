@@ -44,4 +44,6 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/trivia', [TriviaController::class, 'getForToday'])->name('api.trivia');
     Route::post('/trivia/submit', [TriviaController::class, 'submit'])->name('api.trivia.submit');
 
+    Route::post('/feedback', [UserController::class, 'feedback'])->name('api.feedback');
+
 });

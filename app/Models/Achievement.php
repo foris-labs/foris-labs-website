@@ -18,10 +18,4 @@ class Achievement extends Model
         'reward' => 'array',
         'meta' => 'array',
     ];
-
-    public function activities(): BelongsToMany
-    {
-        return $this->belongsToMany(Activity::class)
-            ->withPivot('completion_count', 'is_consecutive', 'consecutive_interval');
-    }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\API;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 

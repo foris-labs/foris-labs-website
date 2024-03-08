@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Enum\Currency;
+use App\Enums\Currency;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\Avatar;
 use App\Models\User;
