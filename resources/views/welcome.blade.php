@@ -3,7 +3,7 @@
     <section class="h-screen relative font-burbank">
         <!-- Background Image with Overlay -->
         <video class="absolute inset-0 w-full min-h-[95vh] md:max-h-[95vh] object-cover object-center" autoplay muted loop>
-            <source src="{{ asset('videos/demo_video.mp4') }}" type="video/mp4">
+            <source src="{{ asset('videos/demo_video1.mp4') }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
@@ -16,32 +16,27 @@
         <!-- Text Overlay on the image-->
         <div
             class="absolute top-1/2 ml-8 md:ml-10 lg:ml-20 left-1/8 transform -translate-y-1/2 text-white text-left font-burbank">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+            <h1 class="text-4xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4">
                 Learn Science through Games
                 <br/>
                 <span class="text-16A4E1">Anywhere, Anytime!</span>
             </h1>
-            <p class="text-lg md:text-xl font-arlon">Gamified contents to learn
+            <p class="text-lg md:text-xl font-arlon mt-8">Gamified contents to learn
                 complex science topics and experiments</p>
 
             <!-- Button for Booking a Demo -->
-            <a href="#"
-               class="inline-block mt-4 border border-white bg-16A4E1 text-white text-lg md:text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none uppercase font-burbank font-black">
+            <a href="https://calendly.com/forislabs/product-demo"class="inline-block mt-8 border-73D5FF border-[3px] bg-16A4E1 text-white text-lg md:text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none uppercase font-burbank font-black">
                 Book a Demo
-                <span class="ml-2">&#8594;</span> <!-- Right arrow -->
+                <i class='fas fa-arrow-right ml-2 text-[20px]'></i>
             </a>
+
+         
+
         </div>
-
-
         <!-- Scroll-down Arrow Button -->
         <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2">
-            <button @click="scrollToContent"
-                    class="bg-16A4E1 text-white rounded-full p-3 hover:bg-0499D9 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                     class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
+            <button class="bg-16A4E1 text-white rounded-full hover:bg-0499D9 focus:outline-none">
+                    <i class='fas fa-arrow-down text-[15px] p-4'></i>
             </button>
         </div>
     </section>
@@ -77,11 +72,11 @@
                 <img src="{{ asset('img/brands/gesa-2023_white.webp') }}" alt="gesa"
                      class="sm:h-10 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/shifters-logo.png') }}" alt="gesa"
-                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
+                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 sm:ml-2  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/seedstars.png') }}" alt="gesa"
-                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
+                     class="sm:h-8 h-8 px-0.5 py-0.5 sm:mx-4 lg:mx-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/fitch.png') }}" alt="fitch"
-                     class="sm:h-10 h-10  px-0.5 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
+                     class="sm:h-12 h-12  px-1 py-0.5 sm:mx-2 lg:mx-6 my-4 filter grayscale opacity-60">
             </div>
         </div>
 
@@ -107,27 +102,27 @@
         <!-- Chemistry Section -->
         <div class="text-container text-center p-5">
             <img src="{{ asset('img/redesign/chemistry.png?s') }}" alt="Chemistry Image"
-                 class="mx-auto w-80 h-auto lg:w-100">
-            <h2 class="text-3xl font-bold mt-4 text-center font-burbank text-[#4EAE4C]">Chemistry</h2>
-            <p class="text-lg mt-2 text-center font-arlon">Unlock the world
+                 class="mx-auto w-80 h-[300px] md:w-100">
+            <h2 class="text-3xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Chemistry</h2>
+            <p class="text-base mt-2 text-center md:text-left md:ml-8 font-arlon">Unlock the world
                 of molecules and reactions. Explore chemistry with interactive experiments.</p>
         </div>
 
         <!-- Physics Section -->
-        <div class="text-container text-center p-5">
+        <div class="text-container text-center p-5 ">
             <img src="{{ asset('img/redesign/physics.png?fs') }}" alt="Physics Image"
-                 class="mx-auto w-80 h-auto lg:w-100">
-            <h2 class="text-3xl font-bold mt-4 text-center font-burbank text-[#4EAE4C]">Physics</h2>
-            <p class="text-lg mt-2 text-center font-arlon">Dive into the law
+                 class="mx-auto w-80  h-[300px] md:w-100 md:-mt-[40px]">
+            <h2 class="text-3xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Physics</h2>
+            <p class="text-base mt-2 text-center md:text-left md:ml-8 font-arlon">Dive into the law
                 of motion, energy and beyond. Experience Physics with captivating simulations.</p>
         </div>
 
         <!-- Biology Section -->
         <div class="text-container text-center p-5">
             <img src="{{ asset('img/redesign/biology2.png?sg') }}" alt="Biology Image"
-                 class="mx-auto w-80 h-auto lg:w-100">
-            <h2 class="text-3xl font-bold mt-4 text-center font-burbank text-[#4EAE4C]">Biology</h2>
-            <p class="text-lg mt-2 text-center font-arlon">Discover the
+                 class="mx-auto w-80  h-[300px] md:w-100 md:-mt-[40px]">
+            <h2 class="text-3xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Biology</h2>
+            <p class="text-base mt-2 text-center md:text-left md:ml-8 font-arlon">Discover the
                 wonders of life and ecosystem. Engage in Biology with hands-on experiments.</p>
         </div>
     </section>
@@ -204,7 +199,7 @@
 
             <div class="flex justify-center">
                 <button
-                    class="bg-FF9649 font-burbank text-2xl text-white border-2 border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
+                    class="bg-FF9649 font-burbank text-2xl text-white border-[3px] border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
                     Here's how we do it
                 </button>
             </div>
