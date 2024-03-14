@@ -5,20 +5,21 @@
          <!-- heading -->
          <h2 class="text-center text-16A4E1 text-4xl font-bold font-burbank">CONTACT US</h2>
         <!-- Images Container -->
-        <div class="flex items-center justify-between">
-            
+        <div class="flex justify-center max-w-full">
             <!-- Boy Image -->
-            <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-80 w-80 hidden md:block">
-    
+            <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-auto md:h-96 md:w-60 hidden -mt-16 ml-20 -mr-20 md:block">
+        
             <!-- Dotted Image in the Center -->
-            <img src="{{asset('img/shapes/wave-dot.png')}}" alt="Dotted Image" class="h-40 w-[90%] mb-40 hidden md:block ">
-    
+            <img src="{{asset('img/shapes/wave-dot.png')}}" alt="Dotted Image" class="h-auto md:h-40 ml-10 mb-40 hidden md:block ">
+        
             <!-- Girl Image -->
-            <img src="{{asset('img/features/girl-with-phone.png')}}" alt="Girl Image" class="h-80 w-80 hidden md:block">
+            <img src="{{asset('img/features/girl-with-phone.png')}}" alt="Girl Image" class="h-auto md:h-100 md:w-60 mr-32 hidden -mt-16 md:block">
         </div>
+        
+        
 
             <!-- Blue Background Flexed Div -->
-            <div class="relative bg-16A4E1 w-full p-8 flex flex-col items-center justify-center space-y-4 md:-mt-[150px] md:z-20">
+            <div class="relative bg-16A4E1 w-full p-8 flex flex-col items-center justify-center space-y-4 md:-mt-[170px] md:z-20">
                 <!-- Text Section -->
                 <div class="text-left">
                     <h2 class="text-4xl font-bold font-burbank">Get in Touch</h2>
