@@ -58,63 +58,70 @@
     // Function to replace content based on screen size
     function replaceContent() {
         var ScreenSection = document.getElementById('experience');
-        if (window.innerWidth <= 1100) {
+        if (window.innerWidth <= 1000) {
             // Medium/small screen design
             ScreenSection.innerHTML = `
-                <!-- Stretched Image with Black and White Filter -->
-                <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Stretched Image" class="w-full h-80 object-cover top-1/2">
+            <div class="relative px-4 py-8 ">
+                <h2 class="text-white text-3xl font-bold mb-4 font-burbank text-center">Experience Foris Labs in Action</h2>
 
-                <!-- Overlay Image with Blue Border and Linear Gradient -->
-                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black opacity-400 ">
-                    <div class="absolute top-1/2 left-1/5 md:left-1/4 transform -translate-x-1/5 md:-translate-x-1/4 -translate-y-1/2 text-white text-left sm:w-[100%] ml-[100px] md:ml-[100px]" style="margin-left: 80px">
-                        <h2 class="text-3xl font-bold mb-4 font-burbank">Experience Foris Labs in Action Now!</h2>
-                        <p class="text-base mb-4 font-arlon">Are you ready to revolutionize science education or take your institution's teaching to the next level?</p>
-                        <p class="text-base mb-4 font-arlon">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
-                        <!-- Button for Booking a Demo -->
-                        <a href="https://calendly.com/forislabs/product-demo" class="inline-block mt-4 border border-white bg-transparent font-black font-burbank text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none" >
-                            Book a Demo
-                            <i class='fas fa-arrow-right ml-2 text-[20px]'></i>  <!-- Right arrow character -->
-                        </a>
-                    </div>
+                <!-- Image with Blue Border and Padding -->
+                <div class="mx-auto border-4 border-blue-500 m-10">
+                    <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Stretched Image" class="w-full h-80 object-cover object-center" loading="lazy">
                 </div>
-            `;
-        } else {
-            // Large screen design
-            ScreenSection.innerHTML = `
-            <div class="absolute flex justify-between opacity-65 left-0">
-                <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Stretched Image" class="w-auto h-80 grayscale top-1/2">
-            </div>
-            <div class="absolute flex justify-between opacity-65 right-0">
-                <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Stretched Image" class="w-auto h-80 grayscale top-1/2">
+
+                <!-- Text Content -->
+                <div class="text-white max-w-4xl mx-auto text-center mt-4">
+                    <p class="text-base mb-4 font-arlon">Are you ready to revolutionize science education or take your institution's teaching to the next level?</p>
+                    <p class="text-base mb-4 font-arlon">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
+                </div>
+
+                <!-- Button for Booking a Demo -->
+                <div class="text-center mt-4">
+                    <a href="https://calendly.com/forislabs/product-demo" class="inline-block border-4 border-white text-white font-bold py-2 px-4 hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                        Book a Demo
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
 
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-[60%] border-[6px] border-16A4E1">
-                    <div class="relative">
-                        <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Overlay Image" class="w-full h-[400px] shadow-lg object-cover" >
-                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black  opacity-400"></div>
+        `;
+            } else {
+                // Large screen design
+                ScreenSection.innerHTML = `
+                <div class="absolute flex justify-between opacity-65 left-0">
+                    <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Stretched Image" class="w-auto h-80 grayscale top-1/2">
+                </div>
+                <div class="absolute flex justify-between opacity-65 right-0">
+                    <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Stretched Image" class="w-auto h-80 grayscale top-1/2">
+                </div>
 
-                        <div class="absolute top-1/2 left-1/4 inset-0 transform -translate-x-1/2 -translate-y-1/2 text-white text-left" style="margin-left: 100px">
-                            <h2 class="text-3xl font-bold mb-4 font-burbank">Experience Foris Labs in Action Now!</h2>
-                            <p class="text-base mb-4 font-arlon">Are you ready to revolutionize science education or take your institution's teaching to the next level?.</p>
-                            <p class="text-base mb-4 font-arlon">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
-                            <a href="https://calendly.com/forislabs/product-demo" class="inline-block mt-4 border-[3px] border-white bg-transperent font-burbank text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none font-black">
-                                Book a Demo
-                                <i class='fas fa-arrow-right ml-2 text-[20px]'></i> <!-- Right arrow character -->
-                            </a>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-[60%] border-[6px] border-16A4E1">
+                        <div class="relative">
+                            <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Overlay Image" class="w-full h-[400px] shadow-lg object-cover" >
+                            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black  opacity-400"></div>
+
+                            <div class="absolute top-1/2 left-1/4 inset-0 transform -translate-x-1/2 -translate-y-1/2 text-white text-left" style="margin-left: 100px">
+                                <h2 class="text-3xl font-bold mb-4 font-burbank">Experience Foris Labs in Action Now!</h2>
+                                <p class="text-base mb-4 font-arlon">Are you ready to revolutionize science education or take your institution's teaching to the next level?.</p>
+                                <p class="text-base mb-4 font-arlon">Witness firsthand how our virtual science laboratory can transform the way you learn and teach science.</p>
+                                <a href="https://calendly.com/forislabs/product-demo" class="inline-block mt-4 border-[3px] border-white bg-transperent font-burbank text-white text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none font-black">
+                                    Book a Demo
+                                    <i class='fas fa-arrow-right ml-2 text-[20px]'></i> <!-- Right arrow character -->
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `;
+                `;
+            }
         }
-    }
 
-    // Event listener for window resize
-    window.addEventListener('resize', replaceContent);
+        // Event listener for window resize
+        window.addEventListener('resize', replaceContent);
 
-    // Initial check on page load
-    window.addEventListener('load', replaceContent);
-</script>
+        // Initial check on page load
+        window.addEventListener('load', replaceContent);
+    </script>
 
-</body>
+    </body>
 
-</html>
+    </html>
