@@ -74,5 +74,13 @@ html, body {
         background-color: white;
         transform: skewY(1deg);
     }
+    @media (max-width: 1100px) {
+        .experience::before {
+            display: none; /* Hide the ::before pseudo-element on screens smaller than md */
+        }
+        .experience::after {
+            display: none; /* Hide the ::after pseudo-element on screens smaller than md */
+        }
+    }
 }
 
