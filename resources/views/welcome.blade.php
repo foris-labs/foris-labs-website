@@ -61,11 +61,11 @@
             <!-- List of Brands -->
             <div class="brands-box flex flex-wrap justify-start w-full md:justify-center">
                 <img src="{{ asset('img/brands/startup-south.png') }}" alt="startup-south"
-                     class="sm:h-10 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
+                     class="sm:h-10 h-7 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/stanford.png') }}" alt="stanford"
-                     class="sm:h-10 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
+                     class="sm:h-10 h-7 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/zenith-bank.svg') }}" alt="zenith-bank"
-                     class="sm:h-8 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6  my-4  filter grayscale opacity-60">
+                     class="sm:h-10 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6  my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/injini.png') }}" alt="injini"
                      class="sm:h-10 h-8 px-2 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/techcrunch.svg') }}" alt="techcrunch"
@@ -195,7 +195,7 @@
 
             <div class="flex justify-center">
                 <button
-                    class="bg-FF9649 font-burbank text-5xl md:text-2xl text-white border-4 border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
+                    class="bg-FF9649 font-burbank text-3xl md:text-2xl text-white border-4 border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
                     Here's how we do it
                 </button>
             </div>
