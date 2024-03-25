@@ -52,7 +52,7 @@
         </div>
 
         <!-- Right Content -->
-        <div class="container max-w-5xl mx-auto px-8 md:mt-10">
+        <div class="container max-w-5xl mx-auto px-4 md:px-8 md:mt-10">
             <!-- Wording -->
             <p class="font-bold mb-6 text-4xl md:text-5xl md:ml-20 text-16A4E1 font-burbank">
                 Endorsed by Reputable Brands Worldwide
@@ -64,18 +64,18 @@
                      class="sm:h-10 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/stanford.png') }}" alt="stanford"
                      class="sm:h-10 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
-                <img src="{{ asset('img/brands/injini.png') }}" alt="injini"
-                     class="sm:h-10 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/zenith-bank.svg') }}" alt="zenith-bank"
                      class="sm:h-8 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6  my-4  filter grayscale opacity-60">
+                <img src="{{ asset('img/brands/injini.png') }}" alt="injini"
+                     class="sm:h-10 h-8 px-2 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4  filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/techcrunch.svg') }}" alt="techcrunch"
-                     class="sm:h-8 h-7 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4 filter grayscale opacity-60">
+                     class="sm:h-9 h-7 px-2 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/gesa-2023_white.webp') }}" alt="gesa"
-                     class="sm:h-10 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4 filter grayscale opacity-60">
+                     class="sm:h-8 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/shifters-logo.png') }}" alt="gesa"
                      class="sm:h-8 h-8 px-0.5 md:px-2 py-0.5  ml-2.5 md:ml-6 my-4   filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/seedstars.png') }}" alt="gesa"
-                     class="sm:h-8 h-8 px-0.5 md:px-2 py-0.5 ml-2.5 md:ml-6 my-4 filter grayscale opacity-60">
+                     class="sm:h-8 h-7 px-0.5 md:px-2 py-0.5 ml-2.5 md:ml-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/fitch.png') }}" alt="fitch"
                      class="sm:h-12 h-12  px-1 py-0.5  ml-2.5 md:ml-6 filter grayscale opacity-60">
             </div>
@@ -83,12 +83,12 @@
 
     </section>
     <!-- Slanted Div -->
-    <div class="relative bg-gradient-to-r from-primary to-primary-light left-0 right-0 md:skew-y-2 h-[500px] z-10 md:mt-90">
+    <div class="relative bg-gradient-to-r from-primary to-primary-light left-0 right-0 md:skew-y-2 h-[300px] md:h-[500px] z-10 md:mt-90">
         <div class="absolute w-full md:-skew-y-2 left-1/2 transform -translate-x-1/2  text-white text-center max-w-screen-md">
             <div class="flex flex-col items-center justify-center h-full p-6">
-                <p class="text-2xl font-arlon">Your Gateway to Interactive Science
-                    Education!<br> Immerse yourself in an engaging Virtual science Laboratory<br> experience designed to
-                    bring science to life.<br> Join us on a captivating journey into the <br> world of science!</p>
+                <p class="text-base md:text-2xl text-center w-full font-arlon">Your Gateway to Interactive Science
+                    Education! Immerse yourself in an engaging Virtual science Laboratory experience designed to
+                    bring science to life. Join us on a captivating journey into the  world of science!</p>
             </div>
         </div>
     </div>
@@ -99,8 +99,8 @@
         <div class="text-container text-center p-5">
             <img src="{{ asset('img/redesign/chemistry.png?s') }}" alt="Chemistry Image"
                  class="mx-auto w-80 h-[300px] md:w-100">
-            <h2 class="text-3xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Chemistry</h2>
-            <p class="text-base mt-2 text-center md:text-left md:ml-8 font-arlon">Unlock the world
+            <h2 class="text-2xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Chemistry</h2>
+            <p class="text-sm mt-2 text-center md:text-left md:ml-8 font-arlon">Unlock the world
                 of molecules and reactions. Explore chemistry with interactive experiments.</p>
         </div>
 
@@ -108,8 +108,8 @@
         <div class="text-container text-center p-5 ">
             <img src="{{ asset('img/redesign/physics.png?fs') }}" alt="Physics Image"
                  class="mx-auto w-80  h-[300px] md:w-100 md:-mt-[40px]">
-            <h2 class="text-3xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Physics</h2>
-            <p class="text-base mt-2 text-center md:text-left md:ml-8 font-arlon">Dive into the law
+            <h2 class="text-2xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Physics</h2>
+            <p class="text-sm mt-2 text-center md:text-left md:ml-8 font-arlon">Dive into the law
                 of motion, energy and beyond. Experience Physics with captivating simulations.</p>
         </div>
 
@@ -117,8 +117,8 @@
         <div class="text-container text-center p-5">
             <img src="{{ asset('img/redesign/biology2.png?sg') }}" alt="Biology Image"
                  class="mx-auto w-80  h-[300px] md:w-100 md:-mt-[40px]">
-            <h2 class="text-3xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Biology</h2>
-            <p class="text-base mt-2 text-center md:text-left md:ml-8 font-arlon">Discover the
+            <h2 class="text-2xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Biology</h2>
+            <p class="text-sm mt-2 text-center md:text-left md:ml-8 font-arlon">Discover the
                 wonders of life and ecosystem. Engage in Biology with hands-on experiments.</p>
         </div>
     </section>
@@ -131,7 +131,7 @@
 
             <!-- Tired of boring classes -->
             <div
-                class="flex flex-col md:flex-row items-center justify-center my-12 bg-0499D9 mx-auto mx-8 md:mx-20">
+                class="flex flex-col md:flex-row items-center justify-center my-12 bg-0499D9 mx-8 md:mx-20">
                 <!-- Left side with image -->
                 <div class="flex items-center flex-shrink-0">
                     <img src="{{ asset('img/features/thinking-straight.png') }}" alt="Image" class="w-full md:hidden">
@@ -151,7 +151,7 @@
 
             <!-- Imagine -->
             <div
-                class="flex flex-col-reverse md:flex-row items-center justify-center mb-40 bg-0499D9 mx-auto mx-8 md:mx-20">
+                class="flex flex-col-reverse md:flex-row items-center justify-center mb-40 bg-0499D9 mx-8 md:mx-20">
                 <!-- left side with text -->
                 <div class="text-white text-center md:text-left p-4 md:p-0 md:pl-6">
                     <h2 class="text-2xl md:text-4xl font-bold mb-4 font-burbank">Imagine</h2>
@@ -195,7 +195,7 @@
 
             <div class="flex justify-center">
                 <button
-                    class="bg-FF9649 font-burbank text-2xl text-white border-[3px] border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
+                    class="bg-FF9649 font-burbank text-5xl md:text-2xl text-white border-4 border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
                     Here's how we do it
                 </button>
             </div>
@@ -203,7 +203,7 @@
             <!-- First Row -->
             <div class="flex justify-center items-center md:mb-16 max-w-screen-lg flex-col md:flex-row">
                 <div
-                    class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
+                    class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-8 flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                     <!-- Left side with image -->
                     <div class="flex items-center flex-shrink-0 mb-0 sm:mb-4 lg:mb-0">
                         <img src="{{ asset('img/features/making-science-accessible.png') }}" alt="Image"
@@ -213,7 +213,7 @@
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Making Science Accessible</h2>
-                        <p class="text-lg md:text-xl font-arlon">No need to worry
+                        <p class="text-base md:text-xl font-arlon">No need to worry
                             about
                             expensive
                             lab equipments, you can just pick up your device, learn and explore anywhere at anytime.</p>
@@ -238,7 +238,7 @@
 
                 <!-- Engaging & Interactive Section -->
                 <div
-                    class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
+                    class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-8 flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                     <!-- right side with image -->
                     <div class="flex items-center flex-shrink-0 mb-0 sm:mb-4 lg:mb-0">
                         <img src="{{ asset('img/features/engaging-nd-interactive.png') }}" alt="Image"
@@ -248,7 +248,7 @@
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Engaging & Interactive</h2>
-                        <p class="text-lg md:text-xl font-arlon">Gamified learning
+                        <p class="text-base md:text-xl font-arlon">Gamified learning
                             keeps
                             you hooked, boosting your understanding and curiosity.</p>
                     </div>
@@ -259,7 +259,7 @@
             <!-- Third Row -->
             <div class="flex justify-center items-center md:mb-16 max-w-screen-lg flex-col md:flex-row">
                 <div
-                    class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
+                    class="flex justify-center items-start bg-0499D9 max-w-screen-lg mx-8 flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                     <!-- Left side with image -->
                     <div class="flex items-center flex-shrink-0">
                         <img src="{{ asset('img/features/collaborative-learning.png') }}" alt="Image"
@@ -269,7 +269,7 @@
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Collaborative Learning</h2>
-                        <p class="text-lg md:text-xl font-arlon">Work with friends and
+                        <p class="text-base md:text-xl font-arlon">Work with friends and
                             classmates
                             to solve scientific puzzles and make discoveries together.</p>
                     </div>
@@ -292,7 +292,7 @@
                 </div>
 
                 <div
-                    class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
+                    class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-8 flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                     <!-- Left side with image -->
                     <div class="flex items-center flex-shrink-0">
                         <img src="{{ asset('img/features/aligned-with-curriculum.png') }}" alt="Image"
@@ -302,7 +302,7 @@
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Aligned with your Curriculum</h2>
-                        <p class="text-lg md:text-xl font-arlon">Experiments match
+                        <p class="text-base md:text-xl font-arlon">Experiments match
                             real-world
                             science concepts, helping you ace those exams.</p>
                     </div>
@@ -312,7 +312,7 @@
             <!-- Fifth Row -->
             <div class="flex justify-center items-center mb-8 md:mb-16 max-w-screen-lg flex-col md:flex-row">
                 <div
-                    class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-auto flex-col md:flex-row p-0 sm:p-4 lg:p-0">
+                    class="flex justify-center items-start bg-0499D9  max-w-screen-lg mx-8 flex-col md:flex-row p-0 sm:p-4 lg:p-0">
                     <!-- Left side with image -->
                     <div class="flex items-center flex-shrink-0">
                         <img src="{{ asset('img/features/empowering-teachers.png') }}" alt="Image"
@@ -323,7 +323,7 @@
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Empowering
                             Teachers</h2>
-                        <p class="text-lg md:text-xl font-arlon">Provide your students
+                        <p class="text-base md:text-xl font-arlon">Provide your students
                             with a
                             dynamic learning tool that sparks their imagination and ignites a passion for science.</p>
                     </div>
@@ -339,10 +339,10 @@
 
 
     <!-- What people say-->
-    <section class="bg-gradient-to-r from-primary to-primary-light py-4 md:py-16 mb-0">
+    <section class="bg-56E1FF mb-0">
         <div class="max-w-screen-lg mx-auto px-6 text-center">
             <!-- Title -->
-            <h2 class="text-4xl font-bold text-white mb-8 font-burbank">What People Say</h2>
+            <h2 class="text-4xl font-bold text-white pt-4 md:pt-16 mb-8 font-burbank">What People Say</h2>
 
             <!-- Testimonials -->
             <div class="flex flex-col sm:flex-row gap-8">
@@ -390,29 +390,30 @@
             </div>
         </div>
 
+        <div class="flex flex-col md:flex-row relative mt-10">
+            <div class="h-96 w-full lg:w-1/4 bg-56E1FF text-white relative flex items-center justify-center">
+              <img src="{{ asset('img/features/happy-girl.png') }}" alt="Happy Girl" class="sm:w-full md:hidden h-96">
+            </div>
+            <div class="h-96 w-full md:w-3/4 bg-white flex items-center justify-center relative">
+                <div class="max-w-full md:max-w-2xl mx-8 md:mx-auto text-center">
+                    <p class="text-16A4E1 text-left font-bold text-4xl lg:text-5xl font-burbank">
+                      Join our thriving community of science enthusiasts and experience the future of learning.
+                    </p>
+                    <!-- Black Box with Text -->
+                    <div class="bg-262626 text-white p-4 mt-4 md:w-4/5">
+                      <p class="text-4xl md:text-5xl text-left font-bold font-burbank">
+                        Start your scientific adventure with us today!
+                      </p>
+                    </div>
+                </div>
+                  
+            </div>
+            <img src="{{ asset('img/features/happy-girl.png') }}" alt="Overlay Image" class="hidden md:block absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 h-96">
+        </div>
         
     </section>
     
-    <div class=" flex flex-col md:flex-row relative">
-        <div class="h-96 sm:w-full lg:w-1/4 bg-blue-500 text-white relative flex items-center justify-center">
-          <img src="{{ asset('img/features/happy-girl.png') }}" alt="Happy Girl" class="sm:w-full md:hidden h-96">
-        </div>
-        <div class="h-96 sm:w-full lg:w-3/4 bg-white flex items-center justify-center relative">
-            <div class="lg:max-w-2xl sm:max-w-lg lg:mx-auto m-8 p-8 text-center">
-                <p class="text-16A4E1 text-left font-bold text-3xl md:text-3xl lg:text-5xl font-burbank">
-                  Join our thriving community of science enthusiasts and experience the future of learning.
-                </p>
-                <!-- Black Box with Text -->
-                <div class="bg-262626 text-white p-4 mt-4">
-                  <p class="text-3xl md:text-3xl lg:text-5xl text-left font-bold font-burbank">
-                    Start your scientific adventure with us today!
-                  </p>
-                </div>
-            </div>
-              
-        </div>
-        <img src="{{ asset('img/features/happy-girl.png') }}" alt="Overlay Image" class="hidden md:block absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 h-96">
-    </div>
+    
       
       
       

@@ -65,7 +65,7 @@
                 <h2 class="text-white text-3xl font-bold mb-4 font-burbank text-center">Experience Foris Labs in Action</h2>
 
                 <!-- Image with Blue Border and Padding -->
-                <div class="mx-auto border-4 border-blue-500 m-10">
+                <div class="mx-auto border-4 border-16A4E1 m-10">
                     <img src="{{ asset('img/redesign/team-smile.png') }}" alt="Stretched Image" class="w-full h-80 object-cover object-center" loading="lazy">
                 </div>
 
