@@ -7,7 +7,7 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex flex-shrink-0 items-center">
-                    <img src="{{ asset('img/logo-white.png') }}" alt="Logo"
+                    <img src="{{ asset('img/redesign/logo2.png') }}" alt="Logo"
                          class="block h-12 w-auto transition-all duration-300" :class="{'!h-10': !atTop | open}">
                 </a>
             </div>

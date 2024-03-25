@@ -30,7 +30,8 @@ export default {
                 '1CBB6F': '#1CBB6F',
                 '1E1E1E': '#1E1E1E',
                 '262626': '#262626',
-                '73D5FF': '#73D5FF',            },
+                '73D5FF': '#73D5FF',
+                '56E1FF': '#56E1FF',            },
             animation: {
                 'float-3': 'float 3s ease-in-out infinite',
                 'float-4': 'float 4s ease-in-out infinite',
