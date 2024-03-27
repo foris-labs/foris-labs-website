@@ -43,7 +43,7 @@
     </section>
 
     <!-- Brands Section -->
-    <section class="relative flex flex-col md:flex-row items-center justify-start bg-white min-h-96">
+    <section class="relative flex flex-col md:flex-row items-center justify-start bg-white h-96">
 
         <!-- Left Image -->
         <div class="absolute left-0 hidden md:block top-0">
@@ -207,7 +207,7 @@
                     <!-- Left side with image -->
                     <div class="flex items-center flex-shrink-0 mb-0 sm:mb-4 lg:mb-0">
                         <img src="{{ asset('img/features/making-science-accessible.png') }}" alt="Image"
-                             class="w-full md:w-64">
+                             class="w-full md:w-64 border-4 border-white">
                     </div>
 
                     <!-- Right side with text -->
@@ -242,7 +242,7 @@
                     <!-- right side with image -->
                     <div class="flex items-center flex-shrink-0 mb-0 sm:mb-4 lg:mb-0">
                         <img src="{{ asset('img/features/engaging-nd-interactive.png') }}" alt="Image"
-                             class="w-full md:w-64">
+                             class="w-full md:w-64 border-4 border-white">
                     </div>
 
                     <!-- Right side with text -->
@@ -263,7 +263,7 @@
                     <!-- Left side with image -->
                     <div class="flex items-center flex-shrink-0">
                         <img src="{{ asset('img/features/collaborative-learning.png') }}" alt="Image"
-                             class="w-full md:w-64">
+                             class="w-full md:w-64 border-4 border-white">
                     </div>
 
                     <!-- Right side with text -->
@@ -296,7 +296,7 @@
                     <!-- Left side with image -->
                     <div class="flex items-center flex-shrink-0">
                         <img src="{{ asset('img/features/aligned-with-curriculum.png') }}" alt="Image"
-                             class="w-full md:w-64">
+                             class="w-full md:w-64 border-4 border-white">
                     </div>
 
                     <!-- Right side with text -->
@@ -339,7 +339,7 @@
 
 
     <!-- What people say-->
-    <section class="bg-56E1FF mb-0">
+    <section class="bg-16A4E1 mb-0">
         <div class="max-w-screen-lg mx-auto px-6 text-center">
             <!-- Title -->
             <h2 class="text-4xl font-bold text-white pt-4 md:pt-16 mb-8 font-burbank">What People Say</h2>
@@ -391,7 +391,7 @@
         </div>
 
         <div class="flex flex-col md:flex-row relative mt-10">
-            <div class="h-96 w-full lg:w-1/4 bg-56E1FF text-white relative flex items-center justify-center">
+            <div class="h-96 w-full lg:w-1/4 bg-16A4E1 text-white relative flex items-center justify-center">
               <img src="{{ asset('img/features/happy-girl.png') }}" alt="Happy Girl" class="sm:w-full md:hidden h-96">
             </div>
             <div class="h-96 w-full md:w-3/4 bg-white flex items-center justify-center relative">
