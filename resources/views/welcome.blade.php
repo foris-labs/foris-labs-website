@@ -77,7 +77,7 @@
                 <img src="{{ asset('img/brands/seedstars.png') }}" alt="gesa"
                      class="sm:h-8 h-7 px-0.5 md:px-2 py-0.5 ml-2.5 md:ml-6 my-4 filter grayscale opacity-60">
                 <img src="{{ asset('img/brands/fitch.png') }}" alt="fitch"
-                     class="sm:h-12 h-12  px-1 py-0.5  ml-2.5 md:ml-6 filter grayscale opacity-60">
+                     class="sm:h-9 h-9  px-1 py-0.5  ml-2.5 md:ml-6 filter grayscale opacity-60">
             </div>
         </div>
 

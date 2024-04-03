@@ -77,7 +77,7 @@
 
                 <!-- Button for Booking a Demo -->
                 <div class="text-center mt-4">
-                    <a href="https://calendly.com/forislabs/product-demo" class="inline-block border-4 border-white text-white font-bold py-2 px-4 hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                    <a href="https://calendly.com/forislabs/product-demo" class="inline-block border-4 border-white text-white font-burbank text-xl py-2 px-4 hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
                         Book a Demo
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
