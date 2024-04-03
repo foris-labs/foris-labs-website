@@ -3,7 +3,7 @@
    <!-- Contact Us Section -->
     <section class="relative bg-white text-white mt-20 md:mt-20">
          <!-- heading -->
-         <h2 class="text-center text-16A4E1 text-4xl font-bold font-burbank">CONTACT US</h2>
+         <h2 class="text-center text-16A4E1 text-4xl font-bold font-burbank hidden md:block">CONTACT US</h2>
         <!-- Images Container -->
         <div class="flex justify-center max-w-full">
             <!-- Boy Image -->
@@ -15,11 +15,23 @@
             <!-- Girl Image -->
             <img src="{{asset('img/features/girl-with-phone.png')}}" alt="Girl Image" class="h-auto md:h-100 md:w-60 mr-32 hidden -mt-16 md:block">
         </div>
+
+        <!--For mobile -->
+        <div class="flex justify-start md:hidden">
+            <div class="w-2/4 -ml-8">
+                <!-- Boy Image -->
+                <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-96 w-auto">
+            </div>
+            <div class="mt-16 w-3/5">
+                <h2 class="text-left text-16A4E1 text-4xl font-bold font-burbank">CONTACT US</h2>
+                <p class="font-arlon text-left text-black text-base">For enquires, complaints and special requests, please fill the contact form below and send a message. We are always ready to assist you.</p>
+            </div>
+        </div>
         
         
 
             <!-- Blue Background Flexed Div -->
-            <div class="relative bg-16A4E1 w-full p-8 flex flex-col items-center justify-center space-y-4 md:-mt-[170px] md:z-20">
+            <div class="relative bg-16A4E1 w-full p-8 flex flex-col items-center justify-center space-y-4 -mt-24 md:-mt-[170px] md:z-20">
                 <!-- Text Section -->
                 <div class="text-left">
                     <h2 class="text-4xl font-bold font-burbank">Get in Touch</h2>
@@ -60,7 +72,7 @@
                     </form>
                 </div>
             </div>
-            <div class="flex items-center justify-center mb-16">
+            <div class="flex items-center justify-center mb-16 px-10">
                 <div class="border-4 border-black p-2 max-w-sm flex items-center mt-16">
                     <!-- Image -->
                     <img src="{{ asset('img/redesign/blue-envelope.png') }}" alt="Your Image" class="w-1/3 h-auto mr-4">
