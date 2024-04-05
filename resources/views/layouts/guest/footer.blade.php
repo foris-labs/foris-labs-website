@@ -134,7 +134,7 @@
         </a>
     </div>
     <div
-        class="fixed inset-y-0 left-0 z-50 flex h-screen w-[50px] flex-col items-start justify-center transition-transform duration-500"
+        class="fixed inset-y-0 left-0 z-50 flex h-screen w-[2px] flex-col items-start justify-center transition-transform duration-500"
         :class="{ 'translate-x-[-50px]': !hidden, 'translate-x-0': hidden }">
         <button @click="hidden = !hidden"
                 class="bg-gray-800/50 my-1 flex h-8 w-6 items-center justify-start rounded-r-full text-white transition duration-500 hover:bg-orange-500 hover:text-white">

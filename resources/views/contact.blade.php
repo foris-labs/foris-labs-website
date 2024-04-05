@@ -1,29 +1,29 @@
 <x-guest-layout title="Contact Us">
 
    <!-- Contact Us Section -->
-    <section class="relative bg-white text-white mt-20 md:mt-20">
+    <section class="relative bg-white text-white mt-20 md:mt-24">
          <!-- heading -->
-         <h2 class="text-center text-16A4E1 text-4xl font-bold font-burbank hidden md:block">CONTACT US</h2>
+         <h2 class="text-center text-16A4E1 text-4xl font-bold font-burbank2 hidden md:block md:mt-14">CONTACT US</h2>
         <!-- Images Container -->
         <div class="flex justify-center max-w-full">
             <!-- Boy Image -->
-            <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-auto md:h-96 md:w-60 hidden -mt-16 ml-20 -mr-20 md:block">
+            <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-auto md:h-96 md:w-60 hidden -mt-10 ml-20 -mr-20 md:block">
         
             <!-- Dotted Image in the Center -->
-            <img src="{{asset('img/shapes/wave-dot.png')}}" alt="Dotted Image" class="h-auto md:h-40 ml-10 mb-40 hidden md:block ">
+            <img src="{{asset('img/shapes/wave-dot.png')}}" alt="Dotted Image" class="h-auto md:h-40 ml-10 mb-40 hidden md:block md:mt-10 ">
         
             <!-- Girl Image -->
-            <img src="{{asset('img/features/girl-with-phone.png')}}" alt="Girl Image" class="h-auto md:h-100 md:w-60 mr-32 hidden -mt-16 md:block">
+            <img src="{{asset('img/features/girl-with-phone.png')}}" alt="Girl Image" class="h-auto md:h-100 md:w-60 mr-32 hidden -mt-10 md:block">
         </div>
 
         <!--For mobile -->
         <div class="flex justify-start md:hidden">
-            <div class="w-2/4 -ml-8">
+            <div class="w-[52%] -ml-12">
                 <!-- Boy Image -->
                 <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-96 w-auto">
             </div>
-            <div class="mt-16 w-2/4">
-                <h2 class="text-left text-16A4E1 text-4xl font-bold font-burbank">CONTACT US</h2>
+            <div class="mt-16 w-[48%] mr-2">
+                <h2 class="text-left text-16A4E1 text-4xl font-bold font-burbank2">CONTACT US</h2>
                 <p class="font-arlon text-left text-black text-base">For enquires, complaints and special requests, please fill the contact form below and send a message. We are always ready to assist you.</p>
             </div>
         </div>
@@ -34,10 +34,9 @@
             <div class="relative bg-16A4E1 w-full p-8 flex flex-col items-center justify-center space-y-4 -mt-24 md:-mt-[170px] md:z-20">
                 <!-- Text Section -->
                 <div class="text-left">
-                    <h2 class="text-4xl font-bold font-burbank">Get in Touch</h2>
-                    <p class="mb-4 font-arlon">For enquiries, complaints, and special requests, please fill the contact form below and send a message.</p>
+                    <h2 class="text-4xl font-bold font-burbank2">Get in Touch</h2>
                 
-                    <form class="w-full text-xl font-burbank font-bold"  method="POST" action="">
+                    <form class="w-full text-xl font-burbank2 font-bold"  method="POST" action="">
                         @csrf
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -79,13 +78,27 @@
             
                     <!-- Text -->
                     <div>
-                        <h2 class="text-2xl font-bold text-black font-burbank">Contact Mail</h2>
+                        <h2 class="text-2xl font-bold text-black font-burbank2">Contact Mail</h2>
                         <p class="text-sm text-black font-arlon">helpdesk@forislabs.com</p>
                     </div>
                 </div>
             </div>
             
             
-    </section>    
-        
+    </section>
+  
+
+    
+<script>
+    // In your contact page JavaScript file or script tag
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for the DOM content to be loaded
+    
+    // Remove the md:bg-transparent class from elements with the nav-bar class
+    var elements = document.querySelectorAll('.nav-bar.md\\:bg-transparent');
+    elements.forEach(function(element) {
+        element.classList.remove('md:bg-transparent');
+    });
+});
+</script>        
 </x-guest-layout>
