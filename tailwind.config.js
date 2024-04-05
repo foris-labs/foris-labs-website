@@ -50,6 +50,7 @@ export default {
             'burbank': ['Burbank', 'sans-serif'],
             'josefin': ['Josefin Sans', 'sans-serif'],
             'arlon': ['arlon'],
+            'burbank2': ['BurBank2'],
         },
 
     },

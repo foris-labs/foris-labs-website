@@ -5,6 +5,14 @@
 @tailwind utilities;
 
 @font-face {
+    font-family: 'BurBank2';
+    src:
+        url('/resources/fonts/Burbank-Big-Condensed-Black/Burbank Big Condensed Black.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'BurBank';
     src:
         url('/resources/fonts/BurbankBigCondensed/BurbankBigCondensed-Bold.ttf') format('truetype'),
@@ -12,6 +20,8 @@
     font-weight: bold;
     font-style: normal;
 }
+
+
 
 @font-face {
     font-family: 'BurBank';

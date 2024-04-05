@@ -1,6 +1,6 @@
 <x-guest-layout title="3d Virtual Science Laboratory">
 
-    <section class="h-screen relative font-burbank">
+    <section class="h-screen relative font-burbank2">
         <!-- Background Image with Overlay -->
         <video class="absolute inset-0 w-full min-h-[95vh] md:max-h-[95vh] object-cover object-center" autoplay muted loop poster="{{ asset('img/redesign/lab_image.png') }}">
             <source src="{{ asset('videos/demo_video1.mp4') }}" type="video/mp4">
@@ -15,7 +15,7 @@
 
         <!-- Text Overlay on the image-->
         <div
-            class="absolute top-1/2 ml-8 md:ml-10 lg:ml-20 left-1/8 transform -translate-y-1/2 text-white text-left font-burbank">
+            class="absolute top-1/2 ml-8 md:ml-10 lg:ml-20 left-1/8 transform -translate-y-1/2 text-white text-left font-burbank2">
             <h1 class="text-6xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4">
                 Learn Science through Games
                 <br/>
@@ -26,9 +26,9 @@
                 complex science topics and experiments</p>
 
             <!-- Button for Booking a Demo -->
-            <a href="https://calendly.com/forislabs/product-demo"class="inline-block mt-8 border-73D5FF border-[3px] bg-16A4E1 text-white text-lg md:text-xl px-4 py-2 hover:bg-blue-700 focus:outline-none uppercase font-burbank font-black">
+            <a href="https://calendly.com/forislabs/product-demo"class="inline-block mt-8 border-73D5FF border-[2px] bg-16A4E1 text-white text-lg md:text-xl px-4 py-1 hover:bg-blue-700 focus:outline-none font-burbank2 font-black">
                 Book a Demo
-                <i class='fas fa-arrow-right ml-2 text-[20px]'></i>
+                <i class='fas fa-arrow-right ml-2 text-[15px]'></i>
             </a>
 
          
@@ -54,7 +54,7 @@
         <!-- Right Content -->
         <div class="container max-w-5xl mx-auto px-4 md:px-8 md:mt-10">
             <!-- Wording -->
-            <p class="font-bold mb-6 text-4xl md:text-5xl md:ml-20 text-16A4E1 font-burbank">
+            <p class="font-bold mb-6 text-4xl md:text-5xl md:ml-20 text-16A4E1 font-burbank2">
                 Endorsed by Reputable Brands Worldwide
             </p>
 
@@ -98,29 +98,41 @@
         <!-- Chemistry Section -->
         <div class="text-container text-center p-5">
             <img src="{{ asset('img/redesign/chemistry.png?s') }}" alt="Chemistry Image"
-                 class="mx-auto w-80 h-[300px] md:w-100">
-            <h2 class="text-2xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Chemistry</h2>
-            <p class="text-sm mt-2 text-center md:text-left md:ml-8 font-arlon">Unlock the world
-                of molecules and reactions. Explore chemistry with interactive experiments.</p>
+                 class="w-80 h-[300px] md:w-100">
+            <div class="flex flex-col items-center md:items-start md:ml-8">
+                <h2 class="text-2xl font-bold mt-4 text-center md:text-left font-burbank2 text-[#4EAE4C]">Chemistry</h2>
+                <p class="text-sm mt-2 text-center md:text-left font-arlon">Unlock the world
+                    of molecules and reactions. Explore chemistry with interactive experiments.</p>
+            </div>
         </div>
+        
 
-        <!-- Physics Section -->
-        <div class="text-container text-center p-5 ">
+       <!-- Physics Section -->
+        <div class="text-container text-center p-5">
             <img src="{{ asset('img/redesign/physics.png?fs') }}" alt="Physics Image"
-                 class="mx-auto w-80  h-[300px] md:w-100 md:-mt-[40px]">
-            <h2 class="text-2xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Physics</h2>
-            <p class="text-sm mt-2 text-center md:text-left md:ml-8 font-arlon">Dive into the law
-                of motion, energy and beyond. Experience Physics with captivating simulations.</p>
+                class=" w-80 h-[300px] md:w-100 md:-mt-[40px]">
+
+            <!-- Use flexbox for layout -->
+            <div class="flex flex-col items-center md:items-start md:ml-8">
+                <h2 class="text-2xl font-bold mt-4 text-center md:text-left font-burbank2 text-[#4EAE4C]">Physics</h2>
+                <p class="text-sm mt-2 text-center md:text-left font-arlon">Dive into the law
+                    of motion, energy and beyond. Experience Physics with captivating simulations.</p>
+            </div>
         </div>
 
         <!-- Biology Section -->
         <div class="text-container text-center p-5">
             <img src="{{ asset('img/redesign/biology2.png?sg') }}" alt="Biology Image"
-                 class="mx-auto w-80  h-[300px] md:w-100 md:-mt-[40px]">
-            <h2 class="text-2xl font-bold mt-4 text-center md:text-left md:ml-8 font-burbank text-[#4EAE4C]">Biology</h2>
-            <p class="text-sm mt-2 text-center md:text-left md:ml-8 font-arlon">Discover the
-                wonders of life and ecosystem. Engage in Biology with hands-on experiments.</p>
+                class="w-80 h-[300px] md:w-100 md:-mt-[40px]">
+
+            <!-- Use flexbox for layout -->
+            <div class="flex flex-col items-center md:items-start md:ml-8">
+                <h2 class="text-2xl font-bold mt-4 text-center md:text-left font-burbank2 text-[#4EAE4C]">Biology</h2>
+                <p class="text-sm mt-2 text-center md:text-left font-arlon">Discover the
+                    wonders of life and ecosystem. Engage in Biology with hands-on experiments.</p>
+            </div>
         </div>
+
     </section>
 
 
@@ -142,7 +154,7 @@
 
                 <!-- Right side with text -->
                 <div class="text-white text-center md:text-left p-4 md:p-0 md:pr-6">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4 font-burbank">Tired of boring Science Classes?</h2>
+                    <h2 class="text-2xl md:text-4xl font-bold mb-4 font-burbank2">Tired of boring Science Classes?</h2>
                     <p class="text-base md:text-xl font-arlon">Get ready to transform any
                         space into your own laboratory with Foris Labs! We're an award-winning platform that unlocks the
                         magic of Science through immersive 3D virtual experiments and fun, gamified learning.</p>
@@ -154,7 +166,7 @@
                 class="flex flex-col-reverse md:flex-row items-center justify-center mb-40 bg-0499D9 mx-8 md:mx-20">
                 <!-- left side with text -->
                 <div class="text-white text-center md:text-left p-4 md:p-0 md:pl-6">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4 font-burbank">Imagine</h2>
+                    <h2 class="text-2xl md:text-4xl font-bold mb-4 font-burbank2">Imagine</h2>
                     <p class="text-base md:text-xl font-arlon">Conducting explosive
                         chemistry experiments on your laptop or Dissecting a virtual frog without the fear factor.
                         Better
@@ -181,7 +193,7 @@
 
                 <!-- Right side with text -->
                 <div class="text-white text-center md:text-left p-4 md:p-4 lg:p-8 pb-0">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-10 font-burbank">We're not just about cool
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-10 font-burbank2">We're not just about cool
                         simulations,
                         though. We're revolutionizing science education for students of all
                         backgrounds through gamification.</h2>
@@ -195,7 +207,7 @@
 
             <div class="flex justify-center">
                 <button
-                    class="bg-FF9649 font-burbank text-3xl md:text-2xl text-white border-4 border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
+                    class="bg-FF9649 font-burbank2 text-3xl md:text-2xl text-white border-4 border-white px-6 py-2 mb-20 mt-2 uppercase max-w-md font-black">
                     Here's how we do it
                 </button>
             </div>
@@ -212,7 +224,7 @@
 
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Making Science Accessible</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank2">Making Science Accessible</h2>
                         <p class="text-base md:text-xl font-arlon">No need to worry
                             about
                             expensive
@@ -247,7 +259,7 @@
 
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Engaging & Interactive</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank2">Engaging & Interactive</h2>
                         <p class="text-base md:text-xl font-arlon">Gamified learning
                             keeps
                             you hooked, boosting your understanding and curiosity.</p>
@@ -268,7 +280,7 @@
 
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Collaborative Learning</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank2">Collaborative Learning</h2>
                         <p class="text-base md:text-xl font-arlon">Work with friends and
                             classmates
                             to solve scientific puzzles and make discoveries together.</p>
@@ -301,7 +313,7 @@
 
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Aligned with your Curriculum</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank2">Aligned with your Curriculum</h2>
                         <p class="text-base md:text-xl font-arlon">Experiments match
                             real-world
                             science concepts, helping you ace those exams.</p>
@@ -321,7 +333,7 @@
 
                     <!-- Right side with text -->
                     <div class="text-white text-center md:text-left p-4 md:p-8 max-w-lg">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank">Empowering
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-burbank2">Empowering
                             Teachers</h2>
                         <p class="text-base md:text-xl font-arlon">Provide your students
                             with a
@@ -342,7 +354,7 @@
     <section class="bg-16A4E1 mb-0">
         <div class="max-w-screen-lg mx-auto px-6 text-center">
             <!-- Title -->
-            <h2 class="text-4xl font-bold text-white pt-4 md:pt-16 mb-8 font-burbank">What People Say</h2>
+            <h2 class="text-4xl font-bold text-white pt-4 md:pt-16 mb-8 font-burbank2">What People Say</h2>
 
             <!-- Testimonials -->
             <div class="flex flex-col sm:flex-row gap-8">
@@ -396,12 +408,12 @@
             </div>
             <div class="h-96 w-full md:w-3/4 bg-white flex items-center justify-center relative">
                 <div class="max-w-full md:max-w-2xl mx-8 md:mx-auto text-center">
-                    <p class="text-16A4E1 text-left font-bold text-4xl lg:text-5xl font-burbank">
+                    <p class="text-16A4E1 text-left font-bold text-4xl lg:text-5xl font-burbank2">
                       Join our thriving community of science enthusiasts and experience the future of learning.
                     </p>
                     <!-- Black Box with Text -->
                     <div class="bg-262626 text-white p-4 mt-4 md:w-4/5">
-                      <p class="text-4xl md:text-5xl text-left font-bold font-burbank">
+                      <p class="text-4xl md:text-5xl text-left font-bold font-burbank2">
                         Start your scientific adventure with us today!
                       </p>
                     </div>
