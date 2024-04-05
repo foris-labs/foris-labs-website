@@ -18,11 +18,11 @@
 
         <!--For mobile -->
         <div class="flex justify-start md:hidden">
-            <div class="w-[55%] -ml-8">
+            <div class="w-[52%] -ml-11">
                 <!-- Boy Image -->
                 <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-96 w-auto">
             </div>
-            <div class="mt-16 w-2/4">
+            <div class="mt-16 w-2/4 mr-2">
                 <h2 class="text-left text-16A4E1 text-4xl font-bold font-burbank2">CONTACT US</h2>
                 <p class="font-arlon text-left text-black text-base">For enquires, complaints and special requests, please fill the contact form below and send a message. We are always ready to assist you.</p>
             </div>
