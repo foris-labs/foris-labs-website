@@ -66,7 +66,7 @@
                     <a href="{{ route('home') }}" class="hover:underline bg-white hover:bg-gray focus:outline-none px-2">
                         <span class="parallelogram-box uppercase font-bold text-xl" style="transform: skewY(2deg); color:#16A4E1;">Home</span>
                     </a>
-                    <a href="{{ route('who-we-are') }}" class="hover:underline text-white text-center">Who We Are</a>
+                    <a href="#" class="hover:underline text-white text-center">Who We Are</a>
                     <a href="{{ route('contact-us') }}" class="hover:underline text-white">Contact Us</a>
                 </div>
                 <!-- Login Button inside a red rectangle box -->

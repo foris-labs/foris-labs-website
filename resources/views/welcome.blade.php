@@ -16,13 +16,13 @@
         <!-- Text Overlay on the image-->
         <div
             class="absolute top-1/2 ml-8 md:ml-10 lg:ml-20 left-1/8 transform -translate-y-1/2 text-white text-left font-burbank2">
-            <h1 class="text-6xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4">
+            <h1 class="text-5xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4">
                 Learn Science through Games
                 <br/>
-                <span class="bg-gradient-to-r from-primary to-primary-light text-transparent bg-clip-text text-5xl">Anywhere, Anytime!</span>
+                <span class="bg-gradient-to-r from-primary to-primary-light text-transparent bg-clip-text text-4xl">Anywhere, Anytime!</span>
 
             </h1>
-            <p class="text-lg md:text-xl font-arlon mt-8">Gamified contents to learn
+            <p class="text-base md:text-xl font-arlon mt-8">Gamified contents to learn
                 complex science topics and experiments</p>
 
             <!-- Button for Booking a Demo -->
