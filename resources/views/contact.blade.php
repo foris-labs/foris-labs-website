@@ -18,7 +18,7 @@
 
         <!--For mobile -->
         <div class="flex justify-start md:hidden">
-            <div class="w-[52%] -ml-12">
+            <div class="w-[55%] -ml-11">
                 <!-- Boy Image -->
                 <img src="{{asset('img/features/boy-with-phone.png')}}" alt="Boy Image" class="h-96 w-auto">
             </div>
