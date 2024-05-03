@@ -38,6 +38,9 @@ class UserActivityResource extends Resource
                     ->displayFormat('M j, Y, g:i A')
                     ->native(false)
                     ->required(),
+                Forms\Components\KeyValue::make('meta')
+                    ->columnSpanFull()
+                    ->required(),
             ])
             ->columns(3);
     }
@@ -53,6 +56,8 @@ class UserActivityResource extends Resource
                 Tables\Columns\TextColumn::make('activity')
                     ->formatStateUsing(fn(string $state): string => Activity::from($state)->getLabel())
                     ->badge()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('meta')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('performed_at')
                     ->dateTime('M j, Y, g:i A')

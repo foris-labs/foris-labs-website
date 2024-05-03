@@ -21,13 +21,13 @@
     <link href="https://fonts.cdnfonts.com/css/dilo-world" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e380772bc3.js" crossorigin="anonymous"></script>
 
-    
+
 
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    {{--    <script defer data-domain="forislabs.com" src="https://analytics.codewithkyrian.com/js/script.js"></script>--}}
+    <script defer data-domain="forislabs.com" src="https://analytics.codewithkyrian.com/js/script.js"></script>
     <style>
 
         /*@media (min-width: 1000px) and (max-width: 1280px) {*/

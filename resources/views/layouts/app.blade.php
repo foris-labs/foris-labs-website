@@ -17,6 +17,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script defer data-domain="forislabs.com" src="https://analytics.codewithkyrian.com/js/script.js"></script>
 </head>
 
 <body class="font-sans antialiased">
