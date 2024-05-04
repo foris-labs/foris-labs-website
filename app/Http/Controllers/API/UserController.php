@@ -116,8 +116,8 @@ class UserController extends Controller
 
     public function leaderboard(Request $request)
     {
-        $currency = $request->enum('currency', Currency::class) ?? Currency::LAB_CREDITS;
+        $leaderboard = LeaderboardService::get();
 
-        return LeaderboardService::getLeaderboard($currency);
+        return new Leaderboard($leaderboard);
     }
 }
