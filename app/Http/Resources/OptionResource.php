@@ -2,24 +2,20 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Question;
+use App\Models\Option;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin Question */
-class QuestionResource extends JsonResource
+/** @mixin Option */
+class OptionResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
         return [
             'id' => $this->id,
             'body' => $this->body,
-            'options' => OptionResource::collection($this->whenLoaded('options')),
+            'is_correct' => $this->is_correct,
+            'explanation' => $this->explanation,
         ];
     }
 }

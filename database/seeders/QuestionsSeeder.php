@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Option;
 use App\Models\Question;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class QuestionsSeeder extends Seeder
 {
@@ -17,73 +19,202 @@ class QuestionsSeeder extends Seeder
             [
                 'question' => 'Which element is represented by the symbol \'O\' in the periodic table?',
                 'options' => [
-                    ['text' => 'Oxygen', 'is_correct' => true],
-                    ['text' => 'Osmium', 'is_correct' => false],
-                    ['text' => 'Oganesson', 'is_correct' => false],
-                    ['text' => 'Osmium', 'is_correct' => false],
+                    [
+                        'text' => 'Oxygen',
+                        'is_correct' => true,
+                        'explanation' => 'Correct! The element represented by the symbol \'O\' in the periodic table is Oxygen. Oxygen is a chemical element with the symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table, a highly reactive nonmetal, and an oxidizing agent that readily forms oxides with most elements as well as with other compounds.'
+                    ],
+                    [
+                        'text' => 'Osmium',
+                        'is_correct' => false,
+                        'explanation' => 'Incorrect! The element represented by the symbol \'O\' in the periodic table is Oxygen. Osmium instead is represented by the symbol \'Os\' in the periodic table. Osmium is a chemical element with the symbol Os and atomic number 76.'
+                    ],
+                    [
+                        'text' => 'Oganesson',
+                        'is_correct' => false,
+                        'explanation' => 'Nope! The element represented by the symbol \'O\' in the periodic table is Oxygen. Oganesson instead is represented by the symbol \'Og\' in the periodic table. Oganesson is a synthetic chemical element with the symbol Og and atomic number 118.'
+                    ],
+                    [
+                        'text' => 'Osmium',
+                        'is_correct' => false,
+                        'explanation' => 'Incorrect! The element represented by the symbol \'O\' in the periodic table is Oxygen. Osmium instead is represented by the symbol \'Os\' in the periodic table. Osmium is a chemical element with the symbol Os and atomic number 76.'
+                    ],
                 ],
             ],
             [
                 'question' => 'Which element is the most abundant in the Earth\'s crust?',
                 'options' => [
-                    ['text' => 'Oxygen', 'is_correct' => false],
-                    ['text' => 'Silicon', 'is_correct' => true],
-                    ['text' => 'Carbon', 'is_correct' => false],
-                    ['text' => 'Aluminum', 'is_correct' => false],
+                    [
+                        'text' => 'Oxygen',
+                        'is_correct' => true,
+                        'explanation' => 'Bravo! Oxygen is the most abundant element in the Earth\'s crust, making up about 46.6% of the Earth\'s crust by mass.'
+                    ],
+                    [
+                        'text' => 'Silicon',
+                        'is_correct' => false,
+                        'explanation' => 'Incorrect! While Silicon is a major component of the Earth\'s crust (27.7% by mass), it is not the most abundant element. Oxygen is the most abundant element in the Earth\'s crust, making up about 46.6% of the Earth\'s crust by mass.'
+                    ],
+                    [
+                        'text' => 'Carbon',
+                        'is_correct' => false,
+                        'explanation' => 'Ouch! Not even close, Carbon is the least among these. It makes up just 0.032% of the Earth\'s crust by mass, unlike Oxygen which is the most abundant element in the Earth\'s crust, making up about 46.6% of the Earth\'s crust by mass.'
+                    ]
+                    ,
+                    [
+                        'text' => 'Aluminum',
+                        'is_correct' => false,
+                        'explanation' => 'Nope! Aluminum is not the most abundant element in the Earth\'s crust. It makes up about 8.23% of the Earth\'s crust by mass, unlike Oxygen which is the most abundant element in the Earth\'s crust, making up about 46.6% of the Earth\'s crust by mass.',
+                    ],
                 ],
             ],
             [
                 'question' => 'What is the atomic number of the element Hydrogen?',
                 'options' => [
-                    ['text' => '1', 'is_correct' => true],
-                    ['text' => '2', 'is_correct' => false],
-                    ['text' => '3', 'is_correct' => false],
-                    ['text' => '4', 'is_correct' => false],
+                    [
+                        'text' => '1',
+                        'is_correct' => true,
+                        'explanation' => 'Correct! The atomic number of the element Hydrogen is 1. It is the lightest and most abundant chemical element in the universe.'
+                    ],
+                    [
+                        'text' => '2',
+                        'is_correct' => false,
+                        'explanation' => 'Close, but not quite! The atomic number of the element Hydrogen is 1. It is the lightest and most abundant chemical element in the universe.'
+                    ],
+                    [
+                        'text' => '3',
+                        'is_correct' => false,
+                        'explanation' => 'Wrong! The element with atomic number 3 is Lithium, not Hydrogen. The atomic number of the element Hydrogen is 1. It is the lightest and most abundant chemical element in the universe.'
+                    ],
+                    [
+                        'text' => '4',
+                        'is_correct' => false,
+                        'explanation' => 'Nope! The element with atomic number 4 is Beryllium, not Hydrogen. The atomic number of the element Hydrogen is 1. It is the lightest and most abundant chemical element in the universe.'
+                    ],
                 ],
             ],
             [
                 'question' => 'Which gas is produced by the reaction of vinegar and baking soda?',
                 'options' => [
-                    ['text' => 'Carbon Dioxide', 'is_correct' => true],
-                    ['text' => 'Oxygen', 'is_correct' => false],
-                    ['text' => 'Hydrogen', 'is_correct' => false],
-                    ['text' => 'Nitrogen', 'is_correct' => false],
+                    [
+                        'text' => 'Carbon Dioxide',
+                        'is_correct' => true,
+                        'explanation' => 'Correct! The reaction of vinegar (acetic acid) and baking soda (sodium bicarbonate) produces carbon dioxide gas. This is a classic example of an acid-base reaction.'
+                    ],
+                    [
+                        'text' => 'Oxygen',
+                        'is_correct' => false,
+                        'explanation' => 'Incorrect! The reaction of vinegar and baking soda does not produce oxygen gas. It produces carbon dioxide gas.'
+                    ],
+                    [
+                        'text' => 'Hydrogen',
+                        'is_correct' => false,
+                        'explanation' => 'Nope! The reaction of vinegar and baking soda does not produce hydrogen gas. It produces carbon dioxide gas.'
+                    ],
+                    [
+                        'text' => 'Nitrogen',
+                        'is_correct' => false,
+                        'explanation' => 'Wrong! The reaction of vinegar and baking soda does not produce nitrogen gas. It produces carbon dioxide gas.'
+                    ],
                 ],
             ],
             [
                 "question" => "What is the chemical symbol for water?",
                 "options" => [
-                    ["text" => "H2SO4", "is_correct" => false],
-                    ["text" => "CH4", "is_correct" => false],
-                    ["text" => "CO2", "is_correct" => false],
-                    ["text" => "H2O", "is_correct" => true]
+                    [
+                        "text" => "H2SO4",
+                        "is_correct" => false,
+                        "explanation" => "Nope! H2SO4 is the chemical formula for sulfuric acid, not water. The chemical symbol for water is H2O."
+                    ],
+                    [
+                        "text" => "CH4",
+                        "is_correct" => false,
+                        "explanation" => "Incorrect! CH4 is the chemical formula for methane, not water. The chemical symbol for water is H2O."
+                    ],
+                    [
+                        "text" => "CO2",
+                        "is_correct" => false,
+                        "explanation" => "Wrong! CO2 is the chemical formula for carbon dioxide, not water. The chemical symbol for water is H2O."
+                    ],
+                    [
+                        "text" => "H2O",
+                        "is_correct" => true,
+                        "explanation" => 'That\'s right! The chemical symbol for water is H2O. It consists of two hydrogen atoms and one oxygen atom.'
+                    ]
                 ]
             ],
             [
                 "question" => "What is the largest element in the periodic table?",
                 "options" => [
-                    ["text" => "Hydrogen", "is_correct" => false],
-                    ["text" => "Oxygen", "is_correct" => false],
-                    ["text" => "Uranium", "is_correct" => true],
-                    ["text" => "Gold", "is_correct" => false]
+                    [
+                        "text" => "Hydrogen",
+                        "is_correct" => false,
+                        "explanation" => 'That\'s far from the truth! Hydrogen is the lightest element in the periodic table, not the largest. The largest element in the periodic table is Uranium.'
+                    ],
+                    [
+                        "text" => "Oxygen",
+                        "is_correct" => false,
+                        "explanation" => 'Incorrect! Oxygen isn\'t the largest element, that title goes to Uranium. Uranium is the largest element in the periodic table.'
+                    ],
+                    [
+                        "text" => "Uranium",
+                        "is_correct" => true,
+                        "explanation" => 'Yes, absolutely! Uranium is the largest element in the periodic table. It has an atomic number of 92.'
+                    ],
+                    [
+                        "text" => "Gold",
+                        "is_correct" => false,
+                        "explanation" => 'Nope! While Gold is a precious metal, it is not the largest element in the periodic table. Uranium holds that title.'
+                    ]
                 ]
             ],
             [
                 "question" => "What state of matter is most compressible?",
                 "options" => [
-                    ["text" => "Solid", "is_correct" => false],
-                    ["text" => "Liquid", "is_correct" => false],
-                    ["text" => "Gas", "is_correct" => true],
-                    ["text" => "Plasma", "is_correct" => false]
+                    [
+                        "text" => "Solid",
+                        "is_correct" => false,
+                        "explanation" => 'Incorrect! Solids are not very compressible. The state of matter that is most compressible is Gas.'
+                    ],
+                    [
+                        "text" => "Liquid",
+                        "is_correct" => false,
+                        "explanation" => 'Nope! While liquids are more compressible than solids, they are not the most compressible state of matter. The most compressible state of matter is Gas.'
+                    ],
+                    [
+                        "text" => "Gas",
+                        "is_correct" => true,
+                        "explanation" => 'Correct! Gases are the most compressible state of matter. They can be compressed to occupy a smaller volume.'
+                    ],
+                    [
+                        "text" => "Plasma",
+                        "is_correct" => false,
+                        "explanation" => 'Incorrect! While plasmas are compressible, gases are the most compressible state of matter.'
+                    ]
                 ]
             ],
             [
                 "question" => "What is the chemical formula for table salt?",
                 "options" => [
-                    ["text" => "NaCl", "is_correct" => true],
-                    ["text" => "KCl", "is_correct" => false],
-                    ["text" => "CaCO3", "is_correct" => false],
-                    ["text" => "MgSO4", "is_correct" => false]
+                    [
+                        "text" => "NaCl",
+                        "is_correct" => true,
+                        "explanation" => 'Correct! The chemical formula for table salt is NaCl. It consists of one sodium atom and one chlorine atom.'
+                    ],
+                    [
+                        "text" => "KCl",
+                        "is_correct" => false,
+                        "explanation" => 'Incorrect! KCl is the chemical formula for potassium chloride, not table salt. The chemical formula for table salt is NaCl.'
+                    ],
+                    [
+                        "text" => "CaCO3",
+                        "is_correct" => false,
+                        "explanation" => 'No way! CaCO3 is the chemical formula for calcium carbonate, not table salt. The chemical formula for table salt is NaCl.'
+                    ],
+                    [
+                        "text" => "MgSO4",
+                        "is_correct" => false,
+                        "explanation" => 'Wrong! MgSO4 is the chemical formula for magnesium sulfate, not table salt. The chemical formula for table salt is NaCl.'
+                    ]
                 ]
             ],
             [
@@ -465,6 +596,10 @@ class QuestionsSeeder extends Seeder
             ]
         ];
 
+        Schema::disableForeignKeyConstraints();
+        Option::truncate();
+        Question::truncate();
+        Schema::enableForeignKeyConstraints();
 
         foreach ($chemistryQuestions as $chemistryQuestion) {
             $question = Question::create([
@@ -474,7 +609,8 @@ class QuestionsSeeder extends Seeder
             foreach ($chemistryQuestion['options'] as $option) {
                 $question->options()->create([
                     'body' => $option['text'],
-                    'is_correct' => $option['is_correct']
+                    'is_correct' => $option['is_correct'],
+                    'explanation' => $option['explanation'] ?? null
                 ]);
             }
         }

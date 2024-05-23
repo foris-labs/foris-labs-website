@@ -34,6 +34,7 @@ class QuestionResource extends Resource
                         Forms\Components\TextInput::make('body')
                             ->hiddenLabel()
                             ->required(),
+                        Forms\Components\RichEditor::make('explanation'),
                         Forms\Components\Toggle::make('is_correct')
                             ->required(),
                     ])
