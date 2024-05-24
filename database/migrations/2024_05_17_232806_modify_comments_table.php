@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            if (!Schema::hasColumn('users', 'school_id')) {
-                $table->unsignedBigInteger('school_id')->after('social_data')
-            ->nullable();}
+        Schema::table('comments', function (Blueprint $table) {
+            // Add name and email fields
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+
+
         });
     }
 
@@ -23,7 +25,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('comments', function (Blueprint $table) {
             //
         });
     }
