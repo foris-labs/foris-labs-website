@@ -28,6 +28,8 @@ Route::view('/show', 'show')->name('show');
 
 Route::resource('blog', PostsController::class);
 Route::resource('comments', CommentsController::class);
+Route::post('/upload-image', [ImageUploadController::class, 'store'])->name('image.upload');
+
 
 
 

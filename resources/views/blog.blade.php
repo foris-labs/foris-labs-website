@@ -37,7 +37,7 @@
                                         </div>
                                     </div>
                                     <h4 class="text-xl font-semibold mb-3 font-burbank2">{{ $post->title }}</h4>
-                                    <p class="text-gray-700 font-arlon">{{ Str::limit($post->body, 100) }}</p>
+                                    <p class="text-gray-700 font-arlon">{!! Str::limit(strip_tags($post->body), 100) !!}</p>
                                     <a class="text-blue-600 hover:text-blue-800 font-semibold mt-3 inline-block" href="{{ route('blog.show', $post->slug) }}">Read More <i class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>

@@ -20,7 +20,7 @@
                 <img class="w-full  mb-5" src="{{ asset('storage/'.$post->image_url) }}" alt="">
                 <h1 class="text-3xl font-bold mb-4 font-burbank2">{{$post->title}}</h1>
                 <p class="text-gray-700 mb-8 font-arlon">
-                    {{$post->body}}
+                    {!! $post->body !!}
                 </p>
                 <!-- Add more content here -->
 

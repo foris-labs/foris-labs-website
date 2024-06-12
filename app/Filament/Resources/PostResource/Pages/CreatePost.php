@@ -18,14 +18,7 @@ class CreatePost extends CreateRecord
     {
         $data['user_id'] = Auth::id();
         $data['slug'] = Str::slug($data['title']);
-
-        if (isset($data['image_url']) && $data['image_url'] instanceof TemporaryUploadedFile) {
-            $file = $data['image_url'];
-            $fileName = $file->getClientOriginalName();
-            $file->storeAs('public/img/blog_images', $fileName);
-            $data['image_url'] = $fileName;
-        }
-
+        
         return $data;
     }
 }

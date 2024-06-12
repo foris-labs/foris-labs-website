@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            // Add name and email fields
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-
-
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->nullable()->default('user')->after('email');
         });
     }
 
@@ -25,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
         });
     }
 };
