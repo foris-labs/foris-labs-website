@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('school_id')->after('currencies')->nullable();
+            if (!Schema::hasColumn('users', 'school_id')) {
+                $table->unsignedBigInteger('school_id')->after('socials')
+            ->nullable();}
         });
     }
 

@@ -15,12 +15,12 @@ class UserObserver
 
     public function saved(User $user): void
     {
-         LeaderboardService::refreshAllLeaderboards();
+         LeaderboardService::refresh();
     }
 
     public function deleted(User $user): void
     {
-         LeaderboardService::refreshAllLeaderboards();
+         LeaderboardService::refresh();
     }
 
     public function forceDeleted(User $user): void

@@ -2,22 +2,24 @@
 
 declare(strict_types=1);
 
-
 namespace App\Services;
 
 use App\Enums\Currency;
-use App\Http\Resources\Leaderboard;
-use App\Models\AvatarUser;
 use App\Models\User;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class LeaderboardService
 {
-    public static function getLeaderboard(Currency $currency)
+    /**
+     * @return Collection<User>
+     */
+    public static function get(): Collection
     {
+        return Cache::remember("leaderboard", 3600, function () {
+            $currency = Currency::FORIS_POINTS;
 
-        $leaderboard =  Cache::remember("leaderboard-$currency->value", 3600, function () use ($currency) {
             $users = User::query()
                 ->join('avatar_user', 'users.id', '=', 'avatar_user.user_id')
                 ->join('avatars', 'avatar_user.avatar_id', '=', 'avatars.id')
@@ -32,8 +34,8 @@ class LeaderboardService
                 ->get();
 
 
-
             $rank = 0;
+
             $users->transform(function ($user) use (&$rank) {
                 $user->rank = ++$rank;
                 return $user;
@@ -41,20 +43,10 @@ class LeaderboardService
 
             return $users;
         });
-
-        return new Leaderboard($leaderboard);
     }
 
-    public static function refreshLeaderboard(Currency $currency): Leaderboard
+    public static function refresh(): void
     {
-        Cache::forget("leaderboard-$currency->value");
-        return self::getLeaderboard($currency);
-    }
-
-    public static function refreshAllLeaderboards(): void
-    {
-        foreach (Currency::values() as $currency) {
-            self::refreshLeaderboard($currency);
-        }
+        Cache::forget("leaderboard");
     }
 }

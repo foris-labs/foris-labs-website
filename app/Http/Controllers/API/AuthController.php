@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\API\EmailLoginRequest;
-use App\Http\Requests\API\EmailRegisterRequest;
-use App\Http\Requests\API\SocialLoginRequest;
+use App\Http\Requests\API\Auth\EmailLoginRequest;
+use App\Http\Requests\API\Auth\EmailRegisterRequest;
+use App\Http\Requests\API\Auth\SocialLoginRequest;
 use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\TokenResponse;
 use App\Models\User;

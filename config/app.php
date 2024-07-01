@@ -196,6 +196,7 @@ return [
         App\Providers\Filament\AdminPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\SocialGrantServiceProvider::class,
+        App\Providers\Filament\FilamentServiceProvider::class,
     ],
 
     /*

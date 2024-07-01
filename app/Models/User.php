@@ -104,6 +104,14 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return $this->hasMany(Feedback::class);
     }
 
+    public function studyPlans(): BelongsToMany
+    {
+        return $this->belongsToMany(StudyPlan::class, 'study_plan_checkins')
+            ->using(StudyPlanCheckin::class)
+            ->withPivot( 'score')
+            ->withTimestamps();
+    }
+
     public function subscriptions(): HasMany
     {
         return $this->hasMany(Subscription::class);
@@ -118,7 +126,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return str_ends_with($this->email, '@forislabs.com');
+        return $this->isAdmin();
     }
 
     public function getFilamentAvatarUrl(): ?string
@@ -126,5 +134,10 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         $this->loadMissing('currentAvatar');
 
         return asset("storage/avatars/{$this->currentAvatar?->image_url}");
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
     }
 }

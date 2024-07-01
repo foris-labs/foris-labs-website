@@ -22,6 +22,7 @@
                 </a>
 
                 <a href="#" class="hover:underline uppercase font-bold text-xl">Who We Are</a>
+                <a href="{{ route('blog.index') }}" class="hover:underline uppercase font-bold text-xl">Blog</a>
                 <a href="{{ route('contact-us') }}" class="hover:underline uppercase font-bold text-xl">Contact Us</a>
             </div>
 
@@ -67,6 +68,7 @@
                         <span class="parallelogram-box uppercase font-bold text-xl" style="transform: skewY(2deg); color:#16A4E1;">Home</span>
                     </a>
                     <a href="#" class="hover:underline text-white text-center">Who We Are</a>
+                    <a href="{{ route('blog.index') }}" class="hover:underline uppercase font-bold text-xl">Blog</a>
                     <a href="{{ route('contact-us') }}" class="hover:underline text-white">Contact Us</a>
                 </div>
                 <!-- Login Button inside a red rectangle box -->

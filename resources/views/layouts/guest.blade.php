@@ -122,6 +122,74 @@
         window.addEventListener('load', replaceContent);
     </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const commentForm = document.getElementById('commentForm');
+        const commentSection = document.getElementById('comments');
+
+        if (!commentForm || !commentSection) {
+            console.error('Comment form or comments section not found');
+            return;
+        }
+
+        commentForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Serialize form data
+            const formData = new FormData(commentForm);
+
+            // Send AJAX request
+            fetch(commentForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}', // Add CSRF token header
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Clear form fields
+                    commentForm.reset();
+
+                    // Prepend the new comment to the comment section
+                    const newCommentHtml = `
+                        <div class="flex mb-4">
+                            <img src="{{ asset('img/blog_images/user.png') }}" class="w-12 h-12 rounded" alt="User Image">
+                            <div class="pl-4">
+                                <h6 class="text-lg font-semibold"><a href="#" class="text-blue-500">${data.comment.name}</a> <span class="text-xs text-gray-500"><i>${moment(data.comment.created_at).fromNow()}</i></span></h6>
+                                <p class="text-gray-700">${data.comment.content}</p>
+                                <button class="btn btn-sm btn-light">Reply</button>
+                            </div>
+                        </div>
+                    `;
+                    commentSection.insertAdjacentHTML('afterbegin', newCommentHtml);
+
+                    // Show success message
+                    const successDiv = document.createElement('div');
+                    successDiv.className = 'bg-d1e7dd px-4 py-3 m-4 rounded relative';
+                    successDiv.setAttribute('role', 'alert');
+                    successDiv.innerHTML = '<strong class="font-bold text-0f5132">Success!</strong><span class="block sm:inline"> Comment saved successfully.</span>';
+                    commentForm.insertAdjacentElement('beforebegin', successDiv);
+
+                    // Hide the success message after a few seconds
+                    setTimeout(() => {
+                        successDiv.remove();
+                    }, 3000);
+                } else {
+                    // Handle error response
+                    console.error('Failed to submit comment');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+
+
     </body>
 
     </html>

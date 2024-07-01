@@ -14,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        if (str_contains(config('app.url'), 'https')) {
+            url()->forceScheme('https');
+        }
     }
 
     /**
@@ -22,14 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (str_contains(config('app.url'), 'https')) {
-            url()->forceScheme('https');
-        }
-
         Request::macro('hasValidSignature', function ($absolute = true) {
             if (config('app.env') === 'local') return true;
             return URL::hasValidSignature($this, $absolute);
-
         });
 
         Request::macro('hasValidRelativeSignature', function () {

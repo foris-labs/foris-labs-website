@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Closure;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -20,13 +21,6 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
-    public function boot(): void
-    {
-        if (str_contains(config('app.url'), 'https')) {
-            url()->forceScheme('https');
-        }
-    }
-
     public function panel(Panel $panel): Panel
     {
         return $panel
