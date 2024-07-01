@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Enums\Currency;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\API\UpdateCurrencyRequest;
-use App\Http\Requests\API\UserUpdateRequest;
+use App\Http\Requests\API\User\UpdateCurrencyRequest;
+use App\Http\Requests\API\User\UserUpdateRequest;
 use App\Http\Requests\UserFeedbackRequest;
 use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\Leaderboard;
@@ -13,10 +12,7 @@ use App\Http\Resources\UserResource;
 use App\Models\Avatar;
 use App\Models\User;
 use App\Services\LeaderboardService;
-use Cache;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {

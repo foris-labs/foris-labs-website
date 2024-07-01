@@ -104,6 +104,14 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return $this->hasMany(Feedback::class);
     }
 
+    public function studyPlans(): BelongsToMany
+    {
+        return $this->belongsToMany(StudyPlan::class, 'study_plan_checkins')
+            ->using(StudyPlanCheckin::class)
+            ->withPivot( 'score')
+            ->withTimestamps();
+    }
+
     public function subscriptions(): HasMany
     {
         return $this->hasMany(Subscription::class);

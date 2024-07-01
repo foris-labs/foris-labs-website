@@ -1,13 +1,9 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace App\Http\Requests\API\Auth;
 
-use App\Http\Enums\ErrorType;
-use App\Http\Resources\ErrorResponse;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Contracts\Validation\Validator;
 
 class EmailLoginRequest extends FormRequest
 {

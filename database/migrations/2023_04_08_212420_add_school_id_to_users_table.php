@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             if (!Schema::hasColumn('users', 'school_id')) {
-                $table->unsignedBigInteger('school_id')->after('social_data')
+                $table->unsignedBigInteger('school_id')->after('socials')
             ->nullable();}
         });
     }

@@ -14,10 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(OauthClientSeeder::class);
         $this->call(SchoolsSeeder::class);
+        $this->call(SubjectSeeder::class);
         $this->call(QuestionsSeeder::class);
         $this->call(AvatarSeeder::class);
         $this->call(UsersSeeder::class);
 
-//        $this->call(AchievementSeeder::class);
+        $this->call(NotesSeeder::class);
     }
 }

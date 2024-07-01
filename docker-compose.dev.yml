@@ -1,0 +1,99 @@
+services:
+  traefik:
+    networks:
+      - development
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      # Add Docker as a mounted volume, so that Traefik can read the labels of other services
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./.infrastructure/conf/traefik/dev/traefik.yml:/traefik.yml:ro
+      - ./.infrastructure/conf/traefik/dev/traefik-certs.yml:/traefik-certs.yml
+      - ./.infrastructure/conf/traefik/dev/certificates/:/certificates
+
+  php:
+    build:
+      target: development
+      args:
+        USER_ID: ${SPIN_USER_ID}
+        GROUP_ID: ${SPIN_GROUP_ID}
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - 8000:8080
+    networks:
+      - development
+    depends_on:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.laravel.rule=HostRegexp(`forislabs.local`)"
+      - "traefik.http.routers.laravel.entrypoints=websecure"
+      - "traefik.http.routers.laravel.tls=true"
+      - "traefik.http.services.laravel.loadbalancer.server.port=8080"
+      - "traefik.http.services.laravel.loadbalancer.server.scheme=http"
+
+#  php:
+#    image: 'serversideup/php:8.2-fpm-nginx'
+#    working_dir: /var/www/html
+#    ports:
+#      - '8000:80'
+#    volumes:
+#      - ./:/var/www/html
+#    networks:
+#      - development
+#    environment:
+#      SSL_MODE: 'off'
+##    labels:
+##      - dev.orbstack.domains=${APP_DOMAIN}
+#    depends_on:
+#      - traefik
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.laravel.rule=Host(`forislabs.local`)"
+#      - "traefik.http.routers.laravel.entrypoints=websecure"
+#      - "traefik.http.routers.laravel.tls=true"
+#      - "traefik.http.services.laravel.loadbalancer.server.port=80"
+#      - "traefik.http.services.laravel.loadbalancer.server.scheme=http"
+
+  bun:
+    image: 'oven/bun:alpine'
+    working_dir: /var/www
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./:/var/www
+    networks:
+      - development
+    command: sh -c "bun run dev"
+
+  mariadb:
+    networks:
+      - development
+    volumes:
+      - ./.infrastructure/volume_data/mariadb/database_data/:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes'
+    ports:
+      - "3306:3306"
+
+  mailpit:
+    image: axllent/mailpit
+    networks:
+      - development
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mailpit.rule=Host(`mailpit.local.test`)"
+      - "traefik.http.routers.mailpit.entrypoints=websecure"
+      - "traefik.http.routers.mailpit.tls=true"
+      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
+      - "traefik.http.services.mailpit.loadbalancer.server.scheme=http"
+    depends_on:
+      - traefik
+
+networks:
+  development:

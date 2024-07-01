@@ -4,15 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str; 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
-    use HasFactory;
-
-    //Laravel Timestaps 
-    public $timestamps = true;
-
     protected $fillable = [
         'title',
         'user_id',
@@ -21,7 +18,7 @@ class Post extends Model
         'image_url',
     ];
 
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
@@ -33,13 +30,14 @@ class Post extends Model
             $post->slug = Str::slug($post->title);
         });
     }
-    //user relationship to post
-    public function user()
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function comments()
+
+    public function comments(): HasMany
     {
-        return $this->hasMany(comments::class);
+        return $this->hasMany(Comment::class);
     }
 }

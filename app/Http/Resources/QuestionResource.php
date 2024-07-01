@@ -20,6 +20,9 @@ class QuestionResource extends JsonResource
             'id' => $this->id,
             'body' => $this->body,
             'options' => OptionResource::collection($this->whenLoaded('options')),
+            'source_exam' => $this->source_exam->value,
+            'source_year' => $this->source_year,
+            'difficulty_level' => $this->difficulty_level
         ];
     }
 }

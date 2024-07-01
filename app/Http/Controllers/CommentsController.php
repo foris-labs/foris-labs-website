@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\comments;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -38,7 +38,7 @@ class CommentsController extends Controller
 
 
         // Create a new comment record
-        $comment = new comments();
+        $comment = new Comment();
         $comment->name = $validatedData['name'];
         $comment->email = $validatedData['email'];
         $comment->content = $validatedData['comment'];

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\AvatarController;
+use App\Http\Controllers\API\StudyPlanController;
 use App\Http\Controllers\API\TriviaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
@@ -23,8 +24,6 @@ Route::post('/register/email', [AuthController::class, 'emailRegister'])->name('
 Route::post('/login/email', [AuthController::class, 'emailLogin'])->name('api.login.email');
 Route::post('/login/{provider}', [AuthController::class, 'socialLogin'])->name('api.login.social');
 
-
-
 Route::middleware('auth:api')->group(function () {
     Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('api.forgot-password');
     Route::post('/logout', [AuthController::class, 'logout'])->name('api.logout');
@@ -45,5 +44,13 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/trivia/submit', [TriviaController::class, 'submit'])->name('api.trivia.submit');
 
     Route::post('/feedback', [UserController::class, 'feedback'])->name('api.feedback');
+
+    Route::get('study-plans', [StudyPlanController::class, 'index']);
+    Route::post('study-plans', [StudyPlanController::class, 'store']);
+    Route::get('study-plans/recommendations', [StudyPlanController::class, 'recommendations']);
+    Route::get('study-plans/onboarding-questions', [StudyPlanController::class, 'onboardingQuestions']);
+    Route::put('study-plans/{studyPlan}', [StudyPlanController::class, 'update']);
+    Route::get('study-plans/{studyPlan}', [StudyPlanController::class, 'show']);
+    Route::delete('study-plans/{studyPlan}', [StudyPlanController::class, 'destroy']);
 
 });

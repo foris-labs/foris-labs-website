@@ -17,7 +17,7 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
@@ -47,7 +47,7 @@ class PostResource extends Resource
                         'strike',
                         'underline',
                         'undo',
-                        'image', 
+                        'image',
                     ])->fileAttachmentsDirectory('img/blog_images')
                     ->fileAttachmentsVisibility('public'),
                 ]),
