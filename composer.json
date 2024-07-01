@@ -9,7 +9,6 @@
         "codewithkyrian/laravel_position": "^1.0",
         "filament/filament": "^3.1",
         "filament/spatie-laravel-settings-plugin": "^3.0-stable",
-        "guava/filament-nested-resources": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "laravel/passport": "^11.8",

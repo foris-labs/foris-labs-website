@@ -7,20 +7,15 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\NoteTopicGroupResource\Pages;
 use App\Filament\Resources\NoteTopicGroupResource\RelationManagers;
-use App\Models\NoteTopic;
 use App\Models\NoteTopicGroup;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Guava\FilamentNestedResources\Ancestor;
-use Guava\FilamentNestedResources\Concerns\NestedResource;
 
 class NoteTopicGroupResource extends Resource
 {
-    use NestedResource;
-
     protected static ?string $model = NoteTopicGroup::class;
 
     protected static ?string $modelLabel = 'Topic Group';
@@ -97,11 +92,6 @@ class NoteTopicGroupResource extends Resource
             'topics.manage-pages' => Pages\ManageTopicPages::route('/{record}/topics/{topic}/pages'),
 
         ];
-    }
-
-    public static function getAncestor(): ?Ancestor
-    {
-        return null;
     }
 
     public static function getBreadcrumbRecordLabel(NoteTopicGroup $record): string
